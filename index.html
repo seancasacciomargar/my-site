@@ -595,7 +595,7 @@ function renderReno(){
 }
 function toggleReno(i){ RENOS[i].sel=!RENOS[i].sel; renderReno(); renoCalc(); }
 // Opens the homeowner's email app with their selections pre-filled. Change the address.
-const CONSULT_EMAIL = "sean@yourdomain.com";
+const CONSULT_EMAIL = "seancasaccio@margarrealty.com";
 function consult(){
   const picked=RENOS.filter(r=>r.sel).map(r=>'• '+r.nm).join('%0D%0A')||'(none selected yet)';
   const base=document.getElementById('r_base').value||'';
