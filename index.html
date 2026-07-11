@@ -667,7 +667,7 @@ const QUIZ=[
  {q:"What is the main goal?",a:["Max cash at closing","Fastest clean exit","Monthly income","Grow long-term value"]},
  {q:"Budget for pre-sale improvements?",a:["$0 - sell as-is","Under $15K","$15-50K","$50K+"]}
 ];
-let QA=[];
+let QA=[];let QUIZ_PATH='';
 function quizRender(){
   const i=QA.length;
   const el=document.getElementById('quizBody');
@@ -687,16 +687,17 @@ function quizRender(){
   else if(shape<=1&&budget>=1){path="Renovate & Sell";why="Your house has hidden value and you have budget to unlock it. My crew does the targeted work; you keep the spread between cost and the higher sale price.";}
   else if(goal===3&&speed>=2){path="Develop / Add Value";why="With time and appetite, the bigger plays open up - accessory apartment, expansion, or holding through improvements. We check what your lot and zoning actually allow.";}
   else{path="Sell As-Is (strategically)";why="Your home is close to its ceiling already. Light prep - paint, cleanout, curb appeal - plus data-backed pricing likely beats a big renovation spend.";}
+  QUIZ_PATH=path;
   el.innerHTML='<div class="card" style="border-color:var(--brass)">'+
     '<div class="mono">Your likely best path</div>'+
     '<h3 style="font-size:1.8rem;margin:10px 0">'+path+'</h3>'+
     '<p class="lead" style="font-size:.95rem">'+why+'</p>'+
     '<p class="lead" style="font-size:.8rem;margin-top:10px;font-style:italic">This is a starting point, not advice - every house is different. The real answer takes a 20-minute walkthrough.</p>'+
-    '<button class="btn" style="width:100%;margin-top:14px" onclick="window.location.href=\'mailto:\'+CONSULT_EMAIL+\'?subject=\'+encodeURIComponent(\'Options quiz: \'+path)">Talk it through with Sean</button>'+
+     '<button class="btn" style="width:100%;margin-top:14px" onclick="quizConsult()">Talk it through with Sean</button>'+
     '<button class="btn ghost" style="width:100%;margin-top:8px" onclick="QA=[];quizRender()">Retake quiz</button>'+
     '</div>';
 }
-function quizPick(j){QA.push(j);quizRender();}
+function quizConsult(){window.location.href='mailto:'+CONSULT_EMAIL+'?subject='+encodeURIComponent('Options quiz: '+QUIZ_PATH);}function quizPick(j){QA.push(j);quizRender();}
 quizRender();  /* ================= INIT ================= */
 renderRecord(); renderReno(); renoCalc(); renderTimeline();
 </script>
