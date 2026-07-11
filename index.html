@@ -396,7 +396,8 @@ footer{border-top:1px solid var(--line);padding:40px 0;margin-top:40px;font-size
   <h2>Which path fits you?</h2>
   <p class="lead">Four quick taps. Get the strategy most sellers in your spot choose — then we pressure-test it together, free.</p>
   <div id="quizBody" style="margin-top:26px;max-width:640px"></div>
-</section>
+</section> 
+</div>
   <footer class="wrap">
   <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px">
     <div>
@@ -661,37 +662,42 @@ document.getElementById('teamGrid').innerHTML=TEAM.map(t=>`
 
 /* ================= QUIZ ================= */
 const QUIZ=[
-{q:“How fast do you need to sell?”,a:[“ASAP — weeks”,‘A few months’,“No rush — a year+”,“Not selling, exploring”]},
-{q:“What shape is the house in?”,a:[“Needs real work”,“Dated but solid”,“Move-in ready”,“Recently renovated”]},
-{q:“What’s the main goal?”,a:[“Max cash at closing”,“Fastest clean exit”,“Monthly income”,“Grow long-term value”]},
-{q:“Budget for pre-sale improvements?”,a:[”$0 — sell as-is”,“Under $15K”,”$15–50K”,”$50K+”]}
+ {q:"How fast do you need to sell?",a:["ASAP - weeks","A few months","No rush - a year+","Not selling, exploring"]},
+ {q:"What shape is the house in?",a:["Needs real work","Dated but solid","Move-in ready","Recently renovated"]},
+ {q:"What is the main goal?",a:["Max cash at closing","Fastest clean exit","Monthly income","Grow long-term value"]},
+ {q:"Budget for pre-sale improvements?",a:["$0 - sell as-is","Under $15K","$15-50K","$50K+"]}
 ];
 let QA=[];
 function quizRender(){
-const i=QA.length;
-const el=document.getElementById(‘quizBody’);
-if(i<QUIZ.length){
-el.innerHTML=<div class="card"><div class="mono">Question ${i+1} of ${QUIZ.length}</div> <h3 style="font-size:1.4rem;margin:10px 0">${QUIZ[i].q}</h3> ${QUIZ[i].a.map((t,j)=><button class="btn ghost" style="width:100%;margin-top:8px;text-align:left" onclick="quizPick(${j})">${t}</button>).join('')} ${i>0?<button class="btn ghost" style="margin-top:14px;font-size:.8rem" onclick="QA.pop();quizRender()">← Back</button>:''}</div>;
-return;
-}
-const [speed,shape,goal,budget]=QA;
-let path,why;
-if(goal===2){path=“Renovate & Hold”;why=“You want monthly income — we model rent and short-term-rental numbers before spending a dollar, then my crew does only the work that boosts rentability.”;}
-else if(speed===0||budget===0){path=“Sell As-Is”;why=“Speed and zero out-of-pocket point one way: price it sharp, market hard, and let competition do the lifting. My distressed and estate-sale experience is built for exactly this.”;}
-else if(shape<=1&&budget>=1){path=“Renovate & Sell”;why=“Your house has hidden value and you have budget to unlock it. My crew does the targeted work; you keep the spread between cost and the higher sale price.”;}
-else if(goal===3&&speed>=2){path=“Develop / Add Value”;why=“With time and appetite, the bigger plays open up — accessory apartment, expansion, or holding through improvements. We check what your lot and zoning actually allow.”;}
-else {path=“Sell As-Is (strategically)”;why=“Your home is close to its ceiling already. Light prep — paint, cleanout, curb appeal — plus data-backed pricing likely beats a big renovation spend.”;}
-el.innerHTML=`<div class="card" style="border-color:var(--brass)">
-<div class="mono">Your likely best path</div>
-<h3 style="font-size:1.8rem;margin:10px 0">${path}</h3>
-<p class="lead" style="font-size:.95rem">${why}</p>
-<p class="lead" style="font-size:.8rem;margin-top:10px;font-style:italic">This is a starting point, not advice — every house is different. The real answer takes a 20-minute walkthrough.</p>
-<button class="btn" style="width:100%;margin-top:14px" onclick="window.location.href='mailto:'+CONSULT_EMAIL+'?subject='+encodeURIComponent('Options quiz: '+path)">Talk it through with Sean →</button>
-<button class="btn ghost" style="width:100%;margin-top:8px" onclick="QA=[];quizRender()">Retake quiz</button>
-</div>`;
+  const i=QA.length;
+  const el=document.getElementById('quizBody');
+  if(!el) return;
+  if(i<QUIZ.length){
+    el.innerHTML='<div class="card"><div class="mono">Question '+(i+1)+' of '+QUIZ.length+'</div>'+
+      '<h3 style="font-size:1.4rem;margin:10px 0">'+QUIZ[i].q+'</h3>'+
+      QUIZ[i].a.map(function(t,j){return '<button class="btn ghost" style="width:100%;margin-top:8px;text-align:left" onclick="quizPick('+j+')">'+t+'</button>';}).join('')+
+      (i>0?'<button class="btn ghost" style="margin-top:14px;font-size:.8rem" onclick="QA.pop();quizRender()">Back</button>':'')+
+      '</div>';
+    return;
+  }
+  const speed=QA[0],shape=QA[1],goal=QA[2],budget=QA[3];
+  let path,why;
+  if(goal===2){path="Renovate & Hold";why="You want monthly income - we model rent and short-term-rental numbers before spending a dollar, then my crew does only the work that boosts rentability.";}
+  else if(speed===0||budget===0){path="Sell As-Is";why="Speed and zero out-of-pocket point one way: price it sharp, market hard, and let competition do the lifting. My distressed and estate-sale experience is built for exactly this.";}
+  else if(shape<=1&&budget>=1){path="Renovate & Sell";why="Your house has hidden value and you have budget to unlock it. My crew does the targeted work; you keep the spread between cost and the higher sale price.";}
+  else if(goal===3&&speed>=2){path="Develop / Add Value";why="With time and appetite, the bigger plays open up - accessory apartment, expansion, or holding through improvements. We check what your lot and zoning actually allow.";}
+  else{path="Sell As-Is (strategically)";why="Your home is close to its ceiling already. Light prep - paint, cleanout, curb appeal - plus data-backed pricing likely beats a big renovation spend.";}
+  el.innerHTML='<div class="card" style="border-color:var(--brass)">'+
+    '<div class="mono">Your likely best path</div>'+
+    '<h3 style="font-size:1.8rem;margin:10px 0">'+path+'</h3>'+
+    '<p class="lead" style="font-size:.95rem">'+why+'</p>'+
+    '<p class="lead" style="font-size:.8rem;margin-top:10px;font-style:italic">This is a starting point, not advice - every house is different. The real answer takes a 20-minute walkthrough.</p>'+
+    '<button class="btn" style="width:100%;margin-top:14px" onclick="window.location.href=\'mailto:\'+CONSULT_EMAIL+\'?subject=\'+encodeURIComponent(\'Options quiz: \'+path)">Talk it through with Sean</button>'+
+    '<button class="btn ghost" style="width:100%;margin-top:8px" onclick="QA=[];quizRender()">Retake quiz</button>'+
+    '</div>';
 }
 function quizPick(j){QA.push(j);quizRender();}
-  /* ================= INIT ================= */
+quizRender();  /* ================= INIT ================= */
 renderRecord(); renderReno(); renoCalc(); renderTimeline();
 </script>
 </body>
