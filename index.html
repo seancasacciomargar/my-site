@@ -428,7 +428,11 @@ footer{border-top:1px solid var(--line);padding:40px 0;margin-top:40px;font-size
           <div class="field"><label>List price ($)</label><input id="o_list" type="number" placeholder="600000"></div>
           <div class="field"><label>Days on market</label><input id="o_dom" type="number" placeholder="12"></div>
         </div>
-        <div class="row2">
+       <div class="row2">
+      <div class="field"><label>Property ZIP code</label><input id="o_zip" placeholder="11725" maxlength="5" inputmode="numeric"></div>
+      <div class="field"><label>&nbsp;</label><div class="lead" style="font-size:.78rem">We pull live market stats for this ZIP - speed of sales tells us how hot the market is.</div></div>
+    </div>
+        <div class="row2">
           <div class="field"><label>Views on Zillow/Redfin (optional)</label><input id="o_views" type="number" placeholder="850"></div>
           <div class="field"><label>Saves / favorites (optional)</label><input id="o_saves" type="number" placeholder="42"></div>
         </div>
@@ -778,17 +782,36 @@ function pulseCheck(){
 }
 pulseLoad('11980','Yaphank');
 /* ================= OFFER ANALYZER ================= */
-function offerCalc(){
+async function offerCalc(){
   const list=+document.getElementById('o_list').value;
   const dom=+document.getElementById('o_dom').value||0;
   const comp=+document.getElementById('o_comp').value;
   const views=+document.getElementById('o_views').value||0;
   const saves=+document.getElementById('o_saves').value||0;
+  const zip=(document.getElementById('o_zip').value||'').trim();
+  const out=document.getElementById('offerOut');
   if(!list){alert('Enter the list price.');return;}
-  let adj=0, notes=[];
+  out.innerHTML='<span class="mono">Reading the market&hellip;</span>';
+  let adj=0, notes=[], marketLine='';
+  if(/^[0-9]{5}$/.test(zip)){
+    try{
+      const r=await fetch('/api/market?zip='+zip);
+      if(r.ok){
+        const m=await r.json();
+        if(m.averageDaysOnMarket){
+          const mdom=Math.round(m.averageDaysOnMarket);
+          if(mdom<=35){adj+=3; marketLine='<span class="chip over" style="margin-right:8px">SELLER\'S MARKET</span>Homes in '+zip+' average just '+mdom+' days on market - a fast, competitive market where strong offers win.';}
+          else if(mdom>=65){adj-=3; marketLine='<span class="chip dist" style="margin-right:8px">BUYER\'S MARKET</span>Homes in '+zip+' average '+mdom+' days on market - slower conditions give you real leverage.';}
+          else{marketLine='<span class="chip" style="background:rgba(203,163,92,.16);color:var(--brass-2);margin-right:8px">BALANCED MARKET</span>Homes in '+zip+' average '+mdom+' days on market - a fairly even playing field.';}
+          if(m.medianPrice){marketLine+=' Median sale price: '+fmt(m.medianPrice)+'.';}
+        }
+      }
+    }catch(e){}
+    if(!marketLine){marketLine='<span class="mono">No live data for ZIP '+zip+' - using your inputs only.</span>';}
+  }
   if(comp===2){adj+=4; notes.push("multiple offers usually means bidding above list");}
   if(comp===0){adj-=3; notes.push("a quiet listing gives you negotiating room");}
-  if(dom<=10){adj+=2; notes.push("fresh listings carry momentum");}
+  if(dom>0&&dom<=10){adj+=2; notes.push("fresh listings carry momentum");}
   if(dom>=45){adj-=4; notes.push(dom+" days on market shifts leverage to you");}
   if(dom>10&&dom<45){notes.push("normal market time - terms may matter more than price");}
   if(views&&dom){
@@ -801,12 +824,14 @@ function offerCalc(){
     if(saves>=30||sr>=4){adj+=2; notes.push(saves+" saves signals serious buyers watching this one");}
     else if(saves<8&&dom>14){adj-=1; notes.push("low save count after two weeks favors a sharper offer");}
   }
-  const lo=list*(1+(adj-1.5)/100), hi=list*(1+(adj+1.5)/100);
-  document.getElementById('offerOut').innerHTML=
-    '<div style="border-left:2px solid var(--brass);padding-left:12px;margin-top:14px">'+
+  const lo=list*(1+(adj-1)/100), hi=list*(1+(adj+2)/100);
+  out.innerHTML=
+    (marketLine?'<div style="margin-top:14px;font-size:.9rem">'+marketLine+'</div>':'')+
+    '<div style="border-left:2px solid var(--brass);padding-left:12px;margin-top:12px">'+
     'Suggested range: <span class="mono" style="color:var(--brass-2)">'+fmt(lo)+' - '+fmt(hi)+'</span><br>'+
     'Because '+notes.join('; ')+'. Strong terms (flexible closing, solid pre-approval, smart contingencies) can beat a higher number - that is where strategy wins.</div>';
 }
+
   quizRender();  /* ================= INIT ================= */
 renderRecord(); renderReno(); renoCalc(); renderTimeline();
 </script>
