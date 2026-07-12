@@ -422,7 +422,9 @@ footer{border-top:1px solid var(--line);padding:40px 0;margin-top:40px;font-size
       <div class="mono" style="margin-top:8px">DEMAND + TIMING = YOUR NUMBER</div>
       <p class="lead" style="font-size:.82rem;margin:8px auto 0;max-width:52ch">Days on market tells half the story. Views and saves on Zillow or Redfin tell the other half - heavy save activity means competing buyers are circling.</p>
     </div>
-    <div class="row2">
+       <div style="max-width:540px;margin:0 auto">
+
+    <div class="row2">
       <div class="field"><label>List price ($)</label><input id="o_list" type="number" placeholder="600000"></div>
       <div class="field"><label>Days on market</label><input id="o_dom" type="number" placeholder="12"></div>
     </div>
@@ -437,7 +439,8 @@ footer{border-top:1px solid var(--line);padding:40px 0;margin-top:40px;font-size
     <div class="row2">
       <div class="field"><label>Competition</label><select id="o_comp"><option value="2">Multiple offers expected</option><option value="1" selected>Some interest</option><option value="0">Quiet listing</option></select></div>
       <div class="field" style="display:flex;align-items:flex-end"><button class="btn" style="width:100%" onclick="offerCalc()">Analyze</button></div>
-    </div>
+    </div>
+    </div>
     <div id="offerOut" style="font-size:.95rem;color:var(--paper-dim)"></div>
     <div class="disclaimer">Illustrative strategy only - not an offer recommendation. View and save counts are public app metrics and vary by platform. Every negotiation is unique; bring me the listing and we will build the real play together.</div>
   </div>
