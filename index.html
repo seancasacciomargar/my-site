@@ -523,8 +523,7 @@ function go(id,btn){
   document.getElementById('nav').classList.remove('open');
   window.scrollTo({top:0,behavior:'smooth'});
 }
-function navByPage(id){
-  const map={home:0,record:1,pending:2,value:3,reno:4,build:5,process:6,team:7,quiz:8};
+function navByPage(id){  const map={home:0,record:1,pending:2,value:3,reno:4,build:5,process:6,team:7,quiz:8,buyers:9};
   return document.querySelectorAll('.navlinks button')[map[id]];
 }
 
