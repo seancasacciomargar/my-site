@@ -210,6 +210,14 @@ footer{border-top:1px solid var(--line);padding:40px 0;margin-top:40px;font-size
     <button class="btn ghost" onclick="go('record',navByPage('record'))">See the track record</button>
   </div>
   <div class="headline-stats" id="homeStats"></div>
+    <div class="card" id="pulse" style="margin-top:14px">
+    <div class="mono">Live Market Pulse</div>
+    <div style="display:flex;gap:10px;margin-top:10px;max-width:420px">
+      <input id="pulseZip" placeholder="Enter a ZIP code" maxlength="5" inputmode="numeric" style="flex:1">
+      <button class="btn" onclick="pulseCheck()">Check your market</button>
+    </div>
+    <div id="pulseBody" style="font-size:.95rem;margin-top:12px;color:var(--paper-dim)"></div>
+  </div>
 </section>
 
 <section class="wrap">
@@ -698,7 +706,28 @@ function quizRender(){
     '</div>';
 }
 function quizConsult(){window.location.href='mailto:'+CONSULT_EMAIL+'?subject='+encodeURIComponent('Options quiz: '+QUIZ_PATH);}function quizPick(j){QA.push(j);quizRender();}
-quizRender();  /* ================= INIT ================= */
+/* ================= MARKET PULSE ================= */
+async function pulseLoad(zip,label){
+  const out=document.getElementById('pulseBody');
+  out.innerHTML='<span class="mono">Checking '+label+'&hellip;</span>';
+  try{
+    const r=await fetch('/api/market?zip='+zip);
+    if(!r.ok){ out.textContent='No market data available for that ZIP yet.'; return; }
+    const d=await r.json();
+    if(!d.medianPrice){ out.textContent='No market data available for that ZIP yet.'; return; }
+    out.innerHTML='<span class="mono" style="color:var(--brass)">'+label+'</span> &mdash; '+
+      'Median sale price <span class="mono" style="color:var(--brass-2)">'+fmt(d.medianPrice)+'</span>'+
+      (d.averageDaysOnMarket?' &middot; Avg <span class="mono" style="color:var(--sage)">'+Math.round(d.averageDaysOnMarket)+' days</span> on market':'')+
+      (d.totalListings?' &middot; '+d.totalListings+' active listings':'');
+  }catch(e){ out.textContent='Market data is taking a break - try again in a minute.'; }
+}
+function pulseCheck(){
+  const zip=(document.getElementById('pulseZip').value||'').trim();
+  if(!/^[0-9]{5}$/.test(zip)){ document.getElementById('pulseBody').textContent='Enter a 5-digit ZIP code.'; return; }
+  pulseLoad(zip,'ZIP '+zip);
+}
+pulseLoad('11980','Yaphank');
+  quizRender();  /* ================= INIT ================= */
 renderRecord(); renderReno(); renoCalc(); renderTimeline();
 </script>
 </body>
