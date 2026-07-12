@@ -406,50 +406,46 @@ footer{border-top:1px solid var(--line);padding:40px 0;margin-top:40px;font-size
   <h2>Buying? You need an edge.</h2>
   <p class="lead">From Montauk to Manhattan and all the way upstate - Long Island, the Hamptons and the East End, Nassau, Queens and NYC, and upstate New York. Standard purchases, investment properties, and off-market finds most buyers never see. PSA-certified pricing strategy means your offer is built on data, not guesswork.</p>
 
-  <div class="card" style="margin-top:26px">
+  <div class="card" style="margin-top:26px;max-width:760px;margin-left:auto;margin-right:auto">
     <div class="eyebrow"><span class="mono">PSA-Certified Strategy</span></div>
     <h3 style="font-size:1.5rem;margin:8px 0">How strong should your offer be?</h3>
-    <div class="grid" style="grid-template-columns:1fr 1.2fr;gap:26px;align-items:center;margin-top:12px">
-      <div style="text-align:center">
-        <svg viewBox="0 0 220 170" style="max-width:260px;margin:0 auto" fill="none" stroke="#cba35c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M30 90 L110 30 L190 90" />
-          <path d="M50 82 L50 150 L170 150 L170 82" />
-          <rect x="95" y="112" width="30" height="38" />
-          <rect x="63" y="95" width="22" height="20" />
-          <rect x="135" y="95" width="22" height="20" />
-          <path d="M20 160 L60 132 L95 142 L140 108 L175 118 L205 84" stroke="#6cb89c" stroke-width="3"/>
-          <path d="M191 82 L205 84 L203 98" stroke="#6cb89c" stroke-width="3"/>
-        </svg>
-        <div class="mono" style="margin-top:10px">DEMAND + TIMING = YOUR NUMBER</div>
-        <p class="lead" style="font-size:.82rem;margin-top:8px">Days on market tells half the story. Views and saves on Zillow or Redfin tell the other half - heavy save activity means competing buyers are circling.</p>
-      </div>
-      <div>
-        <div class="row2">
-          <div class="field"><label>List price ($)</label><input id="o_list" type="number" placeholder="600000"></div>
-          <div class="field"><label>Days on market</label><input id="o_dom" type="number" placeholder="12"></div>
-        </div>
-       <div class="row2">
+    <div style="text-align:center;margin:16px 0 20px">
+      <svg viewBox="0 0 220 170" style="width:170px;margin:0 auto" fill="none" stroke="#cba35c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M30 90 L110 30 L190 90" />
+        <path d="M50 82 L50 150 L170 150 L170 82" />
+        <rect x="95" y="112" width="30" height="38" />
+        <rect x="63" y="95" width="22" height="20" />
+        <rect x="135" y="95" width="22" height="20" />
+        <path d="M20 160 L60 132 L95 142 L140 108 L175 118 L205 84" stroke="#6cb89c" stroke-width="3"/>
+        <path d="M191 82 L205 84 L203 98" stroke="#6cb89c" stroke-width="3"/>
+      </svg>
+      <div class="mono" style="margin-top:8px">DEMAND + TIMING = YOUR NUMBER</div>
+      <p class="lead" style="font-size:.82rem;margin:8px auto 0;max-width:52ch">Days on market tells half the story. Views and saves on Zillow or Redfin tell the other half - heavy save activity means competing buyers are circling.</p>
+    </div>
+    <div class="row2">
+      <div class="field"><label>List price ($)</label><input id="o_list" type="number" placeholder="600000"></div>
+      <div class="field"><label>Days on market</label><input id="o_dom" type="number" placeholder="12"></div>
+    </div>
+    <div class="row2">
       <div class="field"><label>Property ZIP code</label><input id="o_zip" placeholder="11725" maxlength="5" inputmode="numeric"></div>
       <div class="field"><label>&nbsp;</label><div class="lead" style="font-size:.78rem">We pull live market stats for this ZIP - speed of sales tells us how hot the market is.</div></div>
     </div>
-        <div class="row2">
-          <div class="field"><label>Views on Zillow/Redfin (optional)</label><input id="o_views" type="number" placeholder="850"></div>
-          <div class="field"><label>Saves / favorites (optional)</label><input id="o_saves" type="number" placeholder="42"></div>
-        </div>
-        <div class="row2">
-          <div class="field"><label>Competition</label><select id="o_comp"><option value="2">Multiple offers expected</option><option value="1" selected>Some interest</option><option value="0">Quiet listing</option></select></div>
-          <div class="field" style="display:flex;align-items:flex-end"><button class="btn" style="width:100%" onclick="offerCalc()">Analyze</button></div>
-        </div>
-      </div>
+    <div class="row2">
+      <div class="field"><label>Views on Zillow/Redfin (optional)</label><input id="o_views" type="number" placeholder="850"></div>
+      <div class="field"><label>Saves / favorites (optional)</label><input id="o_saves" type="number" placeholder="42"></div>
+    </div>
+    <div class="row2">
+      <div class="field"><label>Competition</label><select id="o_comp"><option value="2">Multiple offers expected</option><option value="1" selected>Some interest</option><option value="0">Quiet listing</option></select></div>
+      <div class="field" style="display:flex;align-items:flex-end"><button class="btn" style="width:100%" onclick="offerCalc()">Analyze</button></div>
     </div>
     <div id="offerOut" style="font-size:.95rem;color:var(--paper-dim)"></div>
     <div class="disclaimer">Illustrative strategy only - not an offer recommendation. View and save counts are public app metrics and vary by platform. Every negotiation is unique; bring me the listing and we will build the real play together.</div>
   </div>
 
-  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:26px">
-    <div class="card"><div class="mono">OFF-MARKET ACCESS</div><h3 style="font-size:1.2rem;margin:8px 0">Deals before they hit Zillow</h3><p class="lead" style="font-size:.88rem">25+ private transactions mean a network of sellers, investors, and wholesalers most agents do not have.</p></div>
-    <div class="card"><div class="mono">CONTRACTOR EYES</div><h3 style="font-size:1.2rem;margin:8px 0">Know what it really needs</h3><p class="lead" style="font-size:.88rem">I walk every house as a licensed contractor - you will know repair costs before you offer, not after.</p></div>
-    <div class="card"><div class="mono">ANYWHERE IN NY</div><h3 style="font-size:1.2rem;margin:8px 0">Montauk to Manhattan to upstate</h3><p class="lead" style="font-size:.88rem">Licensed across New York State, with cross-MLS experience wherever the right house is.</p></div>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:26px">
+    <div class="card"><div class="mono">OFF-MARKET ACCESS</div><h3 style="font-size:1.15rem;margin:8px 0">Deals before they hit Zillow</h3><p class="lead" style="font-size:.85rem">25+ private transactions mean a network of sellers, investors, and wholesalers most agents do not have.</p></div>
+    <div class="card"><div class="mono">CONTRACTOR EYES</div><h3 style="font-size:1.15rem;margin:8px 0">Know what it really needs</h3><p class="lead" style="font-size:.85rem">I walk every house as a licensed contractor - you will know repair costs before you offer, not after.</p></div>
+    <div class="card"><div class="mono">ANYWHERE IN NY</div><h3 style="font-size:1.15rem;margin:8px 0">Montauk to Manhattan to upstate</h3><p class="lead" style="font-size:.85rem">Licensed across New York State, with cross-MLS experience wherever the right house is.</p></div>
   </div>
 </section>
 </div>
