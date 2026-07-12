@@ -194,6 +194,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;margin-top:40px;font-size
       <button onclick="go('process',this)">The Process</button>
       <button onclick="go('team',this)">The Team</button>
       <button onclick="go('quiz',this)">Your Options Quiz</button>
+      <button onclick="go('buyers',this)">For Buyers</button>
     </div>
   </nav>
 </header>
@@ -398,7 +399,36 @@ footer{border-top:1px solid var(--line);padding:40px 0;margin-top:40px;font-size
 </section>
 </div>
 
-<!-- ============ QUIZ ============ --><div class="page" id="quiz">
+<!-- ============ BUYERS ============ -->
+<div class="page" id="buyers">
+<section class="wrap">
+  <div class="eyebrow"><span class="mono">Buyer Representation - Long Island &amp; Upstate</span></div>
+  <h2>Buying? You need an edge.</h2>
+  <p class="lead">I represent buyers across Long Island and upstate New York - standard purchases, investment properties, and off-market finds most buyers never see. PSA-certified pricing strategy means your offer is built on data, not guesswork.</p>
+
+  <div class="card" style="margin-top:26px">
+    <div class="eyebrow"><span class="mono">PSA-Certified Strategy</span></div>
+    <h3 style="font-size:1.5rem;margin:8px 0">How strong should your offer be?</h3>
+    <div class="row2" style="margin-top:12px">
+      <div class="field"><label>List price ($)</label><input id="o_list" type="number" placeholder="600000"></div>
+      <div class="field"><label>Days on market</label><input id="o_dom" type="number" placeholder="12"></div>
+    </div>
+    <div class="row2">
+      <div class="field"><label>Competition</label><select id="o_comp"><option value="2">Multiple offers expected</option><option value="1" selected>Some interest</option><option value="0">Quiet listing</option></select></div>
+      <div class="field" style="display:flex;align-items:flex-end"><button class="btn" style="width:100%" onclick="offerCalc()">Analyze</button></div>
+    </div>
+    <div id="offerOut" style="font-size:.95rem;color:var(--paper-dim)"></div>
+    <div class="disclaimer">Illustrative strategy only - not an offer recommendation. Every negotiation is unique; bring me the listing and we will build the real play together.</div>
+  </div>
+
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:26px">
+    <div class="card"><div class="mono">OFF-MARKET ACCESS</div><h3 style="font-size:1.2rem;margin:8px 0">Deals before they hit Zillow</h3><p class="lead" style="font-size:.88rem">25+ private transactions mean a network of sellers, investors, and wholesalers most agents do not have.</p></div>
+    <div class="card"><div class="mono">CONTRACTOR EYES</div><h3 style="font-size:1.2rem;margin:8px 0">Know what it really needs</h3><p class="lead" style="font-size:.88rem">I walk every house as a licensed contractor - you will know repair costs before you offer, not after.</p></div>
+    <div class="card"><div class="mono">ANYWHERE IN NY</div><h3 style="font-size:1.2rem;margin:8px 0">Long Island to upstate</h3><p class="lead" style="font-size:.88rem">Licensed across New York State, with cross-MLS experience for buyers heading north.</p></div>
+  </div>
+</section>
+</div>
+  <!-- ============ QUIZ ============ --><div class="page" id="quiz">
 <section class="wrap">
   <div class="eyebrow"><span class="mono">60-Second Quiz</span></div>
   <h2>Which path fits you?</h2>
@@ -727,6 +757,24 @@ function pulseCheck(){
   pulseLoad(zip,'ZIP '+zip);
 }
 pulseLoad('11980','Yaphank');
+/* ================= OFFER ANALYZER ================= */
+function offerCalc(){
+  const list=+document.getElementById('o_list').value;
+  const dom=+document.getElementById('o_dom').value||0;
+  const comp=+document.getElementById('o_comp').value;
+  if(!list){alert('Enter the list price.');return;}
+  let adj=0, notes=[];
+  if(comp===2){adj+=4; notes.push("multiple offers usually means bidding above list");}
+  if(comp===0){adj-=3; notes.push("a quiet listing gives you negotiating room");}
+  if(dom<=10){adj+=2; notes.push("fresh listings carry momentum");}
+  if(dom>=45){adj-=4; notes.push(dom+" days on market shifts leverage to you");}
+  if(dom>10&&dom<45){notes.push("normal market time - terms may matter more than price");}
+  const lo=list*(1+(adj-1.5)/100), hi=list*(1+(adj+1.5)/100);
+  document.getElementById('offerOut').innerHTML=
+    '<div style="border-left:2px solid var(--brass);padding-left:12px;margin-top:10px">'+
+    'Suggested range: <span class="mono" style="color:var(--brass-2)">'+fmt(lo)+' - '+fmt(hi)+'</span><br>'+
+    'Because '+notes.join('; ')+'. Strong terms (flexible closing, solid pre-approval, smart contingencies) can beat a higher number - that is where strategy wins.</div>';
+}
   quizRender();  /* ================= INIT ================= */
 renderRecord(); renderReno(); renoCalc(); renderTimeline();
 </script>
