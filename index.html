@@ -9,22 +9,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#0d141d; --ink-2:#121d29; --ink-3:#18283a;
-  --paper:#f3ede1; --paper-dim:#cfc6b6;
-  --brass:#cba35c; --brass-2:#e6c98c; --brass-soft:rgba(203,163,92,.14);
-  --sage:#6cb89c; --rust:#cf7a57; --line:rgba(203,163,92,.22);
-  --display:"Fraunces",Georgia,serif; --body:"Hanken Grotesk",system-ui,sans-serif; --mono:"JetBrains Mono",monospace;
+  --ink:#0d141d; --ink-2:#121d29; --ink-3:#18283a;
+  --paper:#f3ede1; --paper-dim:#cfc6b6;
+  --brass:#cba35c; --brass-2:#e6c98c; --brass-soft:rgba(203,163,92,.14);
+  --sage:#6cb89c; --rust:#cf7a57; --line:rgba(203,163,92,.22);
+  --display:"Fraunces",Georgia,serif; --body:"Hanken Grotesk",system-ui,sans-serif; --mono:"JetBrains Mono",monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
-  font-family:var(--body); background:var(--ink); color:var(--paper);
-  -webkit-font-smoothing:antialiased; overflow-x:hidden; line-height:1.55;
+  font-family:var(--body); background:var(--ink); color:var(--paper);
+  -webkit-font-smoothing:antialiased; overflow-x:hidden; line-height:1.55;
 }
 body::before{
-  content:""; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.5;
-  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
-  background-size:46px 46px; mask-image:radial-gradient(ellipse at 50% 0%,#000 5%,transparent 70%);
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.5;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:46px 46px; mask-image:radial-gradient(ellipse at 50% 0%,#000 5%,transparent 70%);
 }
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
@@ -38,8 +38,8 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:14px 2
 .brand small{font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;color:var(--brass);display:block;text-transform:uppercase;margin-top:-2px}
 .navlinks{display:flex;gap:4px;flex-wrap:wrap}
 .navlinks button{
-  background:none;border:0;color:var(--paper-dim);font-family:var(--body);font-size:.82rem;font-weight:500;
-  padding:8px 12px;border-radius:7px;cursor:pointer;transition:.2s;white-space:nowrap
+  background:none;border:0;color:var(--paper-dim);font-family:var(--body);font-size:.82rem;font-weight:500;
+  padding:8px 12px;border-radius:7px;cursor:pointer;transition:.2s;white-space:nowrap
 }
 .navlinks button:hover{color:var(--paper)}
 .navlinks button.active{color:var(--ink);background:var(--brass)}
@@ -107,8 +107,8 @@ h2{font-size:clamp(1.9rem,4vw,3rem);margin-bottom:10px}
 .field{margin-bottom:14px}
 .field label{display:block;font-size:.78rem;color:var(--paper-dim);margin-bottom:6px;font-weight:600}
 input,select{
-  width:100%;background:var(--ink);border:1px solid var(--line);border-radius:9px;padding:12px 14px;
-  color:var(--paper);font-family:var(--body);font-size:.95rem
+  width:100%;background:var(--ink);border:1px solid var(--line);border-radius:9px;padding:12px 14px;
+  color:var(--paper);font-family:var(--body);font-size:.95rem
 }
 input:focus,select:focus{outline:none;border-color:var(--brass)}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -166,721 +166,627 @@ footer{border-top:1px solid var(--line);padding:40px 0;margin-top:40px;font-size
 .note-box{background:var(--brass-soft);border:1px dashed var(--brass);border-radius:10px;padding:12px 14px;font-size:.78rem;color:var(--brass-2);margin-top:16px}
 
 @media(max-width:780px){
-  #buyersGrid{grid-template-columns:1fr !important}
-  .navlinks{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;background:var(--ink-2);border-bottom:1px solid var(--line);padding:10px}
-  .navlinks.open{display:flex}
-  .navlinks button{text-align:left;width:100%;font-size:.95rem;padding:12px}
-  .menu-toggle{display:block}
-  .headline-stats{grid-template-columns:repeat(2,1fr)}
-  .row2{grid-template-columns:1fr}
-  .hero .stamp{display:none}
-  .deal{grid-template-columns:1fr}
-  .deal .perf{text-align:left}
+  .navlinks{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;background:var(--ink-2);border-bottom:1px solid var(--line);padding:10px}
+  .navlinks.open{display:flex}
+  .navlinks button{text-align:left;width:100%;font-size:.95rem;padding:12px}
+  .menu-toggle{display:block}
+  .headline-stats{grid-template-columns:repeat(2,1fr)}
+  .row2{grid-template-columns:1fr}
+  .hero .stamp{display:none}
+  .deal{grid-template-columns:1fr}
+  .deal .perf{text-align:left}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <nav>
-    <div class="brand">Sean Casaccio <small>Realtor · Builder · Long Island</small></div>
-    <button class="menu-toggle" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
-    <div class="navlinks" id="nav">
-      <button class="active" onclick="go('home',this)">Home</button>
-      <button onclick="go('record',this)">Track Record</button>
-      <button onclick="go('pending',this)">In Contract</button>
-      <button onclick="go('value',this)">Home Value</button>
-      <button onclick="go('reno',this)">Reno ROI</button>
-      <button onclick="go('build',this)">Build &amp; Develop</button>
-      <button onclick="go('process',this)">The Process</button>
-      <button onclick="go('team',this)">The Team</button>
-      <button onclick="go('quiz',this)">Your Options Quiz</button>
-      <button onclick="go('buyers',this)">For Buyers</button>
-    </div>
-  </nav>
+  <nav>
+    <div class="brand">Sean Casaccio <small>Realtor · Builder · Long Island</small></div>
+    <button class="menu-toggle" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    <div class="navlinks" id="nav">
+      <button class="active" onclick="go('home',this)">Home</button>
+      <button onclick="go('record',this)">Track Record</button>
+      <button onclick="go('pending',this)">In Contract</button>
+      <button onclick="go('value',this)">Home Value</button>
+      <button onclick="go('reno',this)">Reno ROI</button>
+      <button onclick="go('build',this)">Build &amp; Develop</button>
+      <button onclick="go('process',this)">The Process</button>
+      <button onclick="go('team',this)">The Team</button>
+      <button onclick="go('quiz',this)">Your Options Quiz</button>
+      <button onclick="go('buyers',this)">For Buyers</button>
+    </div>
+  </nav>
 </header>
 
 <!-- ============ HOME ============ -->
 <div class="page active" id="home">
 <section class="hero wrap">
-  <div class="stamp">SUFFOLK<br>&amp; NASSAU<br>★ 1 STOP ★</div>
-  <div class="eyebrow"><span class="mono">Long Island · Upstate · Licensed Across New York</span></div>
-  <h1>One agent.<br><span class="italic">Every option</span> on the table.</h1>
-  <p class="lead">Most agents can offer you exactly one thing: list your house. I'm a licensed Realtor <em>and</em> a builder — so you can sell as-is, renovate first, hold &amp; rent, or develop. You see the numbers behind every path before you decide.</p>
-  <div class="hero-cta">
-    <button class="btn" onclick="go('value',navByPage('value'))">What's my home worth?</button>
-    <button class="btn ghost" onclick="go('record',navByPage('record'))">See the track record</button>
-  </div>
-  <div class="headline-stats" id="homeStats"></div>
-  <div class="card" id="pulse" style="margin-top:14px">
-    <div class="mono">Live Market Pulse</div>
-    <div style="display:flex;gap:10px;margin-top:10px;max-width:420px">
-      <input id="pulseZip" placeholder="Enter a ZIP code" maxlength="5" inputmode="numeric" style="flex:1">
-      <button class="btn" onclick="pulseCheck()">Check your market</button>
-    </div>
-    <div id="pulseBody" style="font-size:.95rem;margin-top:12px;color:var(--paper-dim)"></div>
-  </div>
+  <div class="stamp">SUFFOLK<br>&amp; NASSAU<br>★ 1 STOP ★</div>
+  <div class="eyebrow"><span class="mono">Long Island · Upstate · Licensed Across New York</span></div>
+  <h1>One agent.<br><span class="italic">Every option</span> on the table.</h1>
+  <p class="lead">Most agents can offer you exactly one thing: list your house. I'm a licensed Realtor <em>and</em> a builder — so you can sell as-is, renovate first, hold &amp; rent, or develop. You see the numbers behind every path before you decide.</p>
+  <div class="hero-cta">
+    <button class="btn" onclick="go('value',navByPage('value'))">What's my home worth?</button>
+    <button class="btn ghost" onclick="go('record',navByPage('record'))">See the track record</button>
+  </div>
+  <div class="headline-stats" id="homeStats"></div>
+    <div class="card" id="pulse" style="margin-top:14px">
+    <div class="mono">Live Market Pulse</div>
+    <div style="display:flex;gap:10px;margin-top:10px;max-width:420px">
+      <input id="pulseZip" placeholder="Enter a ZIP code" maxlength="5" inputmode="numeric" style="flex:1">
+      <button class="btn" onclick="pulseCheck()">Check your market</button>
+    </div>
+    <div id="pulseBody" style="font-size:.95rem;margin-top:12px;color:var(--paper-dim)"></div>
+  </div>
 </section>
 
 <section class="wrap">
-  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
-    <div class="card"><div class="mono">01 — Sell</div><h3 style="font-size:1.4rem;margin:8px 0">Get top dollar, fast</h3><p class="lead" style="font-size:.92rem">A data-backed pricing strategy (PSA certified) and a track record of closing above ask, quickly.</p></div>
-    <div class="card"><div class="mono">02 — Build</div><h3 style="font-size:1.4rem;margin:8px 0">Add value before you list</h3><p class="lead" style="font-size:.92rem">My crew can renovate strategically so your sale price climbs more than the cost.</p></div>
-    <div class="card"><div class="mono">03 — Hold</div><h3 style="font-size:1.4rem;margin:8px 0">Turn it into income</h3><p class="lead" style="font-size:.92rem">Rental and short-term-rental analysis if keeping the property beats selling it.</p></div>
-  </div>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+    <div class="card"><div class="mono">01 — Sell</div><h3 style="font-size:1.4rem;margin:8px 0">Get top dollar, fast</h3><p class="lead" style="font-size:.92rem">A data-backed pricing strategy (PSA certified) and a track record of closing above ask, quickly.</p></div>
+    <div class="card"><div class="mono">02 — Build</div><h3 style="font-size:1.4rem;margin:8px 0">Add value before you list</h3><p class="lead" style="font-size:.92rem">My crew can renovate strategically so your sale price climbs more than the cost.</p></div>
+    <div class="card"><div class="mono">03 — Hold</div><h3 style="font-size:1.4rem;margin:8px 0">Turn it into income</h3><p class="lead" style="font-size:.92rem">Rental and short-term-rental analysis if keeping the property beats selling it.</p></div>
+  </div>
 </section>
 </div>
 
 <!-- ============ TRACK RECORD ============ -->
 <div class="page" id="record">
 <section class="wrap">
-  <div class="eyebrow"><span class="mono">Closed Transactions</span></div>
-  <h2>The track record</h2>
-  <p class="lead">A featured selection of my sales, scored on the things that matter: how fast they sold, and how far above asking they went. This is a sample — the full portfolio spans 30+ transactions, most of them private. MLS numbers for featured sales available on request.</p>
+  <div class="eyebrow"><span class="mono">Closed Transactions</span></div>
+  <h2>The track record</h2>
+  <p class="lead">A featured selection of my sales, scored on the things that matter: how fast they sold, and how far above asking they went. This is a sample — the full portfolio spans 30+ transactions, most of them private. MLS numbers for featured sales available on request.</p>
 
-  <div class="card" style="margin-top:20px">
-    <div class="mono">Every Kind of Sale</div>
-    <p class="lead" style="font-size:.92rem;margin-top:8px">Standard listings · Estate sales &amp; probate · Distressed &amp; time-sensitive sales · Short sales &amp; pre-foreclosure (SFR® certified) · Off-market &amp; private sales · Investor fix-and-flips · Wholesale dispositions · Rentals. Whatever the situation, I've transacted it — usually with my construction crew adding value before the sign goes in the yard.</p>
-  </div>
+  <div class="card" style="margin-top:20px">
+    <div class="mono">Every Kind of Sale</div>
+    <p class="lead" style="font-size:.92rem;margin-top:8px">Standard listings · Estate sales &amp; probate · Distressed &amp; time-sensitive sales · Short sales &amp; pre-foreclosure (SFR® certified) · Off-market &amp; private sales · Investor fix-and-flips · Wholesale dispositions · Rentals. Whatever the situation, I've transacted it — usually with my construction crew adding value before the sign goes in the yard.</p>
+  </div>
 
-  <div class="toggle" id="recToggle">
-    <button class="on" onclick="setSeg('all',this)">All Sales</button>
-    <button onclick="setSeg('standard',this)">Standard</button>
-    <button onclick="setSeg('distressed',this)">Distressed / Estate</button>
-  </div>
+  <div class="toggle" id="recToggle">
+    <button class="on" onclick="setSeg('all',this)">All Sales</button>
+    <button onclick="setSeg('standard',this)">Standard</button>
+    <button onclick="setSeg('distressed',this)">Distressed / Estate</button>
+  </div>
 
-  <div class="statgrid" id="recStats"></div>
-  <div class="card"><div id="recDeals"></div></div>
+  <div class="statgrid" id="recStats"></div>
+  <div class="card"><div id="recDeals"></div></div>
 
-  <div class="grid" style="grid-template-columns:1fr 1fr;gap:18px;margin-top:24px" id="extraRecord">
-    <div class="card">
-      <div class="mono">Off-Market &amp; Private Sales</div>
-      <h3 style="font-size:1.5rem;margin:10px 0">25+ off-market transactions</h3>
-      <p class="lead" style="font-size:.9rem">Completed across Suffolk, Nassau, and the East End — distressed sales, investor acquisitions, and wholesale dispositions, handled privately by design. Sellers who need speed and discretion get both, backed by an active network of investors and cash buyers.</p>
-    </div>
-    <div class="card">
-      <div class="mono">Rentals Handled</div>
-      <h3 style="font-size:1.5rem;margin:10px 0">Leased over asking</h3>
-      <div id="rentalList"></div>
-    </div>
-  </div>
+  <div class="grid" style="grid-template-columns:1fr 1fr;gap:18px;margin-top:24px" id="extraRecord">
+    <div class="card">
+      <div class="mono">Off-Market &amp; Private Sales</div>
+      <h3 style="font-size:1.5rem;margin:10px 0">25+ off-market transactions</h3>
+      <p class="lead" style="font-size:.9rem">Completed across Suffolk, Nassau, and the East End — distressed sales, investor acquisitions, and wholesale dispositions, handled privately by design. Sellers who need speed and discretion get both, backed by an active network of investors and cash buyers.</p>
+    </div>
+    <div class="card">
+      <div class="mono">Rentals Handled</div>
+      <h3 style="font-size:1.5rem;margin:10px 0">Leased over asking</h3>
+      <div id="rentalList"></div>
+    </div>
+  </div>
 </section>
 </div>
 
 <!-- ============ PENDING ============ -->
 <div class="page" id="pending">
 <section class="wrap">
-  <div class="eyebrow"><span class="mono">Active · In Contract</span></div>
-  <h2>What I'm working on now</h2>
-  <p class="lead">Live deals, mid-flight. Momentum you can see.</p>
-  <div class="pend" id="pendList" style="margin-top:26px"></div>
-  <div class="disclaimer">
-    Pending and coming-soon details reflect current contract status and are subject to change until closing. In-contract figures are not final sale prices.
-  </div>
+  <div class="eyebrow"><span class="mono">Active · In Contract</span></div>
+  <h2>What I'm working on now</h2>
+  <p class="lead">Live deals, mid-flight. Momentum you can see.</p>
+  <div class="pend" id="pendList" style="margin-top:26px"></div>
+  <div class="disclaimer">
+    Pending and coming-soon details reflect current contract status and are subject to change until closing. In-contract figures are not final sale prices.
+  </div>
 </section>
 </div>
 
 <!-- ============ VALUATION ============ -->
 <div class="page" id="value">
 <section class="wrap">
-  <div class="eyebrow"><span class="mono">Instant Estimate</span></div>
-  <h2>What's your home worth?</h2>
-  <p class="lead">Enter a few details for an instant ballpark — then keep going to the renovation tool to see how much more it could be worth.</p>
+  <div class="eyebrow"><span class="mono">Instant Estimate</span></div>
+  <h2>What's your home worth?</h2>
+  <p class="lead">Enter a few details for an instant ballpark — then keep going to the renovation tool to see how much more it could be worth.</p>
 
-  <div class="grid" style="grid-template-columns:1fr 1fr;gap:26px;margin-top:26px;align-items:start" id="valWrap">
-    <div class="card">
-      <div class="field"><label>Property address (for live AVM lookup)</label><input id="v_addr" placeholder="123 Main St, Commack, NY 11725"></div>
-      <div class="row2">
-        <div class="field"><label>ZIP code</label><input id="v_zip" placeholder="11713"></div>
-        <div class="field"><label>Square feet</label><input id="v_sqft" type="number" placeholder="1800"></div>
-      </div>
-      <div class="row2">
-        <div class="field"><label>Bedrooms</label><input id="v_bed" type="number" placeholder="3"></div>
-        <div class="field"><label>Bathrooms</label><input id="v_bath" type="number" step="0.5" placeholder="2"></div>
-      </div>
-      <div class="row2">
-        <div class="field"><label>Year built</label><input id="v_year" type="number" placeholder="1985"></div>
-        <div class="field"><label>Condition</label><select id="v_cond"><option value="0.82">Needs work</option><option value="1" selected>Average</option><option value="1.12">Updated</option><option value="1.28">Fully renovated</option></select></div>
-      </div>
-      <button class="btn" style="width:100%;margin-top:6px" onclick="estimate()">Calculate estimate</button>
-      <div class="mono" style="text-align:center;margin-top:14px;color:var(--brass-2)">&#8595; KEEP SCROLLING - AI ADVISOR: SELL, RENT, OR RENOVATE? &#8595;</div>
-    </div>
+  <div class="grid" style="grid-template-columns:1fr 1fr;gap:26px;margin-top:26px;align-items:start" id="valWrap">
+    <div class="card">
+      <div class="field"><label>Property address (for live AVM lookup)</label><input id="v_addr" placeholder="123 Main St, Commack, NY 11725"></div>
+      <div class="row2">
+        <div class="field"><label>ZIP code</label><input id="v_zip" placeholder="11713"></div>
+        <div class="field"><label>Square feet</label><input id="v_sqft" type="number" placeholder="1800"></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label>Bedrooms</label><input id="v_bed" type="number" placeholder="3"></div>
+        <div class="field"><label>Bathrooms</label><input id="v_bath" type="number" step="0.5" placeholder="2"></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label>Year built</label><input id="v_year" type="number" placeholder="1985"></div>
+        <div class="field"><label>Condition</label><select id="v_cond"><option value="0.82">Needs work</option><option value="1" selected>Average</option><option value="1.12">Updated</option><option value="1.28">Fully renovated</option></select></div>
+      </div>
+      <button class="btn" style="width:100%;margin-top:6px" onclick="estimate()">Calculate estimate</button>
+      <div class="mono" style="text-align:center;margin-top:14px;color:var(--brass-2)">&#8595; KEEP SCROLLING &#8212; AI ADVISOR: SELL, RENT, OR RENOVATE? &#8595;</div>
+    </div>
 
-    <div class="valbox" id="valOut">
-      <div class="mono">Your estimate appears here</div>
-      <div class="price" style="opacity:.4">$ — — —</div>
-      <p class="lead" style="font-size:.85rem;margin-top:10px">Fill in the details and hit calculate.</p>
-    </div>
-  </div>
-  <div class="disclaimer">
-    Estimate generated by an automated model for general guidance only — it is not an appraisal, comparative market analysis, or offer. Real value depends on condition, finishes, lot, and live comparable sales. For an accurate valuation specific to your block, request a free in-person CMA.
-  </div>
-  <div class="card" style="margin:34px auto 0;max-width:560px">
-    <div class="eyebrow"><span class="mono">AI Advisor</span></div>
-    <h3 style="font-size:1.5rem;margin:8px 0">Should you sell, rent it out, or renovate first?</h3>
-    <p class="lead" style="font-size:.85rem">We pull your home's sale value AND its rental value, then weigh every path against your timeline and goals.</p>
-    <div class="field" style="margin-top:12px"><label>Property address</label><input id="a_addr" placeholder="123 Main St, Commack, NY 11725"></div>
-    <div class="field"><label>Remaining mortgage balance ($, optional)</label><input id="a_mort" type="number" placeholder="280000"></div>
-    <div class="field"><label>Your timeline</label><select id="a_time"><option>ASAP - within 3 months</option><option selected>This year</option><option>1-2 years</option><option>Just exploring</option></select></div>
-    <div class="field"><label>Main goal</label><select id="a_goal"><option selected>Max cash at closing</option><option>Monthly income</option><option>Fastest clean exit</option><option>Grow long-term value</option></select></div>
-    <button class="btn" style="width:100%" onclick="advisorRun()">Compare my options</button>
-    <div id="advOut" style="font-size:.95rem;color:var(--paper-dim)"></div>
-    <div class="disclaimer">Automated estimates for general guidance only - not an appraisal, rental guarantee, or financial advice. Verify every number in person before deciding.</div>
-  </div>
+    <div class="valbox" id="valOut">
+      <div class="mono">Your estimate appears here</div>
+      <div class="price" style="opacity:.4">$ — — —</div>
+      <p class="lead" style="font-size:.85rem;margin-top:10px">Fill in the details and hit calculate.</p>
+    </div>
+  </div>
+  <div class="disclaimer">
+    Estimate generated by an automated model for general guidance only — it is not an appraisal, comparative market analysis, or offer. Real value depends on condition, finishes, lot, and live comparable sales. For an accurate valuation specific to your block, request a free in-person CMA.
+  </div>
+<div class="card" style="margin:34px auto 0;max-width:560px">
+    <div class="eyebrow"><span class="mono">AI Advisor</span></div>
+    <h3 style="font-size:1.5rem;margin:8px 0">Should you sell, rent it out, or renovate first?</h3>
+    <p class="lead" style="font-size:.85rem">We pull your home's sale value AND its rental value, then weigh every path against your timeline and goals.</p>
+    <div class="field" style="margin-top:12px"><label>Property address</label><input id="a_addr" placeholder="123 Main St, Commack, NY 11725"></div>
+    <div class="field"><label>Remaining mortgage balance ($, optional)</label><input id="a_mort" type="number" placeholder="280000"></div>
+    <div class="field"><label>Your timeline</label><select id="a_time"><option>ASAP - within 3 months</option><option selected>This year</option><option>1-2 years</option><option>Just exploring</option></select></div>
+    <div class="field"><label>Main goal</label><select id="a_goal"><option selected>Max cash at closing</option><option>Monthly income</option><option>Fastest clean exit</option><option>Grow long-term value</option></select></div>
+    <button class="btn" style="width:100%" onclick="advisorRun()">Compare my options</button>
+    <div id="advOut" style="font-size:.95rem;color:var(--paper-dim)"></div>
+    <div class="disclaimer">Automated estimates for general guidance only - not an appraisal, rental guarantee, or financial advice. Verify every number in person before deciding.</div>
+  </div>
 </section>
 </div>
 
 <!-- ============ RENOVATION ROI ============ -->
 <div class="page" id="reno">
 <section class="wrap">
-  <div class="eyebrow"><span class="mono">As-Is vs. Renovated</span></div>
-  <h2>Renovation value calculator</h2>
-  <p class="lead">Select the upgrades you're considering. See the estimated lift in sale price — and how it stacks up against as-is. Because I'm the builder too, these aren't guesses pulled from the air.</p>
+  <div class="eyebrow"><span class="mono">As-Is vs. Renovated</span></div>
+  <h2>Renovation value calculator</h2>
+  <p class="lead">Select the upgrades you're considering. See the estimated lift in sale price — and how it stacks up against as-is. Because I'm the builder too, these aren't guesses pulled from the air.</p>
 
-  <div class="grid" style="grid-template-columns:1.3fr 1fr;gap:26px;margin-top:24px;align-items:start" id="renoWrap">
-    <div>
-      <div class="field" style="max-width:280px"><label>Current estimated value ($)</label><input id="r_base" type="number" placeholder="500000" oninput="renoCalc()"></div>
-      <div class="mono" style="margin-bottom:10px;font-size:.62rem">$ MINOR INVESTMENT &middot; $$ MODERATE &middot; $$$ SIGNIFICANT &middot; $$$$ MAJOR PROJECT</div>
-      <div id="renoItems"></div>
-    </div>
-    <div class="valbox">
-      <div class="mono">Projected after renovation</div>
-      <div class="price" id="r_new">$500,000</div>
-      <div class="range" id="r_range">Estimated lift: $0</div>
-      <div class="meter"><i id="r_meter" style="width:0%"></i></div>
-      <div class="mono" id="r_roi" style="color:var(--sage)">Select upgrades to begin</div>
-      <hr style="border:0;border-top:1px solid var(--line);margin:16px 0">
-      <div style="display:flex;justify-content:space-between;font-size:.85rem"><span style="color:var(--paper-dim)">Sell as-is</span><span class="mono" id="r_asis">$500,000</span></div>
-      <div style="display:flex;justify-content:space-between;font-size:.85rem;margin-top:6px"><span style="color:var(--paper-dim)">Renovate &amp; sell</span><span class="mono" id="r_after" style="color:var(--brass-2)">$500,000</span></div>
-      <button class="btn" style="width:100%;margin-top:18px" onclick="consult()">Consult with me on these renovations →</button>
-      <button class="btn ghost" style="width:100%;margin-top:8px" onclick="renoAdvice()">AI: what order should I do these in?</button>
-      <div id="renoAI" style="text-align:left;font-size:.9rem;color:var(--paper-dim);margin-top:10px"></div>
-    </div>
-  </div>
-  <div class="disclaimer">
-    Renovation value ranges are illustrative estimates based on typical regional return-on-cost patterns and will vary by finish level, market timing, and scope. These figures are not a guarantee of sale price or appraised value. For real numbers tailored to your home and budget, book a consult — I'll walk the property and price the work directly.
-  </div>
+  <div class="grid" style="grid-template-columns:1.3fr 1fr;gap:26px;margin-top:24px;align-items:start" id="renoWrap">
+    <div>
+      <div class="field" style="max-width:280px"><label>Current estimated value ($)</label><input id="r_base" type="number" placeholder="500000" oninput="renoCalc()"></div>
+      <div class="mono" style="margin-bottom:10px;font-size:.62rem">$ MINOR INVESTMENT · $$ MODERATE · $$$ SIGNIFICANT · $$$$ MAJOR PROJECT</div>
+      <div id="renoItems"></div>
+    </div>
+    <div class="valbox">
+      <div class="mono">Projected after renovation</div>
+      <div class="price" id="r_new">$500,000</div>
+      <div class="range" id="r_range">Estimated lift: $0</div>
+      <div class="meter"><i id="r_meter" style="width:0%"></i></div>
+      <div class="mono" id="r_roi" style="color:var(--sage)">Select upgrades to begin</div>
+      <hr style="border:0;border-top:1px solid var(--line);margin:16px 0">
+      <div style="display:flex;justify-content:space-between;font-size:.85rem"><span style="color:var(--paper-dim)">Sell as-is</span><span class="mono" id="r_asis">$500,000</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:.85rem;margin-top:6px"><span style="color:var(--paper-dim)">Renovate &amp; sell</span><span class="mono" id="r_after" style="color:var(--brass-2)">$500,000</span></div>
+      <button class="btn" style="width:100%;margin-top:18px" onclick="consult()">Consult with me on these renovations →</button>
+      <button class="btn ghost" style="width:100%;margin-top:8px" onclick="renoAdvice()">AI: what order should I do these in?</button>
+      <div id="renoAI" style="text-align:left;font-size:.9rem;color:var(--paper-dim);margin-top:10px"></div>
+    </div>
+  </div>
+  <div class="disclaimer">
+    Renovation value ranges are illustrative estimates based on typical regional return-on-cost patterns and will vary by finish level, market timing, and scope. These figures are not a guarantee of sale price or appraised value. For real numbers tailored to your home and budget, book a consult — I'll walk the property and price the work directly.
+  </div>
 </section>
 </div>
 
 <!-- ============ BUILD / DEVELOP ============ -->
 <div class="page" id="build">
 <section class="wrap">
-  <div class="eyebrow"><span class="mono">Realtor + Contractor</span></div>
-  <h2>You're not stuck with one choice</h2>
-  <p class="lead">A typical agent sees your house one way: list it. I look at it like a developer would — and lay out every path with the math behind each, so the decision is yours.</p>
+  <div class="eyebrow"><span class="mono">Realtor + Contractor</span></div>
+  <h2>You're not stuck with one choice</h2>
+  <p class="lead">A typical agent sees your house one way: list it. I look at it like a developer would — and lay out every path with the math behind each, so the decision is yours.</p>
 
-  <div class="paths" style="margin-top:28px">
-    <div class="path"><div class="num">PATH 01</div><h3>Sell As-Is</h3><p>Fastest path to cash. We price sharp, market hard, and close. No work, no waiting.</p></div>
-    <div class="path"><div class="num">PATH 02</div><h3>Renovate &amp; Sell</h3><p>Targeted upgrades by my own crew, then list at a higher tier. You net the spread, I manage it end to end.</p></div>
-    <div class="path"><div class="num">PATH 03</div><h3>Renovate &amp; Hold</h3><p>Keep it as a rental or short-term rental. We model the cash flow before a dollar is spent.</p></div>
-    <div class="path"><div class="num">PATH 04</div><h3>Develop</h3><p>Subdivide, add an accessory apartment, or build out. We check what the lot and zoning actually allow.</p></div>
-  </div>
+  <div class="paths" style="margin-top:28px">
+    <div class="path"><div class="num">PATH 01</div><h3>Sell As-Is</h3><p>Fastest path to cash. We price sharp, market hard, and close. No work, no waiting.</p></div>
+    <div class="path"><div class="num">PATH 02</div><h3>Renovate &amp; Sell</h3><p>Targeted upgrades by my own crew, then list at a higher tier. You net the spread, I manage it end to end.</p></div>
+    <div class="path"><div class="num">PATH 03</div><h3>Renovate &amp; Hold</h3><p>Keep it as a rental or short-term rental. We model the cash flow before a dollar is spent.</p></div>
+    <div class="path"><div class="num">PATH 04</div><h3>Develop</h3><p>Subdivide, add an accessory apartment, or build out. We check what the lot and zoning actually allow.</p></div>
+  </div>
 
-  <h3 style="font-size:1.5rem;margin:46px 0 16px">Recent build work</h3>
-  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
-    <div class="card"><div class="mono">ESTATE CLEANOUT + REFRESH</div><h3 style="font-size:1.2rem;margin:8px 0">St. James estate prep</h3><p class="lead" style="font-size:.88rem">Full property cleanout, then prime &amp; paint throughout to erase decades of smoke damage. Sold $87K over ask.</p></div>
-    <div class="card"><div class="mono">PRE-LIST TRANSFORMATION</div><h3 style="font-size:1.2rem;margin:8px 0">Yaphank listing prep</h3><p class="lead" style="font-size:.88rem">Ripped up carpet, refinished floors, power-washed everything, full cleanout. In contract $50K over ask in 12 days.</p></div>
-    <div class="card"><div class="mono">INVESTOR FLIP</div><h3 style="font-size:1.2rem;margin:8px 0">East Meadow renovation</h3><p class="lead" style="font-size:.88rem">Full renovation for an investor's fix &amp; flip — resold above ask.</p></div>
-  </div>
+  <h3 style="font-size:1.5rem;margin:46px 0 16px">Recent build work</h3>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+    <div class="card"><div class="mono">ESTATE CLEANOUT + REFRESH</div><h3 style="font-size:1.2rem;margin:8px 0">St. James estate prep</h3><p class="lead" style="font-size:.88rem">Full property cleanout, then prime &amp; paint throughout to erase decades of smoke damage. Sold $87K over ask.</p></div>
+    <div class="card"><div class="mono">PRE-LIST TRANSFORMATION</div><h3 style="font-size:1.2rem;margin:8px 0">Yaphank listing prep</h3><p class="lead" style="font-size:.88rem">Ripped up carpet, refinished floors, power-washed everything, full cleanout. In contract $50K over ask in 12 days.</p></div>
+    <div class="card"><div class="mono">INVESTOR FLIP</div><h3 style="font-size:1.2rem;margin:8px 0">East Meadow renovation</h3><p class="lead" style="font-size:.88rem">Full renovation for an investor's fix &amp; flip — resold above ask.</p></div>
+  </div>
 </section>
 </div>
 
 <!-- ============ PROCESS ============ -->
 <div class="page" id="process">
 <section class="wrap">
-  <div class="eyebrow"><span class="mono">Long Island Timeline</span></div>
-  <h2>The whole process, no surprises</h2>
-  <p class="lead">Every stage of a sale, with realistic timing for our market. Drag the slider for a hot vs. slow market, and tap any stage to expand it.</p>
+  <div class="eyebrow"><span class="mono">Long Island Timeline</span></div>
+  <h2>The whole process, no surprises</h2>
+  <p class="lead">Every stage of a sale, with realistic timing for our market. Drag the slider for a hot vs. slow market, and tap any stage to expand it.</p>
 
-  <div class="tl-controls card" style="max-width:460px">
-    <label style="font-size:.8rem;color:var(--paper-dim);font-weight:600">Market speed</label>
-    <input type="range" id="mkt" min="0" max="2" value="1" oninput="renderTimeline()" style="width:100%;margin-top:10px">
-    <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:.66rem;color:var(--brass);margin-top:4px"><span>SLOW</span><span>BALANCED</span><span>HOT</span></div>
-    <div style="text-align:center;margin-top:12px;font-family:var(--display);font-size:1.4rem" id="tlTotal"></div>
-    <div style="text-align:center;font-size:.78rem;color:var(--paper-dim)">estimated list-to-close</div>
-  </div>
+  <div class="tl-controls card" style="max-width:460px">
+    <label style="font-size:.8rem;color:var(--paper-dim);font-weight:600">Market speed</label>
+    <input type="range" id="mkt" min="0" max="2" value="1" oninput="renderTimeline()" style="width:100%;margin-top:10px">
+    <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:.66rem;color:var(--brass);margin-top:4px"><span>SLOW</span><span>BALANCED</span><span>HOT</span></div>
+    <div style="text-align:center;margin-top:12px;font-family:var(--display);font-size:1.4rem" id="tlTotal"></div>
+    <div style="text-align:center;font-size:.78rem;color:var(--paper-dim)">estimated list-to-close</div>
+  </div>
 
-  <div style="margin-top:34px" id="timeline"></div>
+  <div style="margin-top:34px" id="timeline"></div>
 </section>
 </div>
 
 <!-- ============ TEAM ============ -->
 <div class="page" id="team">
 <section class="wrap">
-  <div class="eyebrow"><span class="mono">The One-Stop Shop</span></div>
-  <h2>Your whole team, already assembled</h2>
-  <p class="lead">A real estate deal takes a dozen people. Most buyers and sellers go find each one alone. With me, the bench is already in place — faster, smoother, fewer dropped balls.</p>
-  <div class="team-grid" style="margin-top:28px" id="teamGrid"></div>
+  <div class="eyebrow"><span class="mono">The One-Stop Shop</span></div>
+  <h2>Your whole team, already assembled</h2>
+  <p class="lead">A real estate deal takes a dozen people. Most buyers and sellers go find each one alone. With me, the bench is already in place — faster, smoother, fewer dropped balls.</p>
+  <div class="team-grid" style="margin-top:28px" id="teamGrid"></div>
 </section>
 </div>
-
 
 <!-- ============ BUYERS ============ -->
 <div class="page" id="buyers">
 <section class="wrap">
-  <div class="eyebrow"><span class="mono">Buyer Representation - Everywhere in New York</span></div>
-  <h2>Buying? You need an edge.</h2>
-  <p class="lead">From Montauk to Manhattan and all the way upstate - Long Island, the Hamptons and the East End, Nassau, Queens and NYC, and upstate New York. Standard purchases, investment properties, and off-market finds most buyers never see. PSA-certified pricing strategy means your offer is built on data, not guesswork.</p>
+  <div class="eyebrow"><span class="mono">Buyer Representation - Everywhere in New York</span></div>
+  <h2>Buying? You need an edge.</h2>
+  <p class="lead">From Montauk to Manhattan and all the way upstate - Long Island, the Hamptons and the East End, Nassau, Queens and NYC, and upstate New York. Standard purchases, investment properties, and off-market finds most buyers never see. PSA-certified pricing strategy means your offer is built on data, not guesswork.</p>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;margin-top:26px" id="buyersGrid">
-    <div class="card">
-      <div class="eyebrow"><span class="mono">PSA-Certified Strategy</span></div>
-      <h3 style="font-size:1.35rem;margin:8px 0">How strong should your offer be?</h3>
-      <p class="lead" style="font-size:.82rem">Days on market tells half the story. Views and saves on Zillow or Redfin tell the other half - heavy save activity means competing buyers are circling.</p>
-      <div class="field" style="margin-top:12px"><label>List price ($)</label><input id="o_list" type="number" placeholder="600000"></div>
-      <div class="field"><label>Days on market</label><input id="o_dom" type="number" placeholder="12"></div>
-      <div class="field"><label>Property ZIP code - live market stats gauge how hot this market is</label><input id="o_zip" placeholder="11725" maxlength="5" inputmode="numeric"></div>
-      <div class="field"><label>Views on Zillow/Redfin (optional)</label><input id="o_views" type="number" placeholder="850"></div>
-      <div class="field"><label>Saves / favorites (optional)</label><input id="o_saves" type="number" placeholder="42"></div>
-      <div class="field"><label>Competition</label><select id="o_comp"><option value="2">Multiple offers expected</option><option value="1" selected>Some interest</option><option value="0">Quiet listing</option></select></div>
-      <button class="btn" style="width:100%" onclick="offerCalc()">Analyze</button>
-      <div id="offerOut" style="font-size:.95rem;color:var(--paper-dim)"></div>
-      <div class="disclaimer">Illustrative strategy only - not an offer recommendation. View and save counts are public app metrics and vary by platform. Every negotiation is unique; bring me the listing and we will build the real play together.</div>
-    </div>
-    <div class="card">
-      <div class="eyebrow"><span class="mono">Investor Quick Underwrite</span></div>
-      <h3 style="font-size:1.35rem;margin:8px 0">Does this deal pencil?</h3>
-      <p class="lead" style="font-size:.82rem">Purchase price plus rehab against live value and rent data - the classic screens investors run, in ten seconds.</p>
-      <div class="field" style="margin-top:12px"><label>Property address</label><input id="i_addr" placeholder="123 Main St, Brentwood, NY 11717"></div>
-      <div class="field"><label>Your purchase price ($)</label><input id="i_price" type="number" placeholder="350000"></div>
-      <div class="field"><label>Rehab budget ($)</label><input id="i_rehab" type="number" placeholder="60000"></div>
-      <button class="btn" style="width:100%" onclick="investRun()">Run the numbers</button>
-      <div id="invOut" style="font-size:.95rem;color:var(--paper-dim)"></div>
-      <div class="disclaimer">Quick screen only. The value estimate is the AS-IS automated value, not a true after-repair value - real ARV and rehab pricing take a walkthrough. Not financial advice.</div>
-    </div>
-  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;margin-top:26px">
+    <div class="card">
+      <div class="eyebrow"><span class="mono">PSA-Certified Strategy</span></div>
+      <h3 style="font-size:1.35rem;margin:8px 0">How strong should your offer be?</h3>
+      <p class="lead" style="font-size:.82rem">Days on market tells half the story. Views and saves on Zillow or Redfin tell the other half - heavy save activity means competing buyers are circling.</p>
+      <div class="field" style="margin-top:12px"><label>List price ($)</label><input id="o_list" type="number" placeholder="600000"></div>
+      <div class="field"><label>Days on market</label><input id="o_dom" type="number" placeholder="12"></div>
+      <div class="field"><label>Property ZIP code - live market stats gauge how hot this market is</label><input id="o_zip" placeholder="11725" maxlength="5" inputmode="numeric"></div>
+      <div class="field"><label>Views on Zillow/Redfin (optional)</label><input id="o_views" type="number" placeholder="850"></div>
+      <div class="field"><label>Saves / favorites (optional)</label><input id="o_saves" type="number" placeholder="42"></div>
+      <div class="field"><label>Competition</label><select id="o_comp"><option value="2">Multiple offers expected</option><option value="1" selected>Some interest</option><option value="0">Quiet listing</option></select></div>
+      <button class="btn" style="width:100%" onclick="offerCalc()">Analyze</button>
+      <div id="offerOut" style="font-size:.95rem;color:var(--paper-dim)"></div>
+      <div class="disclaimer">Illustrative strategy only - not an offer recommendation. View and save counts are public app metrics and vary by platform. Every negotiation is unique; bring me the listing and we will build the real play together.</div>
+    </div>
 
-  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:26px">
-    <div class="card"><div class="mono">OFF-MARKET ACCESS</div><h3 style="font-size:1.15rem;margin:8px 0">Deals before they hit Zillow</h3><p class="lead" style="font-size:.85rem">25+ private transactions mean a network of sellers, investors, and wholesalers most agents do not have.</p></div>
-    <div class="card"><div class="mono">CONTRACTOR EYES</div><h3 style="font-size:1.15rem;margin:8px 0">Know what it really needs</h3><p class="lead" style="font-size:.85rem">I walk every house as a licensed contractor - you will know repair costs before you offer, not after.</p></div>
-    <div class="card"><div class="mono">ANYWHERE IN NY</div><h3 style="font-size:1.15rem;margin:8px 0">Montauk to Manhattan to upstate</h3><p class="lead" style="font-size:.85rem">Licensed across New York State, with cross-MLS experience wherever the right house is.</p></div>
-  </div>
+    <div class="card">
+      <div class="eyebrow"><span class="mono">Investor Quick Underwrite</span></div>
+      <h3 style="font-size:1.35rem;margin:8px 0">Does this deal pencil?</h3>
+      <p class="lead" style="font-size:.82rem">Purchase price plus rehab against live value and rent data - the classic screens investors run, in ten seconds.</p>
+      <div class="field" style="margin-top:12px"><label>Property address</label><input id="i_addr" placeholder="123 Main St, Brentwood, NY 11717"></div>
+      <div class="field"><label>Your purchase price ($)</label><input id="i_price" type="number" placeholder="350000"></div>
+      <div class="field"><label>Rehab budget ($)</label><input id="i_rehab" type="number" placeholder="60000"></div>
+      <button class="btn" style="width:100%" onclick="investRun()">Run the numbers</button>
+      <div id="invOut" style="font-size:.95rem;color:var(--paper-dim)"></div>
+      <div class="disclaimer">Quick screen only. The value estimate is the AS-IS automated value, not a true after-repair value - real ARV and rehab pricing take a walkthrough. Not financial advice.</div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:26px">
+    <div class="card"><div class="mono">OFF-MARKET ACCESS</div><h3 style="font-size:1.15rem;margin:8px 0">Deals before they hit Zillow</h3><p class="lead" style="font-size:.85rem">25+ private transactions mean a network of sellers, investors, and wholesalers most agents do not have.</p></div>
+    <div class="card"><div class="mono">CONTRACTOR EYES</div><h3 style="font-size:1.15rem;margin:8px 0">Know what it really needs</h3><p class="lead" style="font-size:.85rem">I walk every house as a licensed contractor - you will know repair costs before you offer, not after.</p></div>
+    <div class="card"><div class="mono">ANYWHERE IN NY</div><h3 style="font-size:1.15rem;margin:8px 0">Montauk to Manhattan to upstate</h3><p class="lead" style="font-size:.85rem">Licensed across New York State, with cross-MLS experience wherever the right house is.</p></div>
+  </div>
 </section>
 </div>
-
-<!-- ============ QUIZ ============ -->
-<div class="page" id="quiz">
+  <!-- ============ QUIZ ============ --><div class="page" id="quiz">
 <section class="wrap">
-  <div class="eyebrow"><span class="mono">60-Second Quiz</span></div>
-  <h2>Which path fits you?</h2>
-  <p class="lead">Four quick taps. Get the strategy most sellers in your spot choose - then we pressure-test it together, free.</p>
-  <div id="quizBody" style="margin-top:26px;max-width:640px"></div>
-</section>
+  <div class="eyebrow"><span class="mono">60-Second Quiz</span></div>
+  <h2>Which path fits you?</h2>
+  <p class="lead">Four quick taps. Get the strategy most sellers in your spot choose — then we pressure-test it together, free.</p>
+  <div id="quizBody" style="margin-top:26px;max-width:640px"></div>
+</section> 
 </div>
-
-<footer class="wrap">
-  <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px">
-    <div>
-      <div class="brand">Sean Casaccio <small>Realtor · Builder · Long Island</small></div>
-      <p style="max-width:40ch;margin-top:10px">Licensed Real Estate Salesperson · PSA · SFR®<br>seancasaccio@margarrealty.com · (631) 316-7922</p>
-    </div>
-    <div style="font-size:.74rem;max-width:46ch">
-      Sean Casaccio, Licensed Real Estate Salesperson with Margar Realty, 330 Motor Parkway, Hauppauge, NY 11788. All home value estimates and renovation projections shown on this site are automated illustrations for general information only and are not appraisals, formal valuations, or offers to buy or sell. Equal Housing Opportunity.
-    </div>
-  </div>
+  <footer class="wrap">
+  <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px">
+    <div>
+      <div class="brand">Sean Casaccio <small>Realtor · Builder · Long Island</small></div>
+      <p style="max-width:40ch;margin-top:10px">Licensed Real Estate Salesperson · PSA · SFR®<br>seancasaccio@margarrealty.com · (631) 316-7922</p>
+    </div>
+    <div style="font-size:.74rem;max-width:46ch">
+      Sean Casaccio, Licensed Real Estate Salesperson with Margar Realty, 330 Motor Parkway, Hauppauge, NY 11788. All home value estimates and renovation projections shown on this site are automated illustrations for general information only and are not appraisals, formal valuations, or offers to buy or sell. Equal Housing Opportunity.
+    </div>
+  </div>
 </footer>
 
 <script>
 /* ================= DATA — edit these arrays to update the site ================= */
 let DEALS = [
-  {addr:"127 Camden Ave, St. James",     type:"distressed", lbl:"ESTATE SALE", list:655000, sale:742000, dom:22, note:"Estate sale, three heirs. My crew did the full cleanout plus prime & paint throughout. Sold $87K over ask."},
-  {addr:"27 Gloria Pl, Plainview",       type:"standard",   lbl:"ESTATE SALE", list:null,   sale:789000, dom:27, note:"Estate sale on a reverse-mortgage clock — a specialized, fast-track sale, in contract in under four weeks."},
-  {addr:"800 Tanglewood Rd, West Islip", type:"distressed", lbl:"DISTRESSED",  list:550000, sale:575000, dom:23, note:"Time-sensitive sale for a seller who needed speed. Cleanup by my crew, sharp marketing — $25K over ask, and the seller walked away with equity."},
-  {addr:"1921 Byrd Dr, East Meadow",     type:"standard",   lbl:"INVESTOR FLIP", list:635000, sale:650000, dom:36, note:"Investor fix & flip — renovated by my construction company, resold $15K over ask."}
+  {addr:"127 Cambon Ave, St. James",     type:"distressed", lbl:"ESTATE SALE", list:655000, sale:742000, dom:22, note:"Estate sale, three heirs. My crew did the full cleanout plus prime & paint throughout. Sold $87K over ask."},
+  {addr:"27 Gloria Pl, Plainview",       type:"standard",   lbl:"ESTATE SALE", list:null,   sale:789000, dom:27, note:"Estate sale on a reverse-mortgage clock — a specialized, fast-track sale, in contract in under four weeks."},
+  {addr:"800 Tanglewood Rd, West Islip", type:"distressed", lbl:"DISTRESSED",  list:550000, sale:575000, dom:23, note:"Time-sensitive sale for a seller who needed speed. Cleanup by my crew, sharp marketing — $25K over ask, and the seller walked away with equity."},
+  {addr:"1921 Byrd Dr, East Meadow",     type:"standard",   lbl:"INVESTOR FLIP", list:635000, sale:650000, dom:36, note:"Investor fix & flip — renovated by my construction company, resold $15K over ask."}
 ];
 
 const RENTALS = [
-  {addr:"71 Crescent St, Yaphank",          rent:1800, note:"Leased over asking, under 2 weeks"},
-  {addr:"71 Crescent St, Yaphank",          rent:1975, note:"Re-leased the following year — again over asking"},
-  {addr:"27 Tippin Dr, Huntington Station", rent:2850, note:"Leased over asking, under 2 weeks"}
+  {addr:"71 Crescent St, Yaphank",          rent:1800, note:"Leased over asking, under 2 weeks"},
+  {addr:"71 Crescent St, Yaphank",          rent:1975, note:"Re-leased the following year — again over asking"},
+  {addr:"27 Tippin Dr, Huntington Station", rent:2850, note:"Leased over asking, under 2 weeks"}
 ];
 
 const PENDING = [
-  {status:"IN CONTRACT · MY LISTING", addr:"71 Crescent St, Yaphank", note:"Listed at $650K — in contract at $700K, $50K over ask, in 12 days. Before listing, my crew ripped up the carpet, refinished the floors, power-washed everything, and handled the cleanout.", prog:70, metric:"+7.7% over list · 12 days"},
-  {status:"ACTIVE · BUYER SIDE", addr:"Upstate Purchase — Richford, NY area", note:"Representing a Long Island client on their upstate purchase — coordinating a cross-MLS deal between two boards on a linked timeline. Licensed across New York State, I handle deals well beyond the Island.", prog:55, metric:"Cross-MLS · Upstate NY"},
-  {status:"COMING SOON", addr:"Mount Sinai — details soon", note:"Preparing for market now. Check back shortly.", prog:20, metric:"Launching soon"},
-  {status:"COMING SOON", addr:"Hempstead — details soon", note:"Preparing for market now. Check back shortly.", prog:20, metric:"Launching soon"}
+  {status:"IN CONTRACT · MY LISTING", addr:"71 Crescent St, Yaphank", note:"Listed at $650K — in contract at $700K, $50K over ask, in 12 days. Before listing, my crew ripped up the carpet, refinished the floors, power-washed everything, and handled the cleanout.", prog:70, metric:"+7.7% over list · 12 days"},
+  {status:"ACTIVE · BUYER SIDE", addr:"Upstate Purchase — Richford, NY area", note:"Representing a Long Island client on their upstate purchase — coordinating a cross-MLS deal between two boards on a linked timeline. Licensed across New York State, I handle deals well beyond the Island.", prog:55, metric:"Cross-MLS · Upstate NY"},
+  {status:"COMING SOON", addr:"Mount Sinai — details soon", note:"Preparing for market now. Check back shortly.", prog:20, metric:"Launching soon"},
+  {status:"COMING SOON", addr:"Hempstead — details soon", note:"Preparing for market now. Check back shortly.", prog:20, metric:"Launching soon"}
 ];
 
 // Renovation value ranges (lo/hi = % of home value added).
 // REPLACE with your region's "Cost recouped %" from the Zonda Cost vs. Value
 // report (New York metro / Middle Atlantic column). lo = conservative, hi = strong market.
 const RENOS = [
-  {nm:"Minor kitchen remodel",  det:"Refresh, mid-grade &middot; $$$",   lo:.04, hi:.06, sel:false},
-  {nm:"Bathroom remodel",       det:"Waterproofed, my crew &middot; $$$",lo:.03, hi:.05, sel:false},
-  {nm:"Bathroom addition",      det:"Add a bath, not just redo one &middot; $$$$", lo:.05, hi:.07, sel:false},
-  {nm:"New flooring (LVP/tile)",det:"Throughout main level &middot; $$",lo:.02, hi:.03, sel:false},
-  {nm:"Replacement windows",    det:"Energy-efficient &middot; $$$",     lo:.02, hi:.03, sel:false},
-  {nm:"Roof replacement",       det:"Architectural shingle &middot; $$",lo:.03, hi:.04, sel:false},
-  {nm:"New siding",             det:"Vinyl / fiber-cement &middot; $$$", lo:.03, hi:.05, sel:false},
-  {nm:"Manufactured stone veneer", det:"Facade upgrade, top-3 ROI &middot; $$", lo:.035, hi:.05, sel:false},
-  {nm:"Steel entry door",       det:"Curb appeal, 2x cost recouped &middot; $", lo:.005, hi:.01, sel:false},
-  {nm:"Grand entrance (fiberglass)", det:"Statement front entry &middot; $$", lo:.01, hi:.02, sel:false},
-  {nm:"Deck addition",          det:"Outdoor living space &middot; $$$",lo:.025, hi:.04, sel:false},
-  {nm:"Backup generator",       det:"Storm-ready - an LI essential &middot; $$", lo:.015, hi:.025, sel:false},
-  {nm:"Fresh paint, full home", det:"Neutral, listing-ready &middot; $",lo:.01, hi:.03, sel:false},
-  {nm:"Finished basement",      det:"Adds livable sq ft &middot; $$$$",  lo:.05, hi:.07, sel:false},
-  {nm:"Concrete patio / landing",det:"Curb + outdoor appeal &middot; $$",lo:.02, hi:.04, sel:false},
-  {nm:"Accessory apartment",    det:"Permitted income unit &middot; $$$$", lo:.09, hi:.13, sel:false}
+  {nm:"Minor kitchen remodel",  det:"Refresh, mid-grade·$$$",   lo:.04, hi:.06, sel:false},
+  {nm:"Bathroom remodel",       det:"Waterproofed, my crew·$$$",lo:.03, hi:.05, sel:false},
+  {nm:"New flooring (LVP/tile)",det:"Throughout main level·$$",lo:.02, hi:.05, sel:false},
+  {nm:"Replacement windows",    det:"Energy-efficient·$$$",     lo:.02, hi:.03, sel:false},
+  {nm:"Roof replacement",       det:"Architectural shingle·$$",lo:.03, hi:.04, sel:false},
+  {nm:"New siding",             det:"Vinyl / stone veneer·$$$", lo:.03, hi:.05, sel:false},
+  {nm:"Deck addition",          det:"Outdoor living space·$$$", lo:.03, hi:.04, sel:false},
+  {nm:"Steel entry door",          det:"Curb appeal, 2x cost recouped·$",  lo:.005, hi:.01,  sel:false},
+  {nm:"Manufactured stone veneer", det:"Facade upgrade, top-3 ROI·$$",      lo:.035, hi:.05,  sel:false},
+  {nm:"Backup generator",          det:"Storm-ready — an LI essential·$$",  lo:.015, hi:.025, sel:false},
+  {nm:"Bathroom addition",         det:"Add a bath, not just redo one·$$$$",  lo:.05,  hi:.07,  sel:false},
+  {nm:"Grand entrance (fiberglass)", det:"Statement front entry·$$",        lo:.01,  hi:.02,  sel:false},
+  {nm:"Fresh paint, full home", det:"Neutral, listing-ready·$",lo:.01, hi:.03, sel:false},
+  {nm:"Finished basement",      det:"Adds livable sq ft·$$$$",   lo:.05, hi:.07, sel:false},
+  {nm:"Concrete patio / landing",det:"Curb + outdoor appeal·$$",lo:.02, hi:.04, sel:false},
+  {nm:"Accessory apartment",    det:"Permitted income unit·$$$$", lo:.09, hi:.13, sel:false}
 ];
 
 const STAGES = [
-  {nm:"Prep & pricing",     base:7,  desc:"Walkthrough, repairs, staging guidance, and a data-backed price. If we renovate first, this stretches."},
-  {nm:"Photos & launch",    base:4,  desc:"Professional media, MLS listing, and a coordinated marketing push across portals and social."},
-  {nm:"Showings & offers",  base:14, desc:"Open houses and private tours. In a hot market, offers can land in days; in a slow one, weeks."},
-  {nm:"Negotiate & accept", base:4,  desc:"Review offers, counter, and lock the best terms — not just the highest number."},
-  {nm:"Attorney & contract",base:7,  desc:"NY uses attorneys. Contracts drawn, reviewed, and signed by both sides."},
-  {nm:"Inspection & appraisal",base:14,desc:"Buyer inspects; lender appraises. We manage repair requests and any value gaps."},
-  {nm:"Mortgage commitment",base:21, desc:"Buyer's lender underwrites to a firm commitment. Often the longest single stretch."},
-  {nm:"Closing",            base:5,  desc:"Final walkthrough, title clears, keys change hands. Done."}
+  {nm:"Prep & pricing",     base:7,  desc:"Walkthrough, repairs, staging guidance, and a data-backed price. If we renovate first, this stretches."},
+  {nm:"Photos & launch",    base:4,  desc:"Professional media, MLS listing, and a coordinated marketing push across portals and social."},
+  {nm:"Showings & offers",  base:14, desc:"Open houses and private tours. In a hot market, offers can land in days; in a slow one, weeks."},
+  {nm:"Negotiate & accept", base:4,  desc:"Review offers, counter, and lock the best terms — not just the highest number."},
+  {nm:"Attorney & contract",base:7,  desc:"NY uses attorneys. Contracts drawn, reviewed, and signed by both sides."},
+  {nm:"Inspection & appraisal",base:14,desc:"Buyer inspects; lender appraises. We manage repair requests and any value gaps."},
+  {nm:"Mortgage commitment",base:21, desc:"Buyer's lender underwrites to a firm commitment. Often the longest single stretch."},
+  {nm:"Closing",            base:5,  desc:"Final walkthrough, title clears, keys change hands. Done."}
 ];
 
 const TEAM = [
-  {role:"Listing & Buyer Agent", who:"Sean — that's me", i:"S"},
-  {role:"Construction Crew",     who:"My in-house team", i:"GC"},
-  {role:"Mortgage Loan Officer", who:"Trusted lender partner", i:"$"},
-  {role:"Real Estate Attorney",  who:"NY closing counsel", i:"§"},
-  {role:"Estate Attorney",       who:"Estate & probate planning", i:"E"},
-  {role:"Home Inspector",        who:"Licensed inspector", i:"✓"},
-  {role:"Title & Settlement",    who:"Title company partner", i:"T"},
-  {role:"Investor Network",      who:"Cash buyers & wholesalers", i:"◆"}
+  {role:"Listing & Buyer Agent", who:"Sean — that's me", i:"S"},
+  {role:"Construction Crew",     who:"My in-house team", i:"GC"},
+  {role:"Mortgage Loan Officer", who:"Trusted lender partner", i:"$"},
+  {role:"Real Estate Attorney",  who:"NY closing counsel", i:"§"},
+  {role:"Estate Attorney",       who:"Estate & probate planning", i:"E"},
+  {role:"Home Inspector",        who:"Licensed inspector", i:"✓"},
+  {role:"Title & Settlement",    who:"Title company partner", i:"T"},
+  {role:"Investor Network",      who:"Cash buyers & wholesalers", i:"◆"}
 ];
 
 /* ================= NAV ================= */
 function go(id,btn){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('.navlinks button').forEach(b=>b.classList.remove('active'));
-  if(btn) btn.classList.add('active');
-  document.getElementById('nav').classList.remove('open');
-  window.scrollTo({top:0,behavior:'smooth'});
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.navlinks button').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  document.getElementById('nav').classList.remove('open');
+  window.scrollTo({top:0,behavior:'smooth'});
 }
-function navByPage(id){
-  const map={home:0,record:1,pending:2,value:3,reno:4,build:5,process:6,team:7,quiz:8,buyers:9};
-  return document.querySelectorAll('.navlinks button')[map[id]];
+function navByPage(id){  const map={home:0,record:1,pending:2,value:3,reno:4,build:5,process:6,team:7,quiz:8,buyers:9};
+  return document.querySelectorAll('.navlinks button')[map[id]];
 }
 
 /* ================= TRACK RECORD ================= */
 let seg='all';
 const fmt=n=>'$'+Math.round(n).toLocaleString();
 function setSeg(s,btn){
-  seg=s;
-  document.querySelectorAll('#recToggle button').forEach(b=>b.classList.remove('on','distressed'));
-  btn.classList.add('on'); if(s==='distressed') btn.classList.add('distressed');
-  renderRecord();
+  seg=s;
+  document.querySelectorAll('#recToggle button').forEach(b=>b.classList.remove('on','distressed'));
+  btn.classList.add('on'); if(s==='distressed') btn.classList.add('distressed');
+  renderRecord();
 }
 function subset(){ return seg==='all'?DEALS:DEALS.filter(d=>d.type===seg); }
 function renderRecord(){
-  const d=subset();
-  const n=d.length||1;
-  const withList=d.filter(x=>x.list);            // deals that have a list price
-  const wn=withList.length||1;
-  const avgDom=d.reduce((a,x)=>a+x.dom,0)/n;
-  const avgOver=withList.reduce((a,x)=>a+(x.sale-x.list)/x.list,0)/wn*100;
-  const overAsk=withList.filter(x=>x.sale>=x.list).length/wn*100;
-  const vol=d.reduce((a,x)=>a+x.sale,0);
-  document.getElementById('recStats').innerHTML=`
-    <div class="stat"><div class="v">30+</div><div class="k">Sales completed</div><div class="sub">MLS + OFF-MARKET</div></div>
-    <div class="stat"><div class="v">${avgDom.toFixed(0)}</div><div class="k">Avg days to contract (shown)</div><div class="sub">FAST</div></div>
-    <div class="stat"><div class="v">+${avgOver.toFixed(1)}%</div><div class="k">Avg over list (shown)</div><div class="sub">ABOVE ASK</div></div>
-    <div class="stat"><div class="v">Most</div><div class="k">Sales close over asking</div></div>
-    <div class="stat"><div class="v">25+</div><div class="k">Off-market &amp; private deals</div><div class="sub">PRIVATE</div></div>
-    <div class="stat"><div class="v">All</div><div class="k">Sale types handled</div><div class="sub">SEE BELOW</div></div>`;
-  const maxDom=Math.max(...DEALS.map(x=>x.dom));
-  document.getElementById('recDeals').innerHTML=d.map(x=>{
-    const cls=x.type==='distressed'?'dist':'over';
-    const lbl=x.lbl||(x.type==='distressed'?'DISTRESSED':'STANDARD');
-    const priceLine=x.list?`List ${fmt(x.list)} → Sold ${fmt(x.sale)}`:`Sold ${fmt(x.sale)}`;
-    const pct=x.list?((x.sale-x.list)/x.list*100):null;
-    return `<div class="deal">
-      <div><div class="addr">${x.addr}</div>
-        <div class="meta"><span class="chip ${cls}">${lbl}</span> &nbsp; ${priceLine}</div>
-        ${x.note?`<div class="note">${x.note}</div>`:''}
-        <div class="bar"><i style="width:${100-(x.dom/maxDom*70)}%"></i></div>
-      </div>
-      <div class="perf"><div class="pct">${pct!==null?(pct>=0?'+':'')+pct.toFixed(1)+'%':'—'}</div><div class="dom">${x.dom} days</div></div>
-    </div>`;
-  }).join('');
-  renderHomeStats();
+  const d=subset();
+  const n=d.length||1;
+  const withList=d.filter(x=>x.list);            // deals that have a list price
+  const wn=withList.length||1;
+  const avgDom=d.reduce((a,x)=>a+x.dom,0)/n;
+  const avgOver=withList.reduce((a,x)=>a+(x.sale-x.list)/x.list,0)/wn*100;
+  const overAsk=withList.filter(x=>x.sale>=x.list).length/wn*100;
+  const vol=d.reduce((a,x)=>a+x.sale,0);
+  document.getElementById('recStats').innerHTML=`
+    <div class="stat"><div class="v">30+</div><div class="k">Sales completed</div><div class="sub">MLS + OFF-MARKET</div></div>
+    <div class="stat"><div class="v">${avgDom.toFixed(0)}</div><div class="k">Avg days to contract (shown)</div><div class="sub">FAST</div></div>
+    <div class="stat"><div class="v">+${avgOver.toFixed(1)}%</div><div class="k">Avg over list (shown)</div><div class="sub">ABOVE ASK</div></div>
+    <div class="stat"><div class="v">Most</div><div class="k">Sales close over asking</div></div>
+    <div class="stat"><div class="v">25+</div><div class="k">Off-market &amp; private deals</div><div class="sub">PRIVATE</div></div>
+    <div class="stat"><div class="v">All</div><div class="k">Sale types handled</div><div class="sub">SEE BELOW</div></div>`;
+  const maxDom=Math.max(...DEALS.map(x=>x.dom));
+  document.getElementById('recDeals').innerHTML=d.map(x=>{
+    const cls=x.type==='distressed'?'dist':'over';
+    const lbl=x.lbl||(x.type==='distressed'?'DISTRESSED':'STANDARD');
+    const priceLine=x.list?`List ${fmt(x.list)} → Sold ${fmt(x.sale)}`:`Sold ${fmt(x.sale)}`;
+    const pct=x.list?((x.sale-x.list)/x.list*100):null;
+    return `<div class="deal">
+      <div><div class="addr">${x.addr}</div>
+        <div class="meta"><span class="chip ${cls}">${lbl}</span> &nbsp; ${priceLine}</div>
+        ${x.note?`<div class="note">${x.note}</div>`:''}
+        <div class="bar"><i style="width:${100-(x.dom/maxDom*70)}%"></i></div>
+      </div>
+      <div class="perf"><div class="pct">${pct!==null?(pct>=0?'+':'')+pct.toFixed(1)+'%':'—'}</div><div class="dom">${x.dom} days</div></div>
+    </div>`;
+  }).join('');
+  renderHomeStats();
 }
 function renderHomeStats(){
-  const n=DEALS.length;
-  const withList=DEALS.filter(x=>x.list);
-  const wn=withList.length||1;
-  const avgDom=DEALS.reduce((a,x)=>a+x.dom,0)/n;
-  const avgOver=withList.reduce((a,x)=>a+(x.sale-x.list)/x.list,0)/wn*100;
-  const overAsk=withList.filter(x=>x.sale>=x.list).length/wn*100;
-  document.getElementById('homeStats').innerHTML=`
-    <div><div class="big">30+</div><div class="lbl">Sales completed — MLS &amp; off-market, growing every month</div></div>
-    <div><div class="big">${avgDom.toFixed(0)} days</div><div class="lbl">Avg to contract (featured sales)</div></div>
-    <div><div class="big">+${avgOver.toFixed(1)}%</div><div class="lbl">Over list price (featured sales)</div></div>
-    <div><div class="big">Most</div><div class="lbl">Sales close over asking</div></div>`;
+  const n=DEALS.length;
+  const withList=DEALS.filter(x=>x.list);
+  const wn=withList.length||1;
+  const avgDom=DEALS.reduce((a,x)=>a+x.dom,0)/n;
+  const avgOver=withList.reduce((a,x)=>a+(x.sale-x.list)/x.list,0)/wn*100;
+  const overAsk=withList.filter(x=>x.sale>=x.list).length/wn*100;
+  document.getElementById('homeStats').innerHTML=`
+    <div><div class="big">30+</div><div class="lbl">Sales completed — MLS &amp; off-market, growing every month</div></div>
+    <div><div class="big">${avgDom.toFixed(0)} days</div><div class="lbl">Avg to contract (featured sales)</div></div>
+    <div><div class="big">+${avgOver.toFixed(1)}%</div><div class="lbl">Over list price (featured sales)</div></div>
+    <div><div class="big">Most</div><div class="lbl">Sales close over asking</div></div>`;
 }
 
 /* ================= RENTALS ================= */
 document.getElementById('rentalList').innerHTML=RENTALS.map(r=>`
-  <div style="padding:10px 0;border-bottom:1px solid var(--line)">
-    <div style="font-family:var(--display);font-size:1rem">${r.addr}</div>
-    <div style="font-size:.8rem;color:var(--paper-dim)"><span class="mono" style="color:var(--sage)">$${r.rent.toLocaleString()}/mo</span> — ${r.note}</div>
-  </div>`).join('');
+  <div style="padding:10px 0;border-bottom:1px solid var(--line)">
+    <div style="font-family:var(--display);font-size:1rem">${r.addr}</div>
+    <div style="font-size:.8rem;color:var(--paper-dim)"><span class="mono" style="color:var(--sage)">$${r.rent.toLocaleString()}/mo</span> — ${r.note}</div>
+  </div>`).join('');
 
 /* ================= PENDING ================= */
 document.getElementById('pendList').innerHTML=PENDING.map(p=>`
-  <div class="card"><div class="status">${p.status}</div>
-    <h3 style="font-size:1.25rem;margin-bottom:8px">${p.addr}</h3>
-    <p class="lead" style="font-size:.88rem">${p.note}</p>
-    <div class="bar" style="margin-top:14px"><i style="width:${p.prog}%"></i></div>
-    <div class="mono" style="margin-top:8px;color:var(--sage)">${p.metric}</div>
-  </div>`).join('');
+  <div class="card"><div class="status">${p.status}</div>
+    <h3 style="font-size:1.25rem;margin-bottom:8px">${p.addr}</h3>
+    <p class="lead" style="font-size:.88rem">${p.note}</p>
+    <div class="bar" style="margin-top:14px"><i style="width:${p.prog}%"></i></div>
+    <div class="mono" style="margin-top:8px;color:var(--sage)">${p.metric}</div>
+  </div>`).join('');
 
 /* ================= VALUATION ================= */
-let LAST_AVM = null; // stores the last live AVM result (incl. comps) for the AI write-up
+let LAST_AVM = null;
 
 function showVal(val,lo,hi,conf,live){
-  document.getElementById('valOut').innerHTML=`
-    <div class="mono">${live?'Live AVM market value':'Estimated market value'}</div>
-    <div class="price">${fmt(val)}</div>
-    <div class="range">Likely range ${fmt(lo)} – ${fmt(hi)}</div>
-    <div style="text-align:left;margin-top:18px"><div class="mono" style="color:var(--paper-dim)">Confidence</div>
-    <div class="meter"><i style="width:${conf}%"></i></div>
-    <div class="mono" style="text-align:right;color:var(--sage)">${conf}%</div></div>
-    ${live?`<button class="btn" style="width:100%;margin-top:10px" onclick="narrate()">✨ Get my AI market analysis</button>
-    <div id="aiOut" style="text-align:left;font-size:.9rem;color:var(--paper-dim);margin-top:12px"></div>`:''}
-    <button class="btn ghost" style="width:100%;margin-top:10px" onclick="sendToReno(${Math.round(val)})">See renovation upside →</button>`;
+  document.getElementById('valOut').innerHTML=`
+    <div class="mono">${live?'Live AVM market value':'Estimated market value'}</div>
+    <div class="price">${fmt(val)}</div>
+    <div class="range">Likely range ${fmt(lo)} - ${fmt(hi)}</div>
+    <div style="text-align:left;margin-top:18px"><div class="mono" style="color:var(--paper-dim)">Confidence</div>
+    <div class="meter"><i style="width:${conf}%"></i></div>
+    <div class="mono" style="text-align:right;color:var(--sage)">${conf}%</div></div>
+    ${live?`<button class="btn" style="width:100%;margin-top:10px" onclick="narrate()">Get my AI market analysis</button>
+    <div id="aiOut" style="text-align:left;font-size:.9rem;color:var(--paper-dim);margin-top:12px"></div>`:''}
+    <button class="btn ghost" style="width:100%;margin-top:10px" onclick="sendToReno(${Math.round(val)})">See renovation upside</button>`;
 }
 
 async function estimate(){
-  const addr=document.getElementById('v_addr').value.trim();
-  // STEP 1 — live AVM via your backend (/api/value with your RentCast key)
-  if(addr){
-    try{
-      const r=await fetch('/api/value?address='+encodeURIComponent(addr));
-      if(r.ok){
-        const d=await r.json();
-        if(d && d.price){
-          LAST_AVM={address:addr, ...d};
-          showVal(d.price, d.priceRangeLow||d.price*0.95, d.priceRangeHigh||d.price*1.05, 90, true);
-          return;
-        }
-      }
-    }catch(e){ /* no backend / address not found — fall through */ }
-  }
-  // STEP 2 — built-in fallback estimator
-  const sqft=+document.getElementById('v_sqft').value;
-  const bed=+document.getElementById('v_bed').value||3;
-  const bath=+document.getElementById('v_bath').value||2;
-  const cond=+document.getElementById('v_cond').value;
-  const year=+document.getElementById('v_year').value||1980;
-  if(!sqft){ alert('Enter an address for a live lookup, or square footage for a quick estimate.'); return; }
-  let ppsf=265;
-  let val=sqft*ppsf*cond;
-  val += (bed-3)*9000 + (bath-2)*12000;
-  val *= (year>2000?1.05:year>1980?1:0.95);
-  let conf=72; if(sqft&&bed&&bath) conf+=10; if(year) conf+=6; conf=Math.min(conf,92);
-  showVal(val, val*0.93, val*1.07, conf, false);
+  const addr=document.getElementById('v_addr').value.trim();
+  if(addr){
+    try{
+      const r=await fetch('/api/value?address='+encodeURIComponent(addr));
+      if(r.ok){
+        const d=await r.json();
+        if(d && d.price){
+          LAST_AVM={address:addr, ...d};
+          showVal(d.price, d.priceRangeLow||d.price*0.95, d.priceRangeHigh||d.price*1.05, 90, true);
+          return;
+        }
+      }
+    }catch(e){}
+  }
+  const sqft=+document.getElementById('v_sqft').value;
+  const bed=+document.getElementById('v_bed').value||3;
+  const bath=+document.getElementById('v_bath').value||2;
+  const cond=+document.getElementById('v_cond').value;
+  const year=+document.getElementById('v_year').value||1980;
+  if(!sqft){ alert('Enter an address for a live lookup, or square footage for a quick estimate.'); return; }
+  let ppsf=265;
+  let val=sqft*ppsf*cond;
+  val += (bed-3)*9000 + (bath-2)*12000;
+  val *= (year>2000?1.05:year>1980?1:0.95);
+  let conf=72; if(sqft&&bed&&bath) conf+=10; if(year) conf+=6; conf=Math.min(conf,92);
+  showVal(val, val*0.93, val*1.07, conf, false);
 }
 
 async function narrate(){
-  const out=document.getElementById('aiOut');
-  if(!LAST_AVM){ out.textContent='Run a live address lookup first.'; return; }
-  out.innerHTML='<span class="mono">Analyzing nearby sales…</span>';
-  try{
-    const r=await fetch('/api/narrative',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify(LAST_AVM)
-    });
-    const d=await r.json();
-    out.innerHTML=d.narrative
-      ? `<div style="border-left:2px solid var(--brass);padding-left:12px;margin-top:6px">${d.narrative}</div>`
-      : 'Analysis unavailable right now — but the estimate above stands.';
-  }catch(e){
-    out.textContent='Analysis unavailable right now — but the estimate above stands.';
-  }
+  const out=document.getElementById('aiOut');
+  if(!LAST_AVM){ out.textContent='Run a live address lookup first.'; return; }
+  out.innerHTML='<span class="mono">Analyzing nearby sales...</span>';
+  try{
+    const r=await fetch('/api/narrative',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(LAST_AVM)});
+    const d=await r.json();
+    out.innerHTML=d.narrative?'<div style="border-left:2px solid var(--brass);padding-left:12px;margin-top:6px">'+d.narrative+'</div>':'Analysis unavailable right now - but the estimate above stands.';
+  }catch(e){
+    out.textContent='Analysis unavailable right now - but the estimate above stands.';
+  }
 }
 
 function sendToReno(v){
-  document.getElementById('r_base').value=v;
-  go('reno',navByPage('reno')); renoCalc();
+  document.getElementById('r_base').value=v;
+  go('reno',navByPage('reno')); renoCalc();
 }
 
-/* ================= RENO ================= */
+async function advisorRun(){
+  const out=document.getElementById('advOut');
+  const addr=document.getElementById('a_addr').value.trim();
+  if(!addr){alert('Enter the property address.');return;}
+  out.innerHTML='<span class="mono">Pulling sale value and rent estimate...</span>';
+  try{
+    const r=await fetch('/api/advisor',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({address:addr,mortgageBalance:+document.getElementById('a_mort').value||null,
+        timeline:document.getElementById('a_time').value,goal:document.getElementById('a_goal').value})});
+    const d=await r.json();
+    if(!d.analysis){out.textContent='No data available for that address - try the full street address with town and ZIP.';return;}
+    out.innerHTML='<div style="margin-top:12px;font-size:.88rem"><span class="mono" style="color:var(--brass-2)">Sale value '+fmt(d.value)+'</span>'+(d.rent?' &middot; <span class="mono" style="color:var(--sage)">Rents ~'+fmt(d.rent)+'/mo</span>':'')+'</div>'+
+      '<div style="border-left:2px solid var(--brass);padding-left:12px;margin-top:8px">'+d.analysis+'</div>';
+  }catch(e){out.textContent='Advisor unavailable right now.';}
+}
+  /* ================= RENO ================= */
 function renderReno(){
-  document.getElementById('renoItems').innerHTML=RENOS.map((r,i)=>`
-    <div class="reno-item ${r.sel?'sel':''}" onclick="toggleReno(${i})">
-      <div style="display:flex;align-items:center;gap:14px">
-        <div class="box-check">✓</div>
-        <div><div class="nm">${r.nm} <span class="mono" style="color:var(--brass);font-size:.6rem;margin-left:6px">${r.tier||''}</span></div><div class="det">${r.det}</div></div>
-      </div>
-      <div class="impact">+${(r.lo*100).toFixed(0)}–${(r.hi*100).toFixed(0)}%</div>
-    </div>`).join('');
+  document.getElementById('renoItems').innerHTML=RENOS.map((r,i)=>`
+    <div class="reno-item ${r.sel?'sel':''}" onclick="toggleReno(${i})">
+      <div style="display:flex;align-items:center;gap:14px">
+        <div class="box-check">✓</div>
+        <div><div class="nm">${r.nm}</div><div class="det">${r.det}</div></div>
+      </div>
+      <div class="impact">+${(r.lo*100).toFixed(0)}–${(r.hi*100).toFixed(0)}%</div>
+    </div>`).join('');
 }
 function toggleReno(i){ RENOS[i].sel=!RENOS[i].sel; renderReno(); renoCalc(); }
 const CONSULT_EMAIL = "seancasaccio@margarrealty.com";
 function consult(){
-  const picked=RENOS.filter(r=>r.sel).map(r=>'• '+r.nm).join('%0D%0A')||'(none selected yet)';
-  const base=document.getElementById('r_base').value||'';
-  const subj=encodeURIComponent('Renovation consult request');
-  const body=`Hi Sean,%0D%0A%0D%0AI used your renovation calculator and want to talk through these:%0D%0A${picked}%0D%0A%0D%0AEstimated current value: $${base}%0D%0A%0D%0AMy address / best number:`;
-  window.location.href=`mailto:${CONSULT_EMAIL}?subject=${subj}&body=${body}`;
+  const picked=RENOS.filter(r=>r.sel).map(r=>'• '+r.nm).join('%0D%0A')||'(none selected yet)';
+  const base=document.getElementById('r_base').value||'';
+  const subj=encodeURIComponent('Renovation consult request');
+  const body=`Hi Sean,%0D%0A%0D%0AI used your renovation calculator and want to talk through these:%0D%0A${picked}%0D%0A%0D%0AEstimated current value: $${base}%0D%0A%0D%0AMy address / best number:`;
+  window.location.href=`mailto:${CONSULT_EMAIL}?subject=${subj}&body=${body}`;
 }
 function renoCalc(){
-  const base=+document.getElementById('r_base').value||500000;
-  let lo=0,hi=0;
-  RENOS.forEach(r=>{ if(r.sel){ lo+=r.lo; hi+=r.hi; } });
-  const mid=(lo+hi)/2;
-  const newVal=base*(1+mid);
-  document.getElementById('r_new').textContent=fmt(newVal);
-  document.getElementById('r_range').textContent=`Estimated lift: ${fmt(base*lo)} – ${fmt(base*hi)}`;
-  document.getElementById('r_meter').style.width=Math.min(mid*100*3.3,100)+'%';
-  document.getElementById('r_roi').textContent=mid>0?`+${(mid*100).toFixed(1)}% projected value`:'Select upgrades to begin';
-  document.getElementById('r_asis').textContent=fmt(base);
-  document.getElementById('r_after').textContent=fmt(newVal);
+  const base=+document.getElementById('r_base').value||500000;
+  let lo=0,hi=0;
+  RENOS.forEach(r=>{ if(r.sel){ lo+=r.lo; hi+=r.hi; } });
+  const mid=(lo+hi)/2;
+  const newVal=base*(1+mid);
+  document.getElementById('r_new').textContent=fmt(newVal);
+  document.getElementById('r_range').textContent=`Estimated lift: ${fmt(base*lo)} – ${fmt(base*hi)}`;
+  document.getElementById('r_meter').style.width=Math.min(mid*100*3.3,100)+'%';
+  document.getElementById('r_roi').textContent=mid>0?`+${(mid*100).toFixed(1)}% projected value`:'Select upgrades to begin';
+  document.getElementById('r_asis').textContent=fmt(base);
+  document.getElementById('r_after').textContent=fmt(newVal);
 }
-
+async function renoAdvice(){
+  const out=document.getElementById('renoAI');
+  const picked=RENOS.filter(r=>r.sel).map(r=>({name:r.nm,addsLow:r.lo,addsHigh:r.hi}));
+  if(!picked.length){out.textContent='Select at least one project first.';return;}
+  out.innerHTML='<span class="mono">Building your strategy...</span>';
+  try{
+    const r=await fetch('/api/reno-advice',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({baseValue:+document.getElementById('r_base').value||500000,projects:picked})});
+    const d=await r.json();
+    out.innerHTML=d.advice?'<div style="border-left:2px solid var(--brass);padding-left:12px">'+d.advice+'</div>':'Strategy unavailable right now.';
+  }catch(e){out.textContent='Strategy unavailable right now.';}
+}
+async function investRun(){
+  const out=document.getElementById('invOut');
+  const addr=document.getElementById('i_addr').value.trim();
+  const price=+document.getElementById('i_price').value;
+  if(!addr||!price){alert('Enter the address and your purchase price.');return;}
+  out.innerHTML='<span class="mono">Underwriting...</span>';
+  try{
+    const r=await fetch('/api/invest',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({address:addr,purchasePrice:price,rehabBudget:+document.getElementById('i_rehab').value||0})});
+    const d=await r.json();
+    if(!d.analysis){out.textContent='No data for that address - try the full address with town and ZIP.';return;}
+    out.innerHTML='<div style="margin-top:12px;font-size:.88rem"><span class="mono" style="color:var(--brass-2)">Value est '+fmt(d.arv)+'</span> &middot; <span class="mono">70%-rule max offer '+fmt(d.mao)+'</span>'+(d.grossCap?' &middot; <span class="mono" style="color:var(--sage)">'+d.grossCap+'% gross cap</span>':'')+'</div>'+
+      '<div style="border-left:2px solid var(--brass);padding-left:12px;margin-top:8px">'+d.analysis+'</div>';
+  }catch(e){out.textContent='Underwriter unavailable right now.';}
+}
 /* ================= TIMELINE ================= */
 function renderTimeline(){
-  const m=+document.getElementById('mkt').value;
-  const factor=[1.35,1,0.7][m];
-  let total=0;
-  document.getElementById('timeline').innerHTML=STAGES.map((s,i)=>{
-    const d=Math.round(s.base*factor); total+=d;
-    return `<div class="tl-stage ${i===0?'open':''}" onclick="this.classList.toggle('open')">
-      <div class="tl-dot"><div class="d"></div><div class="ln"></div></div>
-      <div class="tl-body"><h4>${s.nm}</h4><div class="dur">~ ${d} day${d>1?'s':''}</div>
-        <div class="desc">${s.desc}</div></div>
-    </div>`;
-  }).join('');
-  const wk=(total/7).toFixed(0);
-  document.getElementById('tlTotal').textContent=`≈ ${total} days (${wk} wks)`;
+  const m=+document.getElementById('mkt').value;
+  const factor=[1.35,1,0.7][m];
+  let total=0;
+  document.getElementById('timeline').innerHTML=STAGES.map((s,i)=>{
+    const d=Math.round(s.base*factor); total+=d;
+    return `<div class="tl-stage ${i===0?'open':''}" onclick="this.classList.toggle('open')">
+      <div class="tl-dot"><div class="d"></div><div class="ln"></div></div>
+      <div class="tl-body"><h4>${s.nm}</h4><div class="dur">~ ${d} day${d>1?'s':''}</div>
+        <div class="desc">${s.desc}</div></div>
+    </div>`;
+  }).join('');
+  const wk=(total/7).toFixed(0);
+  document.getElementById('tlTotal').textContent=`≈ ${total} days (${wk} wks)`;
 }
 
 /* ================= TEAM ================= */
 document.getElementById('teamGrid').innerHTML=TEAM.map(t=>`
-  <div class="member"><div class="av">${t.i}</div><div class="role">${t.role}</div><div class="who">${t.who}</div></div>`).join('');
-
-
-/* ================= ADVISOR ================= */
-async function advisorRun(){
-  const out=document.getElementById('advOut');
-  const addr=document.getElementById('a_addr').value.trim();
-  if(!addr){alert('Enter the property address.');return;}
-  out.innerHTML='<span class="mono">Pulling sale value and rent estimate...</span>';
-  try{
-    const r=await fetch('/api/advisor',{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({address:addr,mortgageBalance:+document.getElementById('a_mort').value||null,
-        timeline:document.getElementById('a_time').value,goal:document.getElementById('a_goal').value})});
-    const d=await r.json();
-    if(!d.analysis){out.textContent='No data available for that address - try the full street address with town and ZIP.';return;}
-    out.innerHTML='<div style="margin-top:12px;font-size:.88rem"><span class="mono" style="color:var(--brass-2)">Sale value '+fmt(d.value)+'</span>'+(d.rent?' &middot; <span class="mono" style="color:var(--sage)">Rents ~'+fmt(d.rent)+'/mo</span>':'')+'</div>'+
-      '<div style="border-left:2px solid var(--brass);padding-left:12px;margin-top:8px">'+d.analysis+'</div>';
-  }catch(e){out.textContent='Advisor unavailable right now.';}
-}
-
-/* ================= RENO AI ================= */
-async function renoAdvice(){
-  const out=document.getElementById('renoAI');
-  const picked=RENOS.filter(r=>r.sel).map(r=>({name:r.nm,addsLow:r.lo,addsHigh:r.hi}));
-  if(!picked.length){out.textContent='Select at least one project first.';return;}
-  out.innerHTML='<span class="mono">Building your strategy...</span>';
-  try{
-    const r=await fetch('/api/reno-advice',{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({baseValue:+document.getElementById('r_base').value||500000,projects:picked})});
-    const d=await r.json();
-    out.innerHTML=d.advice?'<div style="border-left:2px solid var(--brass);padding-left:12px">'+d.advice+'</div>':'Strategy unavailable right now.';
-  }catch(e){out.textContent='Strategy unavailable right now.';}
-}
-
-/* ================= OFFER ANALYZER ================= */
-async function offerCalc(){
-  const list=+document.getElementById('o_list').value;
-  const dom=+document.getElementById('o_dom').value||0;
-  const comp=+document.getElementById('o_comp').value;
-  const views=+document.getElementById('o_views').value||0;
-  const saves=+document.getElementById('o_saves').value||0;
-  const zip=(document.getElementById('o_zip').value||'').trim();
-  const out=document.getElementById('offerOut');
-  if(!list){alert('Enter the list price.');return;}
-  out.innerHTML='<span class="mono">Reading the market...</span>';
-  let adj=0, notes=[], marketLine='';
-  if(/^[0-9]{5}$/.test(zip)){
-    try{
-      const r=await fetch('/api/market?zip='+zip);
-      if(r.ok){
-        const m=await r.json();
-        if(m.averageDaysOnMarket){
-          const mdom=Math.round(m.averageDaysOnMarket);
-          if(mdom<=35){adj+=3; marketLine='<span class="chip over" style="margin-right:8px">SELLER\'S MARKET</span>Homes in '+zip+' average just '+mdom+' days on market - a fast, competitive market where strong offers win.';}
-          else if(mdom>=65){adj-=3; marketLine='<span class="chip dist" style="margin-right:8px">BUYER\'S MARKET</span>Homes in '+zip+' average '+mdom+' days on market - slower conditions give you real leverage.';}
-          else{marketLine='<span class="chip" style="background:rgba(203,163,92,.16);color:var(--brass-2);margin-right:8px">BALANCED MARKET</span>Homes in '+zip+' average '+mdom+' days on market - a fairly even playing field.';}
-          if(m.medianPrice){marketLine+=' Median sale price: '+fmt(m.medianPrice)+'.';}
-        }
-      }
-    }catch(e){}
-    if(!marketLine){marketLine='<span class="mono">No live data for ZIP '+zip+' - using your inputs only.</span>';}
-  }
-  if(comp===2){adj+=4; notes.push("multiple offers usually means bidding above list");}
-  if(comp===0){adj-=3; notes.push("a quiet listing gives you negotiating room");}
-  if(dom>0&&dom<=10){adj+=2; notes.push("fresh listings carry momentum");}
-  if(dom>=45){adj-=4; notes.push(dom+" days on market shifts leverage to you");}
-  if(dom>10&&dom<45){notes.push("normal market time - terms may matter more than price");}
-  if(views&&dom){
-    const vpd=views/Math.max(dom,1);
-    if(vpd>=60){adj+=2; notes.push(Math.round(vpd)+" views per day is heavy traffic - buyers are circling");}
-    else if(vpd<10){adj-=1; notes.push("light view traffic suggests limited competition");}
-  }
-  if(saves){
-    const sr=views?saves/views*100:0;
-    if(saves>=30||sr>=4){adj+=2; notes.push(saves+" saves signals serious buyers watching this one");}
-    else if(saves<8&&dom>14){adj-=1; notes.push("low save count after two weeks favors a sharper offer");}
-  }
-  const lo=list*(1+(adj-1)/100), hi=list*(1+(adj+2)/100);
-  out.innerHTML=
-    (marketLine?'<div style="margin-top:14px;font-size:.9rem">'+marketLine+'</div>':'')+
-    '<div style="border-left:2px solid var(--brass);padding-left:12px;margin-top:12px">'+
-    'Suggested range: <span class="mono" style="color:var(--brass-2)">'+fmt(lo)+' - '+fmt(hi)+'</span><br>'+
-    'Because '+notes.join('; ')+'. Strong terms (flexible closing, solid pre-approval, smart contingencies) can beat a higher number - that is where strategy wins.</div>';
-}
-
-/* ================= INVESTOR ================= */
-async function investRun(){
-  const out=document.getElementById('invOut');
-  const addr=document.getElementById('i_addr').value.trim();
-  const price=+document.getElementById('i_price').value;
-  if(!addr||!price){alert('Enter the address and your purchase price.');return;}
-  out.innerHTML='<span class="mono">Underwriting...</span>';
-  try{
-    const r=await fetch('/api/invest',{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({address:addr,purchasePrice:price,rehabBudget:+document.getElementById('i_rehab').value||0})});
-    const d=await r.json();
-    if(!d.analysis){out.textContent='No data for that address - try the full address with town and ZIP.';return;}
-    out.innerHTML='<div style="margin-top:12px;font-size:.88rem"><span class="mono" style="color:var(--brass-2)">Value est '+fmt(d.arv)+'</span> &middot; <span class="mono">70%-rule max offer '+fmt(d.mao)+'</span>'+(d.grossCap?' &middot; <span class="mono" style="color:var(--sage)">'+d.grossCap+'% gross cap</span>':'')+'</div>'+
-      '<div style="border-left:2px solid var(--brass);padding-left:12px;margin-top:8px">'+d.analysis+'</div>';
-  }catch(e){out.textContent='Underwriter unavailable right now.';}
-}
-
-/* ================= MARKET PULSE ================= */
-async function pulseLoad(zip,label){
-  const out=document.getElementById('pulseBody');
-  out.innerHTML='<span class="mono">Checking '+label+'&hellip;</span>';
-  try{
-    const r=await fetch('/api/market?zip='+zip);
-    if(!r.ok){ out.textContent='No market data available for that ZIP yet.'; return; }
-    const d=await r.json();
-    if(!d.medianPrice){ out.textContent='No market data available for that ZIP yet.'; return; }
-    out.innerHTML='<span class="mono" style="color:var(--brass)">'+label+'</span> &mdash; '+
-      'Median sale price <span class="mono" style="color:var(--brass-2)">'+fmt(d.medianPrice)+'</span>'+
-      (d.averageDaysOnMarket?' &middot; Avg <span class="mono" style="color:var(--sage)">'+Math.round(d.averageDaysOnMarket)+' days</span> on market':'')+
-      (d.totalListings?' &middot; '+d.totalListings+' active listings':'');
-  }catch(e){ out.textContent='Market data is taking a break - try again in a minute.'; }
-}
-function pulseCheck(){
-  const zip=(document.getElementById('pulseZip').value||'').trim();
-  if(!/^[0-9]{5}$/.test(zip)){ document.getElementById('pulseBody').textContent='Enter a 5-digit ZIP code.'; return; }
-  pulseLoad(zip,'ZIP '+zip);
-}
-pulseLoad('11980','Yaphank');
+  <div class="member"><div class="av">${t.i}</div><div class="role">${t.role}</div><div class="who">${t.who}</div></div>`).join('');
 
 /* ================= QUIZ ================= */
 const QUIZ=[
@@ -891,39 +797,108 @@ const QUIZ=[
 ];
 let QA=[];let QUIZ_PATH='';
 function quizRender(){
-  const i=QA.length;
-  const el=document.getElementById('quizBody');
-  if(!el) return;
-  if(i<QUIZ.length){
-    el.innerHTML='<div class="card"><div class="mono">Question '+(i+1)+' of '+QUIZ.length+'</div>'+
-      '<h3 style="font-size:1.4rem;margin:10px 0">'+QUIZ[i].q+'</h3>'+
-      QUIZ[i].a.map(function(t,j){return '<button class="btn ghost" style="width:100%;margin-top:8px;text-align:left" onclick="quizPick('+j+')">'+t+'</button>';}).join('')+
-      (i>0?'<button class="btn ghost" style="margin-top:14px;font-size:.8rem" onclick="QA.pop();quizRender()">Back</button>':'')+
-      '</div>';
-    return;
-  }
-  const speed=QA[0],shape=QA[1],goal=QA[2],budget=QA[3];
-  let path,why;
-  if(goal===2){path="Renovate & Hold";why="You want monthly income - we model rent and short-term-rental numbers before spending a dollar, then my crew does only the work that boosts rentability.";}
-  else if(speed===0||budget===0){path="Sell As-Is";why="Speed and zero out-of-pocket point one way: price it sharp, market hard, and let competition do the lifting. My distressed and estate-sale experience is built for exactly this.";}
-  else if(shape<=1&&budget>=1){path="Renovate & Sell";why="Your house has hidden value and you have budget to unlock it. My crew does the targeted work; you keep the spread between cost and the higher sale price.";}
-  else if(goal===3&&speed>=2){path="Develop / Add Value";why="With time and appetite, the bigger plays open up - accessory apartment, expansion, or holding through improvements. We check what your lot and zoning actually allow.";}
-  else{path="Sell As-Is (strategically)";why="Your home is close to its ceiling already. Light prep - paint, cleanout, curb appeal - plus data-backed pricing likely beats a big renovation spend.";}
-  QUIZ_PATH=path;
-  el.innerHTML='<div class="card" style="border-color:var(--brass)">'+
-    '<div class="mono">Your likely best path</div>'+
-    '<h3 style="font-size:1.8rem;margin:10px 0">'+path+'</h3>'+
-    '<p class="lead" style="font-size:.95rem">'+why+'</p>'+
-    '<p class="lead" style="font-size:.8rem;margin-top:10px;font-style:italic">This is a starting point, not advice - every house is different. The real answer takes a 20-minute walkthrough.</p>'+
-    '<button class="btn" style="width:100%;margin-top:14px" onclick="quizConsult()">Talk it through with Sean</button>'+
-    '<button class="btn ghost" style="width:100%;margin-top:8px" onclick="QA=[];quizRender()">Retake quiz</button>'+
-    '</div>';
+  const i=QA.length;
+  const el=document.getElementById('quizBody');
+  if(!el) return;
+  if(i<QUIZ.length){
+    el.innerHTML='<div class="card"><div class="mono">Question '+(i+1)+' of '+QUIZ.length+'</div>'+
+      '<h3 style="font-size:1.4rem;margin:10px 0">'+QUIZ[i].q+'</h3>'+
+      QUIZ[i].a.map(function(t,j){return '<button class="btn ghost" style="width:100%;margin-top:8px;text-align:left" onclick="quizPick('+j+')">'+t+'</button>';}).join('')+
+      (i>0?'<button class="btn ghost" style="margin-top:14px;font-size:.8rem" onclick="QA.pop();quizRender()">Back</button>':'')+
+      '</div>';
+    return;
+  }
+  const speed=QA[0],shape=QA[1],goal=QA[2],budget=QA[3];
+  let path,why;
+  if(goal===2){path="Renovate & Hold";why="You want monthly income - we model rent and short-term-rental numbers before spending a dollar, then my crew does only the work that boosts rentability.";}
+  else if(speed===0||budget===0){path="Sell As-Is";why="Speed and zero out-of-pocket point one way: price it sharp, market hard, and let competition do the lifting. My distressed and estate-sale experience is built for exactly this.";}
+  else if(shape<=1&&budget>=1){path="Renovate & Sell";why="Your house has hidden value and you have budget to unlock it. My crew does the targeted work; you keep the spread between cost and the higher sale price.";}
+  else if(goal===3&&speed>=2){path="Develop / Add Value";why="With time and appetite, the bigger plays open up - accessory apartment, expansion, or holding through improvements. We check what your lot and zoning actually allow.";}
+  else{path="Sell As-Is (strategically)";why="Your home is close to its ceiling already. Light prep - paint, cleanout, curb appeal - plus data-backed pricing likely beats a big renovation spend.";}
+  QUIZ_PATH=path;
+  el.innerHTML='<div class="card" style="border-color:var(--brass)">'+
+    '<div class="mono">Your likely best path</div>'+
+    '<h3 style="font-size:1.8rem;margin:10px 0">'+path+'</h3>'+
+    '<p class="lead" style="font-size:.95rem">'+why+'</p>'+
+    '<p class="lead" style="font-size:.8rem;margin-top:10px;font-style:italic">This is a starting point, not advice - every house is different. The real answer takes a 20-minute walkthrough.</p>'+
+     '<button class="btn" style="width:100%;margin-top:14px" onclick="quizConsult()">Talk it through with Sean</button>'+
+    '<button class="btn ghost" style="width:100%;margin-top:8px" onclick="QA=[];quizRender()">Retake quiz</button>'+
+    '</div>';
 }
-function quizPick(j){QA.push(j);quizRender();}
-function quizConsult(){window.location.href='mailto:'+CONSULT_EMAIL+'?subject='+encodeURIComponent('Options quiz: '+QUIZ_PATH);}
-quizRender();
+function quizConsult(){window.location.href='mailto:'+CONSULT_EMAIL+'?subject='+encodeURIComponent('Options quiz: '+QUIZ_PATH);}function quizPick(j){QA.push(j);quizRender();}
+/* ================= MARKET PULSE ================= */
+async function pulseLoad(zip,label){
+  const out=document.getElementById('pulseBody');
+  out.innerHTML='<span class="mono">Checking '+label+'&hellip;</span>';
+  try{
+    const r=await fetch('/api/market?zip='+zip);
+    if(!r.ok){ out.textContent='No market data available for that ZIP yet.'; return; }
+    const d=await r.json();
+    if(!d.medianPrice){ out.textContent='No market data available for that ZIP yet.'; return; }
+    out.innerHTML='<span class="mono" style="color:var(--brass)">'+label+'</span> &mdash; '+
+      'Median sale price <span class="mono" style="color:var(--brass-2)">'+fmt(d.medianPrice)+'</span>'+
+      (d.averageDaysOnMarket?' &middot; Avg <span class="mono" style="color:var(--sage)">'+Math.round(d.averageDaysOnMarket)+' days</span> on market':'')+
+      (d.totalListings?' &middot; '+d.totalListings+' active listings':'');
+  }catch(e){ out.textContent='Market data is taking a break - try again in a minute.'; }
+}
+function pulseCheck(){
+  const zip=(document.getElementById('pulseZip').value||'').trim();
+  if(!/^[0-9]{5}$/.test(zip)){ document.getElementById('pulseBody').textContent='Enter a 5-digit ZIP code.'; return; }
+  pulseLoad(zip,'ZIP '+zip);
+}
+pulseLoad('11980','Yaphank');
+/* ================= OFFER ANALYZER ================= */
+async function offerCalc(){
+  const list=+document.getElementById('o_list').value;
+  const dom=+document.getElementById('o_dom').value||0;
+  const comp=+document.getElementById('o_comp').value;
+  const views=+document.getElementById('o_views').value||0;
+  const saves=+document.getElementById('o_saves').value||0;
+  const zip=(document.getElementById('o_zip').value||'').trim();
+  const out=document.getElementById('offerOut');
+  if(!list){alert('Enter the list price.');return;}
+  out.innerHTML='<span class="mono">Reading the market&hellip;</span>';
+  let adj=0, notes=[], marketLine='';
+  if(/^[0-9]{5}$/.test(zip)){
+    try{
+      const r=await fetch('/api/market?zip='+zip);
+      if(r.ok){
+        const m=await r.json();
+        if(m.averageDaysOnMarket){
+          const mdom=Math.round(m.averageDaysOnMarket);
+          if(mdom<=35){adj+=3; marketLine='<span class="chip over" style="margin-right:8px">SELLER\'S MARKET</span>Homes in '+zip+' average just '+mdom+' days on market - a fast, competitive market where strong offers win.';}
+          else if(mdom>=65){adj-=3; marketLine='<span class="chip dist" style="margin-right:8px">BUYER\'S MARKET</span>Homes in '+zip+' average '+mdom+' days on market - slower conditions give you real leverage.';}
+          else{marketLine='<span class="chip" style="background:rgba(203,163,92,.16);color:var(--brass-2);margin-right:8px">BALANCED MARKET</span>Homes in '+zip+' average '+mdom+' days on market - a fairly even playing field.';}
+          if(m.medianPrice){marketLine+=' Median sale price: '+fmt(m.medianPrice)+'.';}
+        }
+      }
+    }catch(e){}
+    if(!marketLine){marketLine='<span class="mono">No live data for ZIP '+zip+' - using your inputs only.</span>';}
+  }
+  if(comp===2){adj+=4; notes.push("multiple offers usually means bidding above list");}
+  if(comp===0){adj-=3; notes.push("a quiet listing gives you negotiating room");}
+  if(dom>0&&dom<=10){adj+=2; notes.push("fresh listings carry momentum");}
+  if(dom>=45){adj-=4; notes.push(dom+" days on market shifts leverage to you");}
+  if(dom>10&&dom<45){notes.push("normal market time - terms may matter more than price");}
+  if(views&&dom){
+    const vpd=views/Math.max(dom,1);
+    if(vpd>=60){adj+=2; notes.push(Math.round(vpd)+" views per day is heavy traffic - buyers are circling");}
+    else if(vpd<10){adj-=1; notes.push("light view traffic suggests limited competition");}
+  }
+  if(saves){
+    const sr=views?saves/views*100:0;
+    if(saves>=30||sr>=4){adj+=2; notes.push(saves+" saves signals serious buyers watching this one");}
+    else if(saves<8&&dom>14){adj-=1; notes.push("low save count after two weeks favors a sharper offer");}
+  }
+  const lo=list*(1+(adj-1)/100), hi=list*(1+(adj+2)/100);
+  out.innerHTML=
+    (marketLine?'<div style="margin-top:14px;font-size:.9rem">'+marketLine+'</div>':'')+
+    '<div style="border-left:2px solid var(--brass);padding-left:12px;margin-top:12px">'+
+    'Suggested range: <span class="mono" style="color:var(--brass-2)">'+fmt(lo)+' - '+fmt(hi)+'</span><br>'+
+    'Because '+notes.join('; ')+'. Strong terms (flexible closing, solid pre-approval, smart contingencies) can beat a higher number - that is where strategy wins.</div>';
+}
 
-/* ================= INIT ================= */
+  quizRender();  /* ================= INIT ================= */
 renderRecord(); renderReno(); renoCalc(); renderTimeline();
 </script>
 </body>
