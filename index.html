@@ -420,45 +420,36 @@ footer{border-top:1px solid var(--line);padding:40px 0;margin-top:40px;font-size
   <div class="eyebrow"><span class="mono">Buyer Representation - Everywhere in New York</span></div>
   <h2>Buying? You need an edge.</h2>
   <p class="lead">From Montauk to Manhattan and all the way upstate - Long Island, the Hamptons and the East End, Nassau, Queens and NYC, and upstate New York. Standard purchases, investment properties, and off-market finds most buyers never see. PSA-certified pricing strategy means your offer is built on data, not guesswork.</p>
- <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:18px;align-items:start;margin-top:26px">
-  <div class="card">
 
-    <div class="eyebrow"><span class="mono">PSA-Certified Strategy</span></div>
-    <h3 style="font-size:1.5rem;margin:8px 0;text-align:center">How strong should your offer be?</h3>
-    <div style="text-align:center;margin:14px 0 18px">
-      <svg viewBox="0 0 220 170" style="width:150px;margin:0 auto" fill="none" stroke="#cba35c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M30 90 L110 30 L190 90" />
-        <path d="M50 82 L50 150 L170 150 L170 82" />
-        <rect x="95" y="112" width="30" height="38" />
-        <rect x="63" y="95" width="22" height="20" />
-        <rect x="135" y="95" width="22" height="20" />
-        <path d="M20 160 L60 132 L95 142 L140 108 L175 118 L205 84" stroke="#6cb89c" stroke-width="3"/>
-        <path d="M191 82 L205 84 L203 98" stroke="#6cb89c" stroke-width="3"/>
-      </svg>
-      <div class="mono" style="margin-top:8px">DEMAND + TIMING = YOUR NUMBER</div>
-      <p class="lead" style="font-size:.82rem;margin:8px auto 0;max-width:44ch">Days on market tells half the story. Views and saves on Zillow or Redfin tell the other half - heavy save activity means competing buyers are circling.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;margin-top:26px">
+    <div class="card">
+      <div class="eyebrow"><span class="mono">PSA-Certified Strategy</span></div>
+      <h3 style="font-size:1.35rem;margin:8px 0">How strong should your offer be?</h3>
+      <p class="lead" style="font-size:.82rem">Days on market tells half the story. Views and saves on Zillow or Redfin tell the other half - heavy save activity means competing buyers are circling.</p>
+      <div class="field" style="margin-top:12px"><label>List price ($)</label><input id="o_list" type="number" placeholder="600000"></div>
+      <div class="field"><label>Days on market</label><input id="o_dom" type="number" placeholder="12"></div>
+      <div class="field"><label>Property ZIP code - live market stats gauge how hot this market is</label><input id="o_zip" placeholder="11725" maxlength="5" inputmode="numeric"></div>
+      <div class="field"><label>Views on Zillow/Redfin (optional)</label><input id="o_views" type="number" placeholder="850"></div>
+      <div class="field"><label>Saves / favorites (optional)</label><input id="o_saves" type="number" placeholder="42"></div>
+      <div class="field"><label>Competition</label><select id="o_comp"><option value="2">Multiple offers expected</option><option value="1" selected>Some interest</option><option value="0">Quiet listing</option></select></div>
+      <button class="btn" style="width:100%" onclick="offerCalc()">Analyze</button>
+      <div id="offerOut" style="font-size:.95rem;color:var(--paper-dim)"></div>
+      <div class="disclaimer">Illustrative strategy only - not an offer recommendation. View and save counts are public app metrics and vary by platform. Every negotiation is unique; bring me the listing and we will build the real play together.</div>
     </div>
-    <div class="field"><label>List price ($)</label><input id="o_list" type="number" placeholder="600000"></div>
-    <div class="field"><label>Days on market</label><input id="o_dom" type="number" placeholder="12"></div>
-    <div class="field"><label>Property ZIP code - we pull live market stats to gauge how hot this market is</label><input id="o_zip" placeholder="11725" maxlength="5" inputmode="numeric"></div>
-    <div class="field"><label>Views on Zillow/Redfin (optional)</label><input id="o_views" type="number" placeholder="850"></div>
-    <div class="field"><label>Saves / favorites (optional)</label><input id="o_saves" type="number" placeholder="42"></div>
-    <div class="field"><label>Competition</label><select id="o_comp"><option value="2">Multiple offers expected</option><option value="1" selected>Some interest</option><option value="0">Quiet listing</option></select></div>
-    <button class="btn" style="width:100%" onclick="offerCalc()">Analyze</button>
-    <div id="offerOut" style="font-size:.95rem;color:var(--paper-dim)"></div>
-    <div class="disclaimer">Illustrative strategy only - not an offer recommendation. View and save counts are public app metrics and vary by platform. Every negotiation is unique; bring me the listing and we will build the real play together.</div>
+
+    <div class="card">
+      <div class="eyebrow"><span class="mono">Investor Quick Underwrite</span></div>
+      <h3 style="font-size:1.35rem;margin:8px 0">Does this deal pencil?</h3>
+      <p class="lead" style="font-size:.82rem">Purchase price plus rehab against live value and rent data - the classic screens investors run, in ten seconds.</p>
+      <div class="field" style="margin-top:12px"><label>Property address</label><input id="i_addr" placeholder="123 Main St, Brentwood, NY 11717"></div>
+      <div class="field"><label>Your purchase price ($)</label><input id="i_price" type="number" placeholder="350000"></div>
+      <div class="field"><label>Rehab budget ($)</label><input id="i_rehab" type="number" placeholder="60000"></div>
+      <button class="btn" style="width:100%" onclick="investRun()">Run the numbers</button>
+      <div id="invOut" style="font-size:.95rem;color:var(--paper-dim)"></div>
+      <div class="disclaimer">Quick screen only. The value estimate is the AS-IS automated value, not a true after-repair value - real ARV and rehab pricing take a walkthrough. Not financial advice.</div>
+    </div>
   </div>
-<div class="card">
-    <div class="eyebrow"><span class="mono">Investor Quick Underwrite</span></div>
-    <h3 style="font-size:1.5rem;margin:8px 0">Does this deal pencil?</h3>
-    <div class="field" style="margin-top:12px"><label>Property address</label><input id="i_addr" placeholder="123 Main St, Brentwood, NY 11717"></div>
-    <div class="field"><label>Your purchase price ($)</label><input id="i_price" type="number" placeholder="350000"></div>
-    <div class="field"><label>Rehab budget ($)</label><input id="i_rehab" type="number" placeholder="60000"></div>
-    <button class="btn" style="width:100%" onclick="investRun()">Run the numbers</button>
-    <div id="invOut" style="font-size:.95rem;color:var(--paper-dim)"></div>
-    <div class="disclaimer">Quick screen only. The value estimate is the AS-IS automated value, not a true after-repair value - real ARV and rehab pricing take a walkthrough. Not financial advice.</div>
-  </div>
-</div>
+
   <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:26px">
     <div class="card"><div class="mono">OFF-MARKET ACCESS</div><h3 style="font-size:1.15rem;margin:8px 0">Deals before they hit Zillow</h3><p class="lead" style="font-size:.85rem">25+ private transactions mean a network of sellers, investors, and wholesalers most agents do not have.</p></div>
     <div class="card"><div class="mono">CONTRACTOR EYES</div><h3 style="font-size:1.15rem;margin:8px 0">Know what it really needs</h3><p class="lead" style="font-size:.85rem">I walk every house as a licensed contractor - you will know repair costs before you offer, not after.</p></div>
