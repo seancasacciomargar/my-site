@@ -50,6 +50,11 @@
       "source": "/qr",
       "destination": "/?utm_source=website_qr&utm_medium=qr&utm_campaign=desktop_to_phone",
       "permanent": false
+    },
+    {
+      "source": "/greno",
+      "destination": "/reno?utm_source=google&utm_medium=business_profile&utm_campaign=gbp_reno_qr",
+      "permanent": false
     }
   ]
 }
