@@ -1,15 +1,55 @@
 {
   "rewrites": [
-    { "source": "/:page(record|pending|value|reno|build|process|team|quiz|buyers|contact)", "destination": "/index.html" }
+    {
+      "source": "/:page(record|pending|value|reno|build|process|team|quiz|buyers|contact)",
+      "destination": "/index.html"
+    }
   ],
   "redirects": [
-    { "source": "/ig", "destination": "/?utm_source=instagram&utm_medium=social&utm_campaign=bio", "permanent": false },
-    { "source": "/fb", "destination": "/?utm_source=facebook&utm_medium=social&utm_campaign=profile", "permanent": false },
-    { "source": "/tt", "destination": "/?utm_source=tiktok&utm_medium=social&utm_campaign=bio", "permanent": false },
-    { "source": "/g", "destination": "/?utm_source=google&utm_medium=business_profile&utm_campaign=gbp", "permanent": false },
-    { "source": "/nxt", "destination": "/build?utm_source=instagram_nxtgen&utm_medium=social&utm_campaign=bio", "permanent": false },
-    { "source": "/sign", "destination": "/reno?utm_source=job_sign&utm_medium=qr&utm_campaign=construction", "permanent": false },
-    { "source": "/card", "destination": "/?utm_source=business_card&utm_medium=qr&utm_campaign=card", "permanent": false },
-    { "source": "/email", "destination": "/?utm_source=email_signature&utm_medium=email&utm_campaign=signature", "permanent": false }
+    {
+      "source": "/ig",
+      "destination": "/?utm_source=instagram&utm_medium=social&utm_campaign=bio",
+      "permanent": false
+    },
+    {
+      "source": "/fb",
+      "destination": "/?utm_source=facebook&utm_medium=social&utm_campaign=profile",
+      "permanent": false
+    },
+    {
+      "source": "/tt",
+      "destination": "/?utm_source=tiktok&utm_medium=social&utm_campaign=bio",
+      "permanent": false
+    },
+    {
+      "source": "/g",
+      "destination": "/?utm_source=google&utm_medium=business_profile&utm_campaign=gbp",
+      "permanent": false
+    },
+    {
+      "source": "/nxt",
+      "destination": "/build?utm_source=instagram_nxtgen&utm_medium=social&utm_campaign=bio",
+      "permanent": false
+    },
+    {
+      "source": "/sign",
+      "destination": "/reno?utm_source=job_sign&utm_medium=qr&utm_campaign=construction",
+      "permanent": false
+    },
+    {
+      "source": "/card",
+      "destination": "/?utm_source=business_card&utm_medium=qr&utm_campaign=card",
+      "permanent": false
+    },
+    {
+      "source": "/email",
+      "destination": "/?utm_source=email_signature&utm_medium=email&utm_campaign=signature",
+      "permanent": false
+    },
+    {
+      "source": "/qr",
+      "destination": "/?utm_source=website_qr&utm_medium=qr&utm_campaign=desktop_to_phone",
+      "permanent": false
+    }
   ]
 }
