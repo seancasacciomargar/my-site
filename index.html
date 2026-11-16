@@ -382,7 +382,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;margin-top:40px;font-size
 
   <div class="card" style="margin-top:26px">
     <div class="mono">Why these numbers are different</div>
-    <p style="color:var(--paper-dim);font-size:.92rem;margin-top:10px">I pulled every closed single-family sale on Long Island over two years and compared homes whose listings described a specific update against similar homes in the same town and quarter whose listings described none. Same size, lot, beds, baths, age, style, basement, garage and waterfront. What's left is the price difference buyers paid for the update itself. Two things stood out: a fixer sells for roughly a fifth less than the same home fully updated, and updates don't simply stack &mdash; a home with a new kitchen usually has other work done too, so this calculator never adds them past what a fully updated home brings.</p>
+    <p style="color:var(--paper-dim);font-size:.92rem;margin-top:10px">I pulled every closed single-family sale on Long Island over two years and compared homes whose listings described a specific update against similar homes in the same town and quarter whose listings described none. Same size, lot, beds, baths, age, style, basement, garage and waterfront. What's left is the price difference buyers paid for the update itself. Two things stood out: a fixer sells for roughly a fifth less than the same home fully updated, and updates don't simply stack &mdash; a home with a new kitchen usually has other work done too, so combined projects are counted with a discount, and a full renovation always comes out on top.</p>
     <p style="color:var(--paper-dim);font-size:.92rem;margin-top:10px">Then I price the work as the builder. That's the part no other agent can give you: what it's worth <em>and</em> what it costs, from one person.</p>
   </div>
 
@@ -653,17 +653,17 @@ function showVal(val,lo,hi,conf,live){
     <button class="btn ghost" style="width:100%;margin-top:10px" onclick="sendToReno(${Math.round(val)})">See renovation upside</button>`;
 }
 
-// Each live address lookup costs a paid data request. Allow 3 per device per day;
+// Each live address lookup costs a paid data request. Allow 10 per device per day;
 // after that, invite the visitor to reach out instead (it's also a warm lead).
 function rcAllow(){
   try{
     const k='rc_'+new Date().toISOString().slice(0,10);
     const n=+(localStorage.getItem(k)||0);
-    if(n>=3) return false;
+    if(n>=10) return false;
     localStorage.setItem(k,n+1); return true;
   }catch(e){ return true; }
 }
-const RC_LIMIT_MSG='You\'ve used today\'s 3 free live lookups. Want more? Text or call me at (631) 316-7922 and I\'ll run a full report on the home for you.';
+const RC_LIMIT_MSG='You\'ve used today\'s 10 free live lookups. Want more? Text or call me at (631) 316-7922 and I\'ll run a full report on the home for you.';
 async function estimate(){
   const addr=document.getElementById('v_addr').value.trim();
   if(addr && !rcAllow()){ alert(RC_LIMIT_MSG); return; }
@@ -830,8 +830,14 @@ function renoLift(){
   const picked=RENOS.filter(r=>r.sel&&(!RENO_FIXER||r.key==='full'));
   if(!picked.length) return {pct:0,capped:false,sum:0};
   if(picked.some(r=>r.key==='full')) return {pct:renoPct('full'),capped:false,sum:renoPct('full')};
-  const sum=picked.reduce((a,r)=>a+renoPct(r.key),0);
-  return {pct:Math.min(sum,g.full), capped:sum>g.full, sum};
+  // Updates overlap (a home with a new kitchen often has other work done), so a
+  // combination counts the biggest item fully and half of each other item, and always
+  // stays below a full renovation, which is the top of the scale.
+  const ps=picked.map(r=>renoPct(r.key)).sort((a,b)=>b-a);
+  const sum=ps.reduce((a,b)=>a+b,0);
+  const combo=ps[0]+ps.slice(1).reduce((a,b)=>a+b*0.5,0);
+  const ceiling=g.full*0.9;
+  return {pct:Math.min(combo,ceiling), capped:picked.length>1, sum};
 }
 function renoCalc(){
   const g=RENO_REGIONS[RENO_REGION];
@@ -863,7 +869,7 @@ function renoCalc(){
     document.getElementById('r_net').style.color='var(--sage)';
   }
   document.getElementById('r_capNote').textContent=L.capped?
-    ('Your picks add up to +'+(L.sum*100).toFixed(1)+'%, but fully updated homes in '+g.nm+' sell about +'+(g.full*100).toFixed(1)+'% higher. Updates overlap, so the estimate stops there.'):'';
+    ('Updates overlap, so combined projects are counted with a discount. Going all the way to a full renovation brings the most in '+g.nm+': about +'+(g.full*100).toFixed(1)+'%.'):'';
 }
 async function renoAdvice(){
   const out=document.getElementById('renoAI');
