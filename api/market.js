@@ -1,10 +1,15 @@
 // api/market.js
 // Returns local market stats (median sale price, days on market) for a ZIP
-// using RentCast's market-statistics endpoint. Cached for 24 hours at the CDN
-// so it only spends ~1 RentCast request per day, not one per visitor.
+// using RentCast's market-statistics endpoint. Only called when a visitor types
+// a ZIP (never on page load), and cached 7 days per ZIP at the CDN.
 
 export default async function handler(req, res) {
-  const zip = (req.query.zip || "11713").toString().slice(0, 5);
+  const zip = (req.query.zip || "").toString().trim();
+  // Only real New York ZIPs (10000-14999). Anything else never reaches RentCast.
+  if (!/^1[0-4][0-9]{3}$/.test(zip)) {
+    res.setHeader("Cache-Control", "s-maxage=2592000");
+    return res.status(400).json({ error: "Enter a 5-digit New York ZIP" });
+  }
 
   try {
     const r = await fetch(
@@ -21,8 +26,9 @@ export default async function handler(req, res) {
     const data = await r.json();
     const s = data.saleData || data;
 
-    // Cache at the edge for 24h so repeat visitors don't burn API requests
-    res.setHeader("Cache-Control", "s-maxage=86400, stale-while-revalidate=43200");
+    // Market stats move monthly, so cache each ZIP at the edge for 7 days.
+    // Repeat lookups of the same ZIP cost nothing.
+    res.setHeader("Cache-Control", "s-maxage=604800, stale-while-revalidate=86400");
 
     return res.status(200).json({
       zip,

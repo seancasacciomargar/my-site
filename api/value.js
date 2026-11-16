@@ -5,9 +5,11 @@
 //   https://yourdomain.com/api/value?address=...
 
 export default async function handler(req, res) {
-  const address = req.query.address;
-  if (!address) {
-    return res.status(400).json({ error: "Address is required" });
+  const address = (req.query.address || "").toString().trim();
+  // Must look like a street address (has a house number and a few words).
+  // Blocks empty and junk requests before they can spend a RentCast request.
+  if (address.length < 10 || address.length > 200 || !/[0-9]/.test(address) || !/[a-z]{3,}/i.test(address)) {
+    return res.status(400).json({ error: "Enter a full street address" });
   }
 
   try {
@@ -32,6 +34,10 @@ export default async function handler(req, res) {
     }
 
     const data = await apiResponse.json();
+
+    // Cache each address's result at the edge for 30 days, so the same
+    // address looked up again (by anyone) costs no RentCast request.
+    res.setHeader("Cache-Control", "s-maxage=2592000, stale-while-revalidate=86400");
 
     // Send back only what the page needs.
     return res.status(200).json({

@@ -7,7 +7,11 @@ export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).json({ error: "POST only" });
 
   const { address, mortgageBalance, timeline, goal } = req.body || {};
-  if (!address) return res.status(400).json({ error: "address required" });
+  const addr = (address || "").toString().trim();
+  // Must look like a street address before spending RentCast requests.
+  if (addr.length < 10 || addr.length > 200 || !/[0-9]/.test(addr) || !/[a-z]{3,}/i.test(addr)) {
+    return res.status(400).json({ error: "Enter a full street address" });
+  }
 
   const rc = { "X-Api-Key": process.env.RENTCAST_API_KEY, Accept: "application/json" };
 
