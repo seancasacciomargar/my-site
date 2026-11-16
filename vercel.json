@@ -55,6 +55,16 @@
       "source": "/greno",
       "destination": "/reno?utm_source=google&utm_medium=business_profile&utm_campaign=gbp_reno_qr",
       "permanent": false
+    },
+    {
+      "source": "/calc",
+      "destination": "/reno?utm_source=social&utm_medium=post&utm_campaign=reno_calculator",
+      "permanent": false
+    },
+    {
+      "source": "/worth",
+      "destination": "/value?utm_source=social&utm_medium=post&utm_campaign=home_value",
+      "permanent": false
     }
   ]
 }
