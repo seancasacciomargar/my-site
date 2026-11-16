@@ -4,6 +4,25 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Sean Casaccio — Realtor &amp; Builder | Long Island</title>
+<meta name="description" content="Long Island Realtor and builder Sean Casaccio. Free home value estimate and a renovation value calculator built on 14,997 real Long Island sales. Sell as-is, renovate, rent or develop.">
+<link rel="canonical" href="https://seancasaccio.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sean Casaccio">
+<meta property="og:url" content="https://seancasaccio.com/">
+<meta property="og:title" content="Sean Casaccio — Realtor &amp; Builder | Long Island">
+<meta property="og:description" content="What's your home worth, and what's the renovation worth? Free tools built on 14,997 real Long Island sales.">
+<meta property="og:image" content="https://seancasaccio.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://seancasaccio.com/og-image.png">
+<meta name="theme-color" content="#0d141d">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"RealEstateAgent","@id":"https://seancasaccio.com/#agent","name":"Sean Casaccio","url":"https://seancasaccio.com/","image":"https://seancasaccio.com/og-image.png","telephone":"+1-631-316-7922","email":"seancasaccio@margarrealty.com","description":"Licensed Real Estate Salesperson with Margar Realty serving Suffolk and Nassau Counties, Long Island.","address":{"@type":"PostalAddress","streetAddress":"330 Motor Parkway","addressLocality":"Hauppauge","addressRegion":"NY","postalCode":"11788","addressCountry":"US"},"areaServed":[{"@type":"AdministrativeArea","name":"Suffolk County, NY"},{"@type":"AdministrativeArea","name":"Nassau County, NY"}],"parentOrganization":{"@type":"RealEstateAgent","name":"Margar Realty"}},
+ {"@type":"HomeAndConstructionBusiness","@id":"https://seancasaccio.com/#nxtgen","name":"NXT-GEN Contracting Inc.","url":"https://seancasaccio.com/build","telephone":"+1-631-316-7922","founder":{"@id":"https://seancasaccio.com/#agent"},"address":{"@type":"PostalAddress","addressLocality":"Bellport","addressRegion":"NY","addressCountry":"US"},"areaServed":"Long Island, NY"}
+]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -165,7 +184,21 @@ input:focus,select:focus{outline:none;border-color:var(--brass)}
 footer{border-top:1px solid var(--line);padding:40px 0;margin-top:40px;font-size:.82rem;color:var(--paper-dim)}
 .note-box{background:var(--brass-soft);border:1px dashed var(--brass);border-radius:10px;padding:12px 14px;font-size:.78rem;color:var(--brass-2);margin-top:16px}
 
+/* CONTACT BAR + LEAD FORM */
+.cta-bar{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;gap:8px;background:rgba(13,20,29,.92);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.cta-bar a,.cta-bar button{font-family:var(--body);font-weight:600;font-size:.85rem;padding:10px 14px;border-radius:9px;border:1px solid var(--brass);color:var(--paper);background:transparent;cursor:pointer;white-space:nowrap}
+.cta-bar .main{background:var(--brass);color:var(--ink)}
+.lead-modal{position:fixed;inset:0;z-index:80;background:rgba(5,9,14,.72);display:none;align-items:flex-start;justify-content:center;padding:40px 16px;overflow-y:auto}
+.lead-modal.open{display:flex}
+.lead-box{background:var(--ink-2);border:1px solid var(--brass);border-radius:16px;padding:24px;max-width:520px;width:100%;position:relative}
+.lead-box textarea{width:100%;background:var(--ink);border:1px solid var(--line);border-radius:9px;padding:12px 14px;color:var(--paper);font-family:var(--body);font-size:.95rem;min-height:90px;resize:vertical}
+.lead-box textarea:focus{outline:none;border-color:var(--brass)}
+.lead-close{position:absolute;top:12px;right:14px;background:none;border:0;color:var(--paper-dim);font-size:1.4rem;cursor:pointer}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+body{padding-bottom:84px}
 @media(max-width:780px){
+  .cta-bar{left:10px;right:10px;bottom:10px;justify-content:space-between}
+  .cta-bar a,.cta-bar button{flex:1;text-align:center;padding:12px 8px}
   .navlinks{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;background:var(--ink-2);border-bottom:1px solid var(--line);padding:10px}
   .navlinks.open{display:flex}
   .navlinks button{text-align:left;width:100%;font-size:.95rem;padding:12px}
@@ -406,6 +439,11 @@ footer{border-top:1px solid var(--line);padding:40px 0;margin-top:40px;font-size
     <div class="path"><div class="num">PATH 04</div><h3>Develop</h3><p>Subdivide, add an accessory apartment, or build out. We check what the lot and zoning actually allow.</p></div>
   </div>
 
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+    <button class="btn" onclick="openLead('construction','')">Get a construction estimate</button>
+    <button class="btn ghost" onclick="go('reno',navByPage('reno'))">What's the work worth? Run the numbers</button>
+  </div>
+
   <h3 style="font-size:1.5rem;margin:46px 0 16px">Recent build work</h3>
   <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
     <div class="card"><div class="mono">ESTATE CLEANOUT + REFRESH</div><h3 style="font-size:1.2rem;margin:8px 0">St. James estate prep</h3><p class="lead" style="font-size:.88rem">Full property cleanout, then prime &amp; paint throughout to erase decades of smoke damage. Sold $87K over ask.</p></div>
@@ -499,13 +537,50 @@ footer{border-top:1px solid var(--line);padding:40px 0;margin-top:40px;font-size
   <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px">
     <div>
       <div class="brand">Sean Casaccio <small>Realtor · Builder · Long Island</small></div>
-      <p style="max-width:40ch;margin-top:10px">Licensed Real Estate Salesperson · PSA · SFR®<br>seancasaccio@margarrealty.com · (631) 316-7922</p>
+      <p style="max-width:40ch;margin-top:10px">Licensed Real Estate Salesperson · PSA · SFR®<br>seancasaccio@margarrealty.com · (631) 316-7922<br>Owner, NXT-GEN Contracting Inc. &middot; Bellport, NY</p>
+      <button class="btn" style="margin-top:14px" onclick="openLead()">Get in touch</button>
     </div>
     <div style="font-size:.74rem;max-width:46ch">
       Sean Casaccio, Licensed Real Estate Salesperson with Margar Realty, 330 Motor Parkway, Hauppauge, NY 11788. All home value estimates and renovation projections shown on this site are automated illustrations for general information only and are not appraisals, formal valuations, or offers to buy or sell. Equal Housing Opportunity.
     </div>
   </div>
 </footer>
+
+<div class="cta-bar" aria-label="Contact Sean">
+  <a href="sms:+16313167922?&body=Hi%20Sean%2C%20I%20found%20you%20on%20seancasaccio.com%20and%20" onclick="leadTap('text')">Text me</a>
+  <a href="tel:+16313167922" onclick="leadTap('call')">Call</a>
+  <button class="main" onclick="openLead()">Get in touch</button>
+</div>
+
+<div class="lead-modal" id="leadModal" onclick="if(event.target===this)closeLead()">
+  <div class="lead-box" role="dialog" aria-modal="true" aria-labelledby="leadTitle">
+    <button class="lead-close" onclick="closeLead()" aria-label="Close">&times;</button>
+    <div class="mono">Real estate &middot; Renovation &middot; Investing</div>
+    <h3 id="leadTitle" style="font-size:1.6rem;margin:8px 0 6px">Let's talk about your property</h3>
+    <p style="color:var(--paper-dim);font-size:.9rem;margin-bottom:16px">Tell me a little and I'll get back to you personally, usually the same day.</p>
+    <form id="leadForm" onsubmit="submitLead(event)">
+      <div class="field"><label>I'm interested in</label>
+        <select id="l_type">
+          <option value="selling">Selling a home</option>
+          <option value="buying">Buying a home</option>
+          <option value="construction">Renovation / construction work</option>
+          <option value="investing">Investing</option>
+          <option value="other">Something else</option>
+        </select></div>
+      <div class="field"><label>Name</label><input id="l_name" autocomplete="name" required></div>
+      <div class="row2">
+        <div class="field"><label>Phone</label><input id="l_phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        <div class="field"><label>Email</label><input id="l_email" type="email" autocomplete="email"></div>
+      </div>
+      <div class="field"><label>Property address (optional)</label><input id="l_addr" autocomplete="street-address"></div>
+      <div class="field"><label>Anything I should know?</label><textarea id="l_msg"></textarea></div>
+      <div class="hp" aria-hidden="true"><label>Website</label><input id="l_web" tabindex="-1" autocomplete="off"></div>
+      <button class="btn" type="submit" id="l_send" style="width:100%">Send to Sean</button>
+      <div id="l_out" style="font-size:.88rem;margin-top:10px;color:var(--paper-dim)"></div>
+      <p style="font-size:.7rem;color:var(--paper-dim);margin-top:10px">By sending, you agree Sean may contact you about your request. Your information is never sold.</p>
+    </form>
+  </div>
+</div>
 
 <script>
 /* ================= DATA — edit these arrays to update the site ================= */
@@ -552,7 +627,24 @@ const TEAM = [
 ];
 
 /* ================= NAV ================= */
-function go(id,btn){
+const PAGE_TITLES={
+  home:"Sean Casaccio — Realtor & Builder | Long Island",
+  record:"Track Record | Sean Casaccio, Long Island Realtor",
+  pending:"In Contract | Sean Casaccio, Long Island Realtor",
+  value:"What's My Long Island Home Worth? | Sean Casaccio",
+  reno:"Long Island Renovation Value Calculator | Sean Casaccio",
+  build:"Build & Develop | Sean Casaccio & NXT-GEN Contracting",
+  process:"The Selling Process | Sean Casaccio, Long Island",
+  team:"The Team | Sean Casaccio, Long Island",
+  quiz:"Sell, Renovate or Rent? Options Quiz | Sean Casaccio",
+  buyers:"For Buyers & Investors | Sean Casaccio, Long Island"
+};
+function go(id,btn,noPush){
+  if(!document.getElementById(id)||!document.getElementById(id).classList.contains('page')) id='home';
+  if(!btn) btn=navByPage(id);
+  const path=id==='home'?'/':'/'+id;
+  if(!noPush && location.pathname!==path){ try{ history.pushState({id},'',path); }catch(e){} }
+  document.title=PAGE_TITLES[id]||PAGE_TITLES.home;
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   document.querySelectorAll('.navlinks button').forEach(b=>b.classList.remove('active'));
@@ -560,6 +652,55 @@ function go(id,btn){
   document.getElementById('nav').classList.remove('open');
   window.scrollTo({top:0,behavior:'smooth'});
 }
+window.addEventListener('popstate',()=>routeFromPath(true));
+function routeFromPath(noPush){
+  const id=(location.pathname.replace(/^\/+|\/+$/g,'')||'home').toLowerCase();
+  if(id==='contact'){ go('home',null,true); openLead(); return; }
+  go(id,null,noPush);
+}
+// Remember where a visitor came from (Instagram, job sign, etc.) so leads say so.
+(function(){
+  try{
+    const q=new URLSearchParams(location.search);
+    const src=q.get('utm_source');
+    if(src){ sessionStorage.setItem('lead_src',[src,q.get('utm_medium'),q.get('utm_campaign')].filter(Boolean).join(' / ')); }
+    else if(!sessionStorage.getItem('lead_src') && document.referrer && !document.referrer.includes(location.host)){
+      sessionStorage.setItem('lead_src','referrer: '+new URL(document.referrer).hostname);
+    }
+  }catch(e){}
+})();
+/* ================= LEAD FORM ================= */
+let LEAD_OPENED=0;
+function openLead(type,note){
+  const m=document.getElementById('leadModal');
+  if(type) document.getElementById('l_type').value=type;
+  if(note){ const t=document.getElementById('l_msg'); if(!t.value) t.value=note; }
+  document.getElementById('l_out').textContent='';
+  m.classList.add('open'); LEAD_OPENED=Date.now();
+  setTimeout(()=>document.getElementById('l_name').focus(),50);
+}
+function closeLead(){ document.getElementById('leadModal').classList.remove('open'); }
+function leadTap(kind){ try{ window.va&&window.va('event',{name:'contact_'+kind}); }catch(e){} }
+async function submitLead(e){
+  e.preventDefault();
+  const out=document.getElementById('l_out'), btn=document.getElementById('l_send');
+  const v=id=>document.getElementById(id).value.trim();
+  if(!v('l_phone')&&!v('l_email')){ out.textContent='Add a phone number or email so I can reach you.'; return; }
+  btn.disabled=true; btn.textContent='Sending...';
+  let src=''; try{ src=sessionStorage.getItem('lead_src')||''; }catch(err){}
+  try{
+    const r=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+      type:v('l_type'),name:v('l_name'),phone:v('l_phone'),email:v('l_email'),address:v('l_addr'),message:v('l_msg'),
+      website:v('l_web'),t:Date.now()-LEAD_OPENED,source:src,page:(document.querySelector('.page.active')||{}).id||''})});
+    const d=await r.json().catch(()=>({}));
+    if(r.ok){
+      document.getElementById('leadForm').reset();
+      out.innerHTML='<span style="color:var(--sage)">Got it, thank you. I\'ll be in touch soon. If it\'s urgent, call or text (631) 316-7922.</span>';
+    } else { out.textContent=d.error||'Something went wrong. Please call or text (631) 316-7922.'; }
+  }catch(err){ out.textContent='Something went wrong. Please call or text (631) 316-7922.'; }
+  btn.disabled=false; btn.textContent='Send to Sean';
+}
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeLead(); });
 function navByPage(id){  const map={home:0,record:1,pending:2,value:3,reno:4,build:5,process:6,team:7,quiz:8,buyers:9};
   return document.querySelectorAll('.navlinks button')[map[id]];
 }
@@ -734,21 +875,22 @@ async function advisorRun(){
 // star = region too thin to measure, Long Island-wide figure used. null = no measurable effect.
 // fixer = gap between a fixer and the same home fully updated. typ = typical sale price, last 12 months.
 const RENO_REGIONS = {
-  sns:{nm:"Suffolk North Shore", full:.065, kitchen:[.021,1], bath:[.029,0], siding:[.024,0], roof:[.007,1], windows:[.011,1], floors:null, fixer:.23, typ:872250,
+  // [best estimate, Long Island-wide fallback?, upper end of 95% range]
+  sns:{nm:"Suffolk North Shore", full:[.065,.079], kitchen:[.021,1,.026], bath:[.029,0,.044], siding:[.024,0,.048], roof:[.007,1,.013], windows:[.011,1,.019], floors:null, fixer:.23, typ:872250,
        towns:["East Northport","Northport","Huntington","Smithtown","St. James","Stony Brook","Setauket","Mount Sinai"]},
-  sc:{nm:"Suffolk Central", full:.061, kitchen:[.034,0], bath:[.024,0], siding:[.018,1], roof:[.007,1], windows:[.014,0], floors:[.019,0], fixer:.21, typ:675000,
+  sc:{nm:"Suffolk Central", full:[.061,.072], kitchen:[.034,0,.044], bath:[.024,0,.034], siding:[.018,1,.027], roof:[.007,1,.013], windows:[.014,0,.026], floors:[.019,0,.033], fixer:.21, typ:675000,
        towns:["Commack","Hauppauge","Ronkonkoma","Holbrook","Centereach","Selden","Lake Grove","Medford"]},
-  sss:{nm:"Suffolk South Shore", full:.065, kitchen:[.021,1], bath:[.038,0], siding:[.018,1], roof:[.025,0], windows:[.011,1], floors:null, fixer:.22, typ:685000,
+  sss:{nm:"Suffolk South Shore", full:[.065,.082], kitchen:[.021,1,.026], bath:[.038,0,.058], siding:[.018,1,.027], roof:[.025,0,.045], windows:[.011,1,.019], floors:null, fixer:.22, typ:685000,
        towns:["Babylon","West Islip","Bay Shore","Islip","Sayville","Patchogue","Bellport","Blue Point"]},
-  nf:{nm:"North Fork", full:.063, kitchen:[.021,1], bath:[.031,1], siding:[.018,1], roof:[.007,1], windows:[.011,1], floors:null, fixer:.21, typ:999500,
+  nf:{nm:"North Fork", full:[.063,.069], kitchen:[.021,1,.026], bath:[.031,1,.036], siding:[.018,1,.027], roof:[.007,1,.013], windows:[.011,1,.019], floors:null, fixer:.21, typ:999500,
        towns:["Southold","Mattituck","Cutchogue","Greenport","Jamesport"]},
-  nns:{nm:"Nassau North Shore", full:.075, kitchen:[.021,1], bath:[.043,0], siding:[.018,1], roof:[.007,1], windows:[.011,1], floors:null, fixer:.21, typ:1332500,
+  nns:{nm:"Nassau North Shore", full:[.075,.094], kitchen:[.021,1,.026], bath:[.043,0,.064], siding:[.018,1,.027], roof:[.007,1,.013], windows:[.011,1,.019], floors:null, fixer:.21, typ:1332500,
        towns:["Oyster Bay","Locust Valley","Glen Cove","Syosset","Jericho","Manhasset","Port Washington","Roslyn"]},
-  nc:{nm:"Nassau Central", full:.055, kitchen:[.027,0], bath:[.027,0], siding:[.018,1], roof:[.018,0], windows:[.011,1], floors:null, fixer:.16, typ:835000,
+  nc:{nm:"Nassau Central", full:[.055,.066], kitchen:[.027,0,.037], bath:[.027,0,.038], siding:[.018,1,.027], roof:[.018,0,.030], windows:[.011,1,.019], floors:null, fixer:.16, typ:835000,
        towns:["Hicksville","Levittown","Bethpage","Plainview","Westbury","East Meadow","Garden City","Mineola"]},
-  nss:{nm:"Nassau South Shore", full:.066, kitchen:[.028,0], bath:[.030,0], siding:[.021,0], roof:[.007,1], windows:[.019,0], floors:null, fixer:.22, typ:825000,
+  nss:{nm:"Nassau South Shore", full:[.066,.077], kitchen:[.028,0,.039], bath:[.030,0,.041], siding:[.021,0,.040], roof:[.007,1,.013], windows:[.019,0,.036], floors:null, fixer:.22, typ:825000,
        towns:["Massapequa","Seaford","Wantagh","Merrick","Bellmore","Freeport","Oceanside","Rockville Centre"]},
-  li:{nm:"Long Island-wide", full:.063, kitchen:[.021,0], bath:[.031,0], siding:[.018,0], roof:[.007,0], windows:[.011,0], floors:null, fixer:.21, typ:null, towns:[]}
+  li:{nm:"Long Island-wide", full:[.063,.069], kitchen:[.021,0,.026], bath:[.031,0,.036], siding:[.018,0,.027], roof:[.007,0,.013], windows:[.011,0,.019], floors:null, fixer:.21, typ:null, towns:[]}
 };
 const RENOS = [
   {key:"kitchen", nm:"Kitchen update",          det:"Cabinets, counters, appliances &middot; $$$", sel:false},
@@ -760,6 +902,7 @@ const RENOS = [
   {key:"full",    nm:"Full renovation",         det:"Everything above, done right &middot; $$$$",  sel:false}
 ];
 let RENO_REGION='sss', RENO_FIXER=false;
+const pct1=v=>(v*100).toFixed(1);
 function renoSetup(){
   const sel=document.getElementById('r_town');
   let h='<option value="">Choose your town&hellip;</option>';
@@ -777,7 +920,7 @@ function renoTown(){
   const g=RENO_REGIONS[RENO_REGION];
   const base=document.getElementById('r_base');
   if(g.typ) base.placeholder=g.typ;
-  document.getElementById('r_regionLbl').innerHTML='MEASURED IN: '+g.nm.toUpperCase()+(g.typ?' &middot; TYPICAL SALE '+fmt(g.typ):'');
+  document.getElementById('r_regionLbl').innerHTML='MEASURED IN: '+g.nm.toUpperCase()+(g.typ?' &middot; TYPICAL SALE '+fmt(g.typ):'')+' &middot; BEST ESTIMATE &ndash; UP TO';
   renderReno(); renoCalc();
 }
 function renoCond(f){
@@ -786,10 +929,11 @@ function renoCond(f){
   document.getElementById('r_c1').classList.toggle('on',!!f);
   renderReno(); renoCalc();
 }
+// returns [best, upTo] for one project
 function renoPct(key){
   const g=RENO_REGIONS[RENO_REGION];
-  if(key==='full') return RENO_FIXER?g.fixer:g.full;
-  const v=g[key]; return v?v[0]:0;
+  if(key==='full') return RENO_FIXER?[g.fixer,g.fixer]:[g.full[0],g.full[1]];
+  const v=g[key]; return v?[v[0],v[2]]:[0,0];
 }
 function renderReno(){
   const g=RENO_REGIONS[RENO_REGION];
@@ -798,7 +942,10 @@ function renderReno(){
     const v=r.key==='full'?null:g[r.key];
     const p=renoPct(r.key);
     const star=(v&&v[1])?'*':'';
-    const imp=p>0?('+'+(p*100).toFixed(1)+'%'+star):'<span style="color:var(--paper-dim)">no clear lift</span>';
+    let imp;
+    if(p[0]<=0) imp='<span style="color:var(--paper-dim)">no clear lift</span>';
+    else if(p[1]>p[0]) imp='+'+pct1(p[0])+'%<span style="color:var(--brass-2)"> &ndash; '+pct1(p[1])+'%</span>'+star;
+    else imp='+'+pct1(p[0])+'%'+star;
     const det=(RENO_FIXER&&r.key==='full')?'Fixer to fully updated &middot; $$$$':r.det;
     return `<div class="reno-item ${r.sel?'sel':''}" onclick="toggleReno(${i})">
       <div style="display:flex;align-items:center;gap:14px">
@@ -808,7 +955,7 @@ function renderReno(){
       <div class="impact">${imp}</div>
     </div>`;}).join('')+
     (RENO_FIXER?'<div class="mono" style="font-size:.62rem;margin-top:6px">A fixer is priced against the same home fully updated. Individual projects on a fixer weren\'t measured separately.</div>':
-    '<div class="mono" style="font-size:.62rem;margin-top:6px">* Too few sales in this region to measure alone &mdash; Long Island-wide figure used.</div>');
+    '<div class="mono" style="font-size:.62rem;margin-top:6px">Best estimate &ndash; up to (top of the measured range). * Too few sales in this region to measure alone &mdash; Long Island-wide figure used.</div>');
 }
 function toggleReno(i){
   const r=RENOS[i]; r.sel=!r.sel;
@@ -817,63 +964,63 @@ function toggleReno(i){
   renderReno(); renoCalc();
 }
 const CONSULT_EMAIL = "seancasaccio@margarrealty.com";
+function renoPicked(){ return RENOS.filter(r=>r.sel&&(!RENO_FIXER||r.key==='full')); }
 function consult(){
-  const picked=RENOS.filter(r=>r.sel&&(!RENO_FIXER||r.key==='full')).map(r=>'- '+r.nm).join('%0D%0A')||'(none selected yet)';
-  const base=document.getElementById('r_base').value||'';
+  const picked=renoPicked().map(r=>r.nm).join(', ')||'not chosen yet';
   const town=(document.getElementById('r_town').value.split('|')[1])||'';
-  const subj=encodeURIComponent('Renovation pricing request');
-  const body=`Hi Sean,%0D%0A%0D%0AI used your renovation calculator and want real pricing on:%0D%0A${picked}%0D%0A%0D%0ATown: ${encodeURIComponent(town)}%0D%0ACondition: ${RENO_FIXER?'Fixer':'Dated but solid'}%0D%0AEstimated current value: $${base}%0D%0A%0D%0AMy address / best number:`;
-  window.location.href=`mailto:${CONSULT_EMAIL}?subject=${subj}&body=${body}`;
+  const base=document.getElementById('r_base').value||'';
+  openLead('construction','From the renovation calculator: '+picked+(town?' in '+town:'')+' ('+(RENO_FIXER?'fixer':'dated but solid')+')'+(base?', home value about $'+(+base).toLocaleString():'')+'. ');
 }
 function renoLift(){
   const g=RENO_REGIONS[RENO_REGION];
-  const picked=RENOS.filter(r=>r.sel&&(!RENO_FIXER||r.key==='full'));
-  if(!picked.length) return {pct:0,capped:false,sum:0};
-  if(picked.some(r=>r.key==='full')) return {pct:renoPct('full'),capped:false,sum:renoPct('full')};
+  const picked=renoPicked();
+  if(!picked.length) return {lo:0,hi:0,combo:false};
+  if(picked.some(r=>r.key==='full')){ const p=renoPct('full'); return {lo:p[0],hi:p[1],combo:false}; }
   // Updates overlap (a home with a new kitchen often has other work done), so a
   // combination counts the biggest item fully and half of each other item, and always
   // stays below a full renovation, which is the top of the scale.
-  const ps=picked.map(r=>renoPct(r.key)).sort((a,b)=>b-a);
-  const sum=ps.reduce((a,b)=>a+b,0);
-  const combo=ps[0]+ps.slice(1).reduce((a,b)=>a+b*0.5,0);
-  const ceiling=g.full*0.9;
-  return {pct:Math.min(combo,ceiling), capped:picked.length>1, sum};
+  const side=j=>{
+    const ps=picked.map(r=>renoPct(r.key)[j]).sort((a,b)=>b-a);
+    const combo=ps[0]+ps.slice(1).reduce((a,b)=>a+b*0.5,0);
+    return Math.min(combo, g.full[j]*0.9);
+  };
+  return {lo:side(0), hi:side(1), combo:picked.length>1};
 }
 function renoCalc(){
   const g=RENO_REGIONS[RENO_REGION];
   const base=+document.getElementById('r_base').value||g.typ||685000;
   const cost=+document.getElementById('r_cost').value||0;
   const L=renoLift();
-  const lift=base*L.pct, newVal=base+lift;
+  const loV=base*(1+L.lo), hiV=base*(1+L.hi);
   document.getElementById('r_asis').textContent=fmt(base);
-  document.getElementById('r_after').textContent=fmt(newVal);
-  document.getElementById('r_new').textContent=fmt(newVal);
-  document.getElementById('r_meter').style.width=Math.min(L.pct*100*4,100)+'%';
+  document.getElementById('r_meter').style.width=Math.min(L.hi*100*4,100)+'%';
   document.getElementById('r_costOut').textContent=cost?fmt(cost):'Ask me';
-  if(L.pct>0){
-    document.getElementById('r_range').textContent='Estimated lift: +'+fmt(lift);
-    document.getElementById('r_roi').textContent=(RENO_FIXER?'+'+(L.pct*100).toFixed(1)+'% fixer to fully updated, '+g.nm:'+'+(L.pct*100).toFixed(1)+'% vs. similar '+g.nm+' homes');
+  const net=document.getElementById('r_net');
+  if(L.lo>0){
+    const ranged=L.hi>L.lo+0.0005;
+    document.getElementById('r_new').textContent=ranged?(fmt(loV)+' – '+fmt(hiV)):fmt(loV);
+    document.getElementById('r_after').textContent=ranged?(fmt(loV)+' – '+fmt(hiV)):fmt(loV);
+    document.getElementById('r_range').textContent='Estimated lift: +'+fmt(base*L.lo)+(ranged?' up to +'+fmt(base*L.hi):'');
+    document.getElementById('r_roi').textContent=(RENO_FIXER?'+'+pct1(L.lo)+'% fixer to fully updated, '+g.nm:'+'+pct1(L.lo)+'%'+(ranged?' to +'+pct1(L.hi)+'%':'')+' vs. similar '+g.nm+' homes');
     if(cost){
-      const net=lift-cost;
-      const el=document.getElementById('r_net');
-      el.textContent=(net>=0?'+':'-')+fmt(Math.abs(net));
-      el.style.color=net>=0?'var(--sage)':'var(--rust)';
-    } else {
-      document.getElementById('r_net').textContent='Add your cost';
-      document.getElementById('r_net').style.color='var(--paper-dim)';
-    }
+      const a=base*L.lo-cost, b=base*L.hi-cost;
+      const f=x=>(x>=0?'+':'-')+fmt(Math.abs(x));
+      net.textContent=ranged?(f(a)+' to '+f(b)):f(a);
+      net.style.color=b>=0?'var(--sage)':'var(--rust)';
+    } else { net.textContent='Add your cost'; net.style.color='var(--paper-dim)'; }
   } else {
+    document.getElementById('r_new').textContent=fmt(base);
+    document.getElementById('r_after').textContent=fmt(base);
     document.getElementById('r_range').textContent='Pick your town and a project';
     document.getElementById('r_roi').textContent='Select upgrades to begin';
-    document.getElementById('r_net').textContent='—';
-    document.getElementById('r_net').style.color='var(--sage)';
+    net.textContent='—'; net.style.color='var(--sage)';
   }
-  document.getElementById('r_capNote').textContent=L.capped?
-    ('Updates overlap, so combined projects are counted with a discount. Going all the way to a full renovation brings the most in '+g.nm+': about +'+(g.full*100).toFixed(1)+'%.'):'';
+  document.getElementById('r_capNote').textContent=L.combo?
+    ('Updates overlap, so combined projects are counted with a discount. Going all the way to a full renovation brings the most in '+g.nm+': +'+pct1(g.full[0])+'% up to +'+pct1(g.full[1])+'%.'):'';
 }
 async function renoAdvice(){
   const out=document.getElementById('renoAI');
-  const picked=RENOS.filter(r=>r.sel&&(!RENO_FIXER||r.key==='full')).map(r=>{const p=renoPct(r.key);return {name:r.nm,addsLow:p,addsHigh:p};});
+  const picked=renoPicked().map(r=>{const p=renoPct(r.key);return {name:r.nm,addsLow:p[0],addsHigh:p[1]};});
   if(!picked.length){out.textContent='Select at least one project first.';return;}
   out.innerHTML='<span class="mono">Building your strategy...</span>';
   try{
@@ -958,7 +1105,7 @@ function quizRender(){
     '<button class="btn ghost" style="width:100%;margin-top:8px" onclick="QA=[];quizRender()">Retake quiz</button>'+
     '</div>';
 }
-function quizConsult(){window.location.href='mailto:'+CONSULT_EMAIL+'?subject='+encodeURIComponent('Options quiz: '+QUIZ_PATH);}function quizPick(j){QA.push(j);quizRender();}
+function quizConsult(){openLead(/renovat|build|develop/i.test(QUIZ_PATH)?'construction':'selling','My options quiz result: '+QUIZ_PATH+'. ');}function quizPick(j){QA.push(j);quizRender();}
 /* ================= MARKET PULSE ================= */
 async function pulseLoad(zip,label){
   const out=document.getElementById('pulseBody');
@@ -1032,7 +1179,7 @@ async function offerCalc(){
 }
 
   quizRender();  /* ================= INIT ================= */
-renderRecord(); renoSetup(); renderTimeline();
+renderRecord(); renoSetup(); renderTimeline(); routeFromPath(true);
 </script>
 </body>
 </html>
