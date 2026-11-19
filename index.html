@@ -275,6 +275,7 @@ body{padding-bottom:84px}
   <div class="hero-cta">
     <button class="btn" onclick="go('value',navByPage('value'))">What's my home worth?</button>
     <button class="btn ghost" onclick="go('record',navByPage('record'))">See the track record</button>
+    <button class="btn ghost cal-btn" onclick="bookCall()" style="display:none">Book a free 15-minute call</button>
   </div>
   <div class="headline-stats" id="homeStats"></div>
   <div class="card justclosed">
@@ -408,6 +409,7 @@ body{padding-bottom:84px}
     <h3 style="font-size:1.4rem;margin-bottom:8px">Have a complicated one?</h3>
     <p class="lead" style="margin:0 auto 16px;font-size:.95rem">Estates, tight deadlines, houses that need work, two deals that depend on each other. That's most of what I do.</p>
     <button class="btn" onclick="openLead('selling','')">Tell me about your situation</button>
+    <button class="btn ghost cal-btn" onclick="bookCall()" style="display:none;margin-left:8px">Book a free 15-minute call</button>
   </div>
   <div class="disclaimer">Stories are shared without client names. Sale prices and dates are public record. Past results don't guarantee future results; every property and market is different.</div>
 </section>
@@ -675,7 +677,7 @@ body{padding-bottom:84px}
       <p style="max-width:40ch;margin-top:10px">Licensed Real Estate Salesperson · PSA · SFR®<br>seancasaccio@margarrealty.com · (631) 316-7922<br>Owner, NXT-GEN Contracting Inc. &middot; Bellport, NY<br>Suffolk County Home Improvement License HI-73351</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
         <button class="btn" onclick="openLead()">Get in touch</button>
-        <button class="btn ghost cal-btn" onclick="bookCall()" style="display:none">Book a call</button>
+        <button class="btn ghost cal-btn" onclick="bookCall()" style="display:none">Book a free 15-minute call</button>
       </div>
       <div class="socials">
         <span class="who">Follow Sean &middot; Real estate</span>
@@ -728,7 +730,7 @@ body{padding-bottom:84px}
       <div class="field"><label>Anything I should know?</label><textarea id="l_msg"></textarea></div>
       <div class="hp" aria-hidden="true"><label>Website</label><input id="l_web" tabindex="-1" autocomplete="off"></div>
       <button class="btn" type="submit" id="l_send" style="width:100%">Send to Sean</button>
-      <button class="btn ghost cal-btn" type="button" onclick="bookCall()" style="width:100%;margin-top:8px;display:none">Or pick a time on my calendar</button>
+      <button class="btn ghost cal-btn" type="button" onclick="bookCall()" style="width:100%;margin-top:8px;display:none">Or book a free 15-minute call</button>
       <div id="l_out" style="font-size:.88rem;margin-top:10px;color:var(--paper-dim)"></div>
       <p style="font-size:.7rem;color:var(--paper-dim);margin-top:10px">By sending, you agree Sean may contact you about your request. Your information is never sold.</p>
     </form>
@@ -903,7 +905,7 @@ function routeFromPath(noPush){
 })();
 /* ================= SCHEDULING ================= */
 // Paste the Calendly link between the quotes and the "Book a call" buttons appear across the site.
-const CALENDLY_URL = "";
+const CALENDLY_URL = "https://calendly.com/seancasaccio-margarrealty/30min";
 function bookCall(){ try{ window.va&&window.va('event',{name:'book_call'}); }catch(e){} window.open(CALENDLY_URL,'_blank','noopener'); }
 if(CALENDLY_URL) document.querySelectorAll('.cal-btn').forEach(b=>b.style.display='');
 /* ================= LEAD FORM ================= */
