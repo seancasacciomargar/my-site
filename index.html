@@ -115,6 +115,16 @@ h2{font-size:clamp(1.9rem,4vw,3rem);margin-bottom:10px}
 .deal .note{font-size:.82rem;color:var(--paper-dim);margin-top:6px;font-style:italic;max-width:60ch}
 .chip{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;padding:3px 9px;border-radius:20px;display:inline-block}
 .chip.over{background:rgba(108,184,156,.16);color:var(--sage)}
+.chip.role{background:rgba(203,163,92,.16);color:var(--brass-2)}
+.ledger-row{display:grid;grid-template-columns:110px 1fr auto;gap:12px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line)}
+.ledger-row:last-child{border-bottom:0}
+.ledger-row .when{font-family:var(--mono);font-size:.7rem;color:var(--paper-dim);white-space:nowrap}
+.story{margin-top:18px}
+.story h3{font-size:1.45rem;margin:8px 0 10px}
+.story p{color:var(--paper-dim);font-size:.96rem;max-width:68ch}
+.story .facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.story .facts span{font-family:var(--mono);font-size:.68rem;letter-spacing:.04em;padding:5px 10px;border-radius:20px;border:1px solid var(--line);color:var(--brass-2)}
+.justclosed{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-top:14px;border-color:var(--brass)}
 .chip.dist{background:rgba(207,122,87,.16);color:var(--rust)}
 .deal .perf{text-align:right;font-family:var(--mono)}
 .deal .perf .pct{font-size:1.2rem;color:var(--sage)}
@@ -208,6 +218,7 @@ body{padding-bottom:84px}
   .headline-stats{grid-template-columns:repeat(2,1fr)}
   .row2{grid-template-columns:1fr}
   .hero .stamp{display:none}
+  .ledger-row{grid-template-columns:1fr}
   .deal{grid-template-columns:1fr}
   .deal .perf{text-align:left}
   #renoWrap{grid-template-columns:1fr !important}
@@ -225,7 +236,8 @@ body{padding-bottom:84px}
     <div class="navlinks" id="nav">
       <button class="active" onclick="go('home',this)">Home</button>
       <button onclick="go('record',this)">Track Record</button>
-      <button onclick="go('pending',this)">In Contract</button>
+      <button onclick="go('stories',this)">Deal Stories</button>
+      <button onclick="go('pending',this)">Active Deals</button>
       <button onclick="go('value',this)">Home Value</button>
       <button onclick="go('reno',this)">Reno ROI</button>
       <button onclick="go('build',this)">Build &amp; Develop</button>
@@ -249,6 +261,11 @@ body{padding-bottom:84px}
     <button class="btn ghost" onclick="go('record',navByPage('record'))">See the track record</button>
   </div>
   <div class="headline-stats" id="homeStats"></div>
+  <div class="card justclosed">
+    <div><div class="mono">Just closed &middot; August 2026</div>
+      <div style="font-family:var(--display);font-size:1.15rem;margin-top:6px">71 Crescent St, Yaphank &mdash; sold for $700,000, $50,000 over asking</div></div>
+    <button class="btn ghost" onclick="go('stories',navByPage('stories'))">Read the story &rarr;</button>
+  </div>
     <div class="card" id="pulse" style="margin-top:14px">
     <div class="mono">Live Market Pulse</div>
     <div style="display:flex;gap:10px;margin-top:10px;max-width:420px">
@@ -273,11 +290,11 @@ body{padding-bottom:84px}
 <section class="wrap">
   <div class="eyebrow"><span class="mono">Closed Transactions</span></div>
   <h2>The track record</h2>
-  <p class="lead">A featured selection of my sales, scored on the things that matter: how fast they sold, and how far above asking they went. This is a sample — the full portfolio spans 30+ transactions, most of them private. MLS numbers for featured sales available on request.</p>
+  <p class="lead">A featured selection of my sales, scored on the things that matter: how fast they sold, and how far above asking they went. This is a sample — the full portfolio spans 60+ closed deals, many of them private. MLS numbers for featured sales available on request.</p>
 
   <div class="card" style="margin-top:20px">
     <div class="mono">Every Kind of Sale</div>
-    <p class="lead" style="font-size:.92rem;margin-top:8px">Standard listings · Estate sales &amp; probate · Distressed &amp; time-sensitive sales · Short sales &amp; pre-foreclosure (SFR® certified) · Off-market &amp; private sales · Investor fix-and-flips · Wholesale dispositions · Rentals. Whatever the situation, I've transacted it — usually with my construction crew adding value before the sign goes in the yard.</p>
+    <p class="lead" style="font-size:.92rem;margin-top:8px">Standard listings · Buyer representation · Estate sales &amp; probate · Distressed &amp; time-sensitive sales · Short sales &amp; pre-foreclosure (SFR® certified) · Off-market &amp; private sales · Investor fix-and-flips · Wholesale deals &amp; investor connections · Creative financing · Rentals. Whatever the situation, I've transacted it — usually with my construction crew adding value before the sign goes in the yard.</p>
   </div>
 
   <div class="toggle" id="recToggle">
@@ -288,6 +305,14 @@ body{padding-bottom:84px}
 
   <div class="statgrid" id="recStats"></div>
   <div class="card"><div id="recDeals"></div></div>
+
+  <div class="card" style="margin-top:24px">
+    <div class="mono">Every side of the table</div>
+    <h3 style="font-size:1.5rem;margin:10px 0 4px">More closed deals</h3>
+    <p class="lead" style="font-size:.9rem">I work mostly with sellers, but I've closed from every seat: listing agent, buyer's agent, both sides at once, and off-market wholesale. Buyer and wholesale deals are shown by town to protect client privacy.</p>
+    <div id="moreDeals" style="margin-top:10px"></div>
+    <button class="btn ghost" style="margin-top:16px" onclick="go('stories',navByPage('stories'))">Read the stories behind these deals &rarr;</button>
+  </div>
 
   <div class="grid" style="grid-template-columns:1fr 1fr;gap:18px;margin-top:24px" id="extraRecord">
     <div class="card">
@@ -304,15 +329,67 @@ body{padding-bottom:84px}
 </section>
 </div>
 
+<!-- ============ DEAL STORIES ============ -->
+<div class="page" id="stories">
+<section class="wrap">
+  <div class="eyebrow"><span class="mono">Behind the closings</span></div>
+  <h2>Deal stories</h2>
+  <p class="lead">Numbers tell you what a house sold for. They don't tell you what it took. These are real deals of mine, and what happened between the listing and the closing table.</p>
+
+  <div class="card story">
+    <div class="mono">Yaphank + Richford &middot; Closed August 2026</div>
+    <h3>Two closings, two MLS boards, one client</h3>
+    <p>My client was selling his longtime home in Yaphank and buying upstate in Richford, more than 200 miles away. The purchase could only happen if the sale closed. I knew the Yaphank house well: I had leased its apartment twice, over asking both times. It first went on the market in late 2025 at $624,999 and came off. In spring 2026, after my crew pulled up the carpet, refinished the floors, power-washed and cleaned out, I listed it at $650,000. It was in contract at $700,000 in 12 days.</p>
+    <p style="margin-top:10px">Then came the hard part. Getting from contract to closing took four months, several extended deadlines and daily follow-up, all while keeping the upstate purchase alive with a different MLS, different attorneys and different closing customs. Both deals closed in August 2026, days apart. He got $50,000 over asking and the upstate home he wanted.</p>
+    <div class="facts"><span>SOLD $700,000</span><span>+$50,000 OVER ASKING</span><span>12 DAYS TO CONTRACT</span><span>$340,000 UPSTATE PURCHASE</span><span>SELLER + BUYER SIDE</span></div>
+  </div>
+
+  <div class="card story">
+    <div class="mono">St. James &middot; Closed December 2025</div>
+    <h3>Three heirs, one estate, $87,000 over asking</h3>
+    <p>An estate sale with three heirs who all had to agree on every step. Before a single photo was taken, my crew did the full cleanout and primed and painted the house from top to bottom. We listed at $655,000. It was in contract in 22 days and sold for $742,000.</p>
+    <div class="facts"><span>$655,000 &rarr; $742,000</span><span>+13.3% OVER LIST</span><span>22 DAYS TO CONTRACT</span><span>ESTATE SALE</span></div>
+  </div>
+
+  <div class="card story">
+    <div class="mono">East Meadow &middot; Closed December 2021 and December 2023</div>
+    <h3>The same house, sold twice</h3>
+    <p>I sold 1921 Byrd Drive the first time in December 2021. It was then renovated by my construction company as an investor flip, and I listed it again: $635,000 asking, sold for $650,000 in December 2023. One house, two closings, and the work in between done by my own crew.</p>
+    <div class="facts"><span>2 CLOSINGS, 1 HOUSE</span><span>$15,000 OVER ASKING</span><span>RENOVATED BY NXT-GEN</span><span>INVESTOR FLIP</span></div>
+  </div>
+
+  <div class="card story">
+    <div class="mono">Plainview &middot; Closed July 2023</div>
+    <h3>Racing a reverse-mortgage clock</h3>
+    <p>An estate sale with a reverse mortgage on the house, which puts the family on a hard deadline. A slow sale wasn't an option. The house was in contract in under four weeks and closed at $789,000.</p>
+    <div class="facts"><span>SOLD $789,000</span><span>27 DAYS TO CONTRACT</span><span>ESTATE + REVERSE MORTGAGE</span></div>
+  </div>
+
+  <div class="card story">
+    <div class="mono">West Islip &middot; Closed January 2024</div>
+    <h3>Out fast, with equity in hand</h3>
+    <p>The seller needed to sell quickly. My crew handled the cleanup, I marketed it hard, and I ended up representing both the seller and the buyer. Asking $550,000, sold for $575,000, in contract in 23 days. The seller walked away with equity instead of a problem.</p>
+    <div class="facts"><span>$550,000 &rarr; $575,000</span><span>23 DAYS TO CONTRACT</span><span>BOTH SIDES OF THE SALE</span><span>TIME-SENSITIVE</span></div>
+  </div>
+
+  <div class="card" style="margin-top:24px;text-align:center">
+    <h3 style="font-size:1.4rem;margin-bottom:8px">Have a complicated one?</h3>
+    <p class="lead" style="margin:0 auto 16px;font-size:.95rem">Estates, tight deadlines, houses that need work, two deals that depend on each other. That's most of what I do.</p>
+    <button class="btn" onclick="openLead('selling','')">Tell me about your situation</button>
+  </div>
+  <div class="disclaimer">Stories are shared without client names. Sale prices and dates are public record. Past results don't guarantee future results; every property and market is different.</div>
+</section>
+</div>
+
 <!-- ============ PENDING ============ -->
 <div class="page" id="pending">
 <section class="wrap">
-  <div class="eyebrow"><span class="mono">Active · In Contract</span></div>
+  <div class="eyebrow"><span class="mono">Active · In Progress · Just Closed</span></div>
   <h2>What I'm working on now</h2>
-  <p class="lead">Live deals, mid-flight. Momentum you can see.</p>
+  <p class="lead">Live deals, mid-flight, and the ones that just crossed the finish line.</p>
   <div class="pend" id="pendList" style="margin-top:26px"></div>
   <div class="disclaimer">
-    Pending and coming-soon details reflect current contract status and are subject to change until closing. In-contract figures are not final sale prices.
+    Active and coming-soon details reflect current status and are subject to change until closing. Closed sale prices are public record.
   </div>
 </section>
 </div>
@@ -592,10 +669,21 @@ body{padding-bottom:84px}
 <script>
 /* ================= DATA — edit these arrays to update the site ================= */
 let DEALS = [
-  {addr:"127 Cambon Ave, St. James",     type:"distressed", lbl:"ESTATE SALE", list:655000, sale:742000, dom:22, note:"Estate sale, three heirs. My crew did the full cleanout plus prime & paint throughout. Sold $87K over ask."},
-  {addr:"27 Gloria Pl, Plainview",       type:"standard",   lbl:"ESTATE SALE", list:null,   sale:789000, dom:27, note:"Estate sale on a reverse-mortgage clock — a specialized, fast-track sale, in contract in under four weeks."},
-  {addr:"800 Tanglewood Rd, West Islip", type:"distressed", lbl:"DISTRESSED",  list:550000, sale:575000, dom:23, note:"Time-sensitive sale for a seller who needed speed. Cleanup by my crew, sharp marketing — $25K over ask, and the seller walked away with equity."},
-  {addr:"1921 Byrd Dr, East Meadow",     type:"standard",   lbl:"INVESTOR FLIP", list:635000, sale:650000, dom:36, note:"Investor fix & flip — renovated by my construction company, resold $15K over ask."}
+  {addr:"71 Crescent St, Yaphank",       type:"standard",   lbl:"MY LISTING",  closed:"Aug 2026", list:650000, sale:700000, dom:12, note:"My crew pulled up the carpet, refinished the floors, power-washed and cleaned out before it listed. In contract in 12 days, $50K over ask, and closed alongside the seller's upstate purchase."},
+  {addr:"127 Cambon Ave, St. James",     type:"distressed", lbl:"ESTATE SALE", closed:"Dec 2025", list:655000, sale:742000, dom:22, note:"Estate sale, three heirs. My crew did the full cleanout plus prime & paint throughout. Sold $87K over ask."},
+  {addr:"800 Tanglewood Rd, West Islip", type:"distressed", lbl:"DISTRESSED",  closed:"Jan 2024", list:550000, sale:575000, dom:23, note:"Time-sensitive sale for a seller who needed speed. Cleanup by my crew, sharp marketing, $25K over ask. I represented both sides, and the seller walked away with equity."},
+  {addr:"1921 Byrd Dr, East Meadow",     type:"standard",   lbl:"INVESTOR FLIP", closed:"Dec 2023", list:635000, sale:650000, dom:36, note:"Investor fix & flip — renovated by my construction company, resold $15K over ask. My second time selling this house."},
+  {addr:"27 Gloria Pl, Plainview",       type:"standard",   lbl:"ESTATE SALE", closed:"Jul 2023", list:null,   sale:789000, dom:27, note:"Estate sale on a reverse-mortgage clock — a specialized, fast-track sale, in contract in under four weeks."}
+];
+
+// More closed deals, shown on the Track Record page under "Every side of the table"
+const MORE = [
+  {when:"Aug 2026", role:"BUYER SIDE", addr:"Richford, NY (upstate)",        note:"$340,000 purchase across two MLS boards, timed to my client's Long Island sale."},
+  {when:"Aug 2025", role:"WHOLESALE",  addr:"Shirley",                       note:"Off-market sale to an investor. No public listing."},
+  {when:"Apr 2025", role:"WHOLESALE",  addr:"Ronkonkoma",                    note:"Off-market sale to an investor. No public listing."},
+  {when:"Jan 2024", role:"BOTH SIDES", addr:"800 Tanglewood Rd, West Islip", note:"Represented the seller and the buyer on the same sale."},
+  {when:"Apr 2022", role:"BUYER SIDE", addr:"Central Islip",                 note:"Buyer representation, from first showing to keys."},
+  {when:"Dec 2021", role:"LISTING",    addr:"1921 Byrd Dr, East Meadow",     note:"The first sale of this house. Two years later I sold it again, renovated."}
 ];
 
 const RENTALS = [
@@ -605,10 +693,11 @@ const RENTALS = [
 ];
 
 const PENDING = [
-  {status:"IN CONTRACT · MY LISTING", addr:"71 Crescent St, Yaphank", note:"Listed at $650K — in contract at $700K, $50K over ask, in 12 days. Before listing, my crew ripped up the carpet, refinished the floors, power-washed everything, and handled the cleanout.", prog:70, metric:"+7.7% over list · 12 days"},
-  {status:"ACTIVE · BUYER SIDE", addr:"Upstate Purchase — Richford, NY area", note:"Representing a Long Island client on their upstate purchase — coordinating a cross-MLS deal between two boards on a linked timeline. Licensed across New York State, I handle deals well beyond the Island.", prog:55, metric:"Cross-MLS · Upstate NY"},
-  {status:"COMING SOON", addr:"Mount Sinai — details soon", note:"Preparing for market now. Check back shortly.", prog:20, metric:"Launching soon"},
-  {status:"COMING SOON", addr:"Hempstead — details soon", note:"Preparing for market now. Check back shortly.", prog:20, metric:"Launching soon"}
+  {status:"ACTIVE LISTING · MY LISTING", addr:"11 Griffin Dr, Mount Sinai", note:"Now on the market. 3 bedrooms, 2 baths, 1,375 sq ft on a half-acre lot. Call or text me for details or a private showing.", prog:30, metric:"Listed · Showing now"},
+  {status:"ACTIVE · BUYER SIDE", addr:"Off-market purchase — Wheatley Heights", note:"Representing a buyer on an off-market house with heavy water damage. A house in this shape is hard to finance the usual way, so I'm putting together creative financing to get him to the closing table. As a builder, I can put a real number on the repairs before he commits.", prog:45, metric:"Off-market · Creative financing"},
+  {status:"COMING SOON", addr:"Hempstead — details soon", note:"Preparing for market now. Check back shortly.", prog:20, metric:"Launching soon"},
+  {status:"JUST CLOSED · AUG 2026", addr:"71 Crescent St, Yaphank", note:"Sold for $700,000. Listed at $650K, in contract in 12 days, $50K over asking.", prog:100, metric:"+7.7% over list · Closed", story:true},
+  {status:"JUST CLOSED · AUG 2026", addr:"Upstate purchase — Richford, NY", note:"Closed days after my client's Yaphank sale. Two MLS boards, one linked timeline, both done.", prog:100, metric:"Buyer side · Closed", story:true}
 ];
 
 const STAGES = [
@@ -637,7 +726,8 @@ const TEAM = [
 const PAGE_TITLES={
   home:"Sean Casaccio — Realtor & Builder | Long Island",
   record:"Track Record | Sean Casaccio, Long Island Realtor",
-  pending:"In Contract | Sean Casaccio, Long Island Realtor",
+  pending:"Active Deals | Sean Casaccio, Long Island Realtor",
+  stories:"Deal Stories | Sean Casaccio, Long Island Realtor",
   value:"What's My Long Island Home Worth? | Sean Casaccio",
   reno:"Long Island Renovation Value Calculator | Sean Casaccio",
   build:"Build & Develop | Sean Casaccio & NXT-GEN Contracting",
@@ -708,13 +798,14 @@ async function submitLead(e){
   btn.disabled=false; btn.textContent='Send to Sean';
 }
 document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeLead(); });
-function navByPage(id){  const map={home:0,record:1,pending:2,value:3,reno:4,build:5,process:6,team:7,quiz:8,buyers:9};
+function navByPage(id){  const map={home:0,record:1,stories:2,pending:3,value:4,reno:5,build:6,process:7,team:8,quiz:9,buyers:10};
   return document.querySelectorAll('.navlinks button')[map[id]];
 }
 
 /* ================= TRACK RECORD ================= */
 let seg='all';
 const fmt=n=>'$'+Math.round(n).toLocaleString();
+const fmtK=n=>'$'+Math.round(n/1000)+'K';
 function setSeg(s,btn){
   seg=s;
   document.querySelectorAll('#recToggle button').forEach(b=>b.classList.remove('on','distressed'));
@@ -731,11 +822,12 @@ function renderRecord(){
   const avgOver=withList.reduce((a,x)=>a+(x.sale-x.list)/x.list,0)/wn*100;
   const overAsk=withList.filter(x=>x.sale>=x.list).length/wn*100;
   const vol=d.reduce((a,x)=>a+x.sale,0);
+  const overTotal=withList.reduce((a,x)=>a+Math.max(0,x.sale-x.list),0);
   document.getElementById('recStats').innerHTML=`
-    <div class="stat"><div class="v">30+</div><div class="k">Sales completed</div><div class="sub">MLS + OFF-MARKET</div></div>
+    <div class="stat"><div class="v">60+</div><div class="k">Deals closed</div><div class="sub">MLS + OFF-MARKET</div></div>
     <div class="stat"><div class="v">${avgDom.toFixed(0)}</div><div class="k">Avg days to contract (shown)</div><div class="sub">FAST</div></div>
     <div class="stat"><div class="v">+${avgOver.toFixed(1)}%</div><div class="k">Avg over list (shown)</div><div class="sub">ABOVE ASK</div></div>
-    <div class="stat"><div class="v">Most</div><div class="k">Sales close over asking</div></div>
+    <div class="stat"><div class="v">${fmtK(overTotal)}</div><div class="k">Total over asking (shown)</div><div class="sub">ABOVE ASK</div></div>
     <div class="stat"><div class="v">25+</div><div class="k">Off-market &amp; private deals</div><div class="sub">PRIVATE</div></div>
     <div class="stat"><div class="v">All</div><div class="k">Sale types handled</div><div class="sub">SEE BELOW</div></div>`;
   const maxDom=Math.max(...DEALS.map(x=>x.dom));
@@ -746,7 +838,7 @@ function renderRecord(){
     const pct=x.list?((x.sale-x.list)/x.list*100):null;
     return `<div class="deal">
       <div><div class="addr">${x.addr}</div>
-        <div class="meta"><span class="chip ${cls}">${lbl}</span> &nbsp; ${priceLine}</div>
+        <div class="meta"><span class="chip ${cls}">${lbl}</span> &nbsp; ${priceLine}${x.closed?' &nbsp;&middot;&nbsp; Closed '+x.closed:''}</div>
         ${x.note?`<div class="note">${x.note}</div>`:''}
         <div class="bar"><i style="width:${100-(x.dom/maxDom*70)}%"></i></div>
       </div>
@@ -754,6 +846,12 @@ function renderRecord(){
     </div>`;
   }).join('');
   renderHomeStats();
+  document.getElementById('moreDeals').innerHTML=MORE.map(m=>`
+    <div class="ledger-row">
+      <div><span class="chip role">${m.role}</span></div>
+      <div><div style="font-family:var(--display);font-size:1.02rem">${m.addr}</div><div style="font-size:.82rem;color:var(--paper-dim);margin-top:2px">${m.note}</div></div>
+      <div class="when">${m.when}</div>
+    </div>`).join('');
 }
 function renderHomeStats(){
   const n=DEALS.length;
@@ -763,10 +861,10 @@ function renderHomeStats(){
   const avgOver=withList.reduce((a,x)=>a+(x.sale-x.list)/x.list,0)/wn*100;
   const overAsk=withList.filter(x=>x.sale>=x.list).length/wn*100;
   document.getElementById('homeStats').innerHTML=`
-    <div><div class="big">30+</div><div class="lbl">Sales completed — MLS &amp; off-market, growing every month</div></div>
+    <div><div class="big">60+</div><div class="lbl">Deals closed — listings, buyers, estates, off-market &amp; investor</div></div>
     <div><div class="big">${avgDom.toFixed(0)} days</div><div class="lbl">Avg to contract (featured sales)</div></div>
     <div><div class="big">+${avgOver.toFixed(1)}%</div><div class="lbl">Over list price (featured sales)</div></div>
-    <div><div class="big">Most</div><div class="lbl">Sales close over asking</div></div>`;
+    <div><div class="big">${fmtK(withList.reduce((a,x)=>a+Math.max(0,x.sale-x.list),0))}</div><div class="lbl">Total over asking (featured sales)</div></div>`;
 }
 
 /* ================= RENTALS ================= */
@@ -783,6 +881,7 @@ document.getElementById('pendList').innerHTML=PENDING.map(p=>`
     <p class="lead" style="font-size:.88rem">${p.note}</p>
     <div class="bar" style="margin-top:14px"><i style="width:${p.prog}%"></i></div>
     <div class="mono" style="margin-top:8px;color:var(--sage)">${p.metric}</div>
+    ${p.story?`<button class="btn ghost" style="margin-top:12px;padding:8px 14px;font-size:.8rem" onclick="go('stories',navByPage('stories'))">Read the story &rarr;</button>`:''}
   </div>`).join('');
 
 /* ================= VALUATION ================= */

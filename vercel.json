@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/:page(record|pending|value|reno|build|process|team|quiz|buyers|contact)",
+      "source": "/:page(record|stories|pending|value|reno|build|process|team|quiz|buyers|contact)",
       "destination": "/index.html"
     }
   ],
