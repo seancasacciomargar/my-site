@@ -19,8 +19,8 @@
 <meta name="theme-color" content="#0d141d">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
- {"@type":"RealEstateAgent","@id":"https://seancasaccio.com/#agent","name":"Sean Casaccio","url":"https://seancasaccio.com/","image":"https://seancasaccio.com/og-image.png","telephone":"+1-631-316-7922","email":"seancasaccio@margarrealty.com","description":"Licensed Real Estate Salesperson with Margar Realty serving Suffolk and Nassau Counties, Long Island.","address":{"@type":"PostalAddress","streetAddress":"330 Motor Parkway","addressLocality":"Hauppauge","addressRegion":"NY","postalCode":"11788","addressCountry":"US"},"areaServed":[{"@type":"AdministrativeArea","name":"Suffolk County, NY"},{"@type":"AdministrativeArea","name":"Nassau County, NY"}],"parentOrganization":{"@type":"RealEstateAgent","name":"Margar Realty"}},
- {"@type":"HomeAndConstructionBusiness","@id":"https://seancasaccio.com/#nxtgen","name":"NXT-GEN Contracting Inc.","url":"https://seancasaccio.com/build","telephone":"+1-631-316-7922","founder":{"@id":"https://seancasaccio.com/#agent"},"address":{"@type":"PostalAddress","addressLocality":"Bellport","addressRegion":"NY","addressCountry":"US"},"areaServed":"Long Island, NY","identifier":"Suffolk County Home Improvement License HI-73351","sameAs":["https://www.nxt-gencontracting.com/"]}
+ {"@type":"RealEstateAgent","@id":"https://seancasaccio.com/#agent","name":"Sean Casaccio","url":"https://seancasaccio.com/","image":"https://seancasaccio.com/og-image.png","telephone":"+1-631-316-7922","email":"seancasaccio@margarrealty.com","description":"Licensed Real Estate Salesperson with Margar Realty serving Suffolk and Nassau Counties, Long Island.","address":{"@type":"PostalAddress","streetAddress":"330 Motor Parkway","addressLocality":"Hauppauge","addressRegion":"NY","postalCode":"11788","addressCountry":"US"},"areaServed":[{"@type":"AdministrativeArea","name":"Suffolk County, NY"},{"@type":"AdministrativeArea","name":"Nassau County, NY"}],"parentOrganization":{"@type":"RealEstateAgent","name":"Margar Realty"},"sameAs":["https://www.instagram.com/seancasaccio/","https://www.tiktok.com/@seancasacciorealtor","https://www.linkedin.com/in/sean-casaccio-b995801a3/"]},
+ {"@type":"HomeAndConstructionBusiness","@id":"https://seancasaccio.com/#nxtgen","name":"NXT-GEN Contracting Inc.","url":"https://seancasaccio.com/build","telephone":"+1-631-316-7922","founder":{"@id":"https://seancasaccio.com/#agent"},"address":{"@type":"PostalAddress","addressLocality":"Bellport","addressRegion":"NY","addressCountry":"US"},"areaServed":"Long Island, NY","identifier":"Suffolk County Home Improvement License HI-73351","sameAs":["https://www.nxt-gencontracting.com/","https://www.instagram.com/nxtgencontractingli/","https://www.tiktok.com/@nxtgencontractinginc","https://www.linkedin.com/company/nxt-gen-contracting/"]}
 ]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -116,7 +116,7 @@ h2{font-size:clamp(1.9rem,4vw,3rem);margin-bottom:10px}
 .chip{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;padding:3px 9px;border-radius:20px;display:inline-block}
 .chip.over{background:rgba(108,184,156,.16);color:var(--sage)}
 .chip.role{background:rgba(203,163,92,.16);color:var(--brass-2)}
-.ledger-row{display:grid;grid-template-columns:110px 1fr auto;gap:12px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line)}
+.ledger-row{display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line)}
 .ledger-row:last-child{border-bottom:0}
 .ledger-row .when{font-family:var(--mono);font-size:.7rem;color:var(--paper-dim);white-space:nowrap}
 .story{margin-top:18px}
@@ -179,12 +179,25 @@ input:focus,select:focus{outline:none;border-color:var(--brass)}
 .tl-body .desc{font-size:.9rem;color:var(--paper-dim);max-height:0;overflow:hidden;transition:.4s;opacity:0}
 .tl-stage.open .desc{max-height:120px;opacity:1;margin-top:8px}
 
-/* TEAM */
-.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
-.member{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:22px;text-align:center}
-.member .av{width:64px;height:64px;border-radius:50%;margin:0 auto 12px;background:linear-gradient(135deg,var(--brass),var(--ink-3));display:grid;place-items:center;font-family:var(--display);font-size:1.5rem;color:var(--ink)}
-.member .role{font-weight:600}
-.member .who{font-size:.82rem;color:var(--paper-dim);margin-top:3px}
+/* TEAM / NETWORK */
+.net-wrap{display:grid;grid-template-columns:1.5fr 1fr;gap:22px;align-items:start;margin-top:18px}
+.net-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;grid-auto-flow:dense}
+.net-tile{text-align:left;background:var(--ink-2);border:1px solid var(--line);border-radius:12px;padding:14px;color:var(--paper);cursor:pointer;transition:.2s;font-family:var(--body);display:block;width:100%}
+.net-tile:hover,.net-tile:focus-visible,.net-tile.sel{border-color:var(--brass);transform:translateY(-2px);outline:none}
+.net-tile.sel{background:var(--ink-3)}
+.net-tile.dim{opacity:.26}
+.net-tile .ic{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--brass),var(--ink-3));display:grid;place-items:center;font-family:var(--display);color:var(--ink);font-size:.95rem;font-weight:600;margin-bottom:10px}
+.net-tile .nm{font-weight:600;font-size:.92rem;line-height:1.25}
+.net-tile .one{font-size:.76rem;color:var(--paper-dim);margin-top:4px;line-height:1.35}
+.net-tile .tg{font-family:var(--mono);font-size:.55rem;letter-spacing:.08em;color:var(--sage);margin-top:8px}
+.net-detail{position:sticky;top:96px;background:var(--ink-2);border:1px solid var(--brass);border-radius:14px;padding:22px;grid-column:auto}
+.net-detail h3{font-size:1.4rem;margin:6px 0 4px}
+.net-detail .q{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;color:var(--brass);text-transform:uppercase;margin-top:16px}
+.net-detail p{font-size:.92rem;color:var(--paper-dim);margin-top:5px}
+.net-detail .when{display:inline-block;font-family:var(--mono);font-size:.64rem;letter-spacing:.04em;padding:4px 10px;border-radius:20px;border:1px solid var(--line);color:var(--brass-2);margin-top:6px}
+.socials{margin-top:16px;font-size:.8rem;line-height:1.9}
+.socials a{color:var(--paper);border-bottom:1px solid var(--brass);margin-right:12px;white-space:nowrap}
+.socials .who{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;color:var(--brass);text-transform:uppercase;display:block;margin-top:6px}
 
 /* PENDING */
 .pend{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
@@ -219,6 +232,9 @@ body{padding-bottom:84px}
   .row2{grid-template-columns:1fr}
   .hero .stamp{display:none}
   .ledger-row{grid-template-columns:1fr}
+  .net-wrap{grid-template-columns:1fr}
+  .net-grid{grid-template-columns:repeat(2,1fr)}
+  .net-detail{position:static;grid-column:1/-1}
   .deal{grid-template-columns:1fr}
   .deal .perf{text-align:left}
   #renoWrap{grid-template-columns:1fr !important}
@@ -242,7 +258,7 @@ body{padding-bottom:84px}
       <button onclick="go('reno',this)">Reno ROI</button>
       <button onclick="go('build',this)">Build &amp; Develop</button>
       <button onclick="go('process',this)">The Process</button>
-      <button onclick="go('team',this)">The Team</button>
+      <button onclick="go('team',this)">My Network</button>
       <button onclick="go('quiz',this)">Your Options Quiz</button>
       <button onclick="go('buyers',this)">For Buyers</button>
     </div>
@@ -317,7 +333,7 @@ body{padding-bottom:84px}
   <div class="grid" style="grid-template-columns:1fr 1fr;gap:18px;margin-top:24px" id="extraRecord">
     <div class="card">
       <div class="mono">Off-Market &amp; Private Sales</div>
-      <h3 style="font-size:1.5rem;margin:10px 0">25+ off-market transactions</h3>
+      <h3 style="font-size:1.5rem;margin:10px 0">40+ off-market transactions</h3>
       <p class="lead" style="font-size:.9rem">Completed across Suffolk, Nassau, and the East End — distressed sales, investor acquisitions, and wholesale dispositions, handled privately by design. Sellers who need speed and discretion get both, backed by an active network of investors and cash buyers.</p>
     </div>
     <div class="card">
@@ -552,13 +568,36 @@ body{padding-bottom:84px}
 </section>
 </div>
 
-<!-- ============ TEAM ============ -->
+<!-- ============ TEAM / NETWORK ============ -->
 <div class="page" id="team">
 <section class="wrap">
   <div class="eyebrow"><span class="mono">The One-Stop Shop</span></div>
-  <h2>Your whole team, already assembled</h2>
-  <p class="lead">A real estate deal takes a dozen people. Most buyers and sellers go find each one alone. With me, the bench is already in place — faster, smoother, fewer dropped balls.</p>
-  <div class="team-grid" style="margin-top:28px" id="teamGrid"></div>
+  <h2>A deal takes a dozen people. You call one.</h2>
+  <p class="lead">Most buyers and sellers have to find an attorney, a lender, an inspector and a contractor on their own, then hope they all talk to each other. Mine are already in place. Pick your situation to see who you'll need, then tap anyone to see why they matter and what I do to make that part easier.</p>
+
+  <div class="toggle" id="netSit" style="flex-wrap:wrap">
+    <button class="on" onclick="netSituation('all',this)">Everyone</button>
+    <button onclick="netSituation('sell',this)">Selling</button>
+    <button onclick="netSituation('buy',this)">Buying</button>
+    <button onclick="netSituation('estate',this)">Estate sale</button>
+    <button onclick="netSituation('distressed',this)">Behind on payments</button>
+    <button onclick="netSituation('reno',this)">Renovating</button>
+    <button onclick="netSituation('invest',this)">Investing</button>
+  </div>
+  <div class="mono" id="netCount" style="margin:4px 0 0;color:var(--brass-2)"></div>
+
+  <div class="net-wrap">
+    <div class="net-grid" id="netGrid"></div>
+    <aside class="net-detail" id="netDetail" aria-live="polite"></aside>
+  </div>
+
+  <div class="card" style="margin-top:26px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+    <div style="max-width:60ch">
+      <div class="mono">Introductions, made personally</div>
+      <p class="lead" style="font-size:.9rem;margin-top:8px">I don't list names on a website. When we're working together, I introduce you to the right person for your deal myself. You're always free to use your own attorney, lender or inspector.</p>
+    </div>
+    <button class="btn" onclick="openLead()">Ask for an introduction</button>
+  </div>
 </section>
 </div>
 
@@ -599,7 +638,7 @@ body{padding-bottom:84px}
   </div>
 
   <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:26px">
-    <div class="card"><div class="mono">OFF-MARKET ACCESS</div><h3 style="font-size:1.15rem;margin:8px 0">Deals before they hit Zillow</h3><p class="lead" style="font-size:.85rem">25+ private transactions mean a network of sellers, investors, and wholesalers most agents do not have.</p></div>
+    <div class="card"><div class="mono">OFF-MARKET ACCESS</div><h3 style="font-size:1.15rem;margin:8px 0">Deals before they hit Zillow</h3><p class="lead" style="font-size:.85rem">40+ off-market transactions mean a network of sellers, investors, and wholesalers most agents do not have.</p></div>
     <div class="card"><div class="mono">CONTRACTOR EYES</div><h3 style="font-size:1.15rem;margin:8px 0">Know what it really needs</h3><p class="lead" style="font-size:.85rem">I walk every house as a licensed contractor - you will know repair costs before you offer, not after.</p></div>
     <div class="card"><div class="mono">ANYWHERE IN NY</div><h3 style="font-size:1.15rem;margin:8px 0">Montauk to Manhattan to upstate</h3><p class="lead" style="font-size:.85rem">Licensed across New York State, with cross-MLS experience wherever the right house is.</p></div>
   </div>
@@ -618,7 +657,20 @@ body{padding-bottom:84px}
     <div>
       <div class="brand">Sean Casaccio <small>Realtor · Builder · Long Island</small></div>
       <p style="max-width:40ch;margin-top:10px">Licensed Real Estate Salesperson · PSA · SFR®<br>seancasaccio@margarrealty.com · (631) 316-7922<br>Owner, NXT-GEN Contracting Inc. &middot; Bellport, NY<br>Suffolk County Home Improvement License HI-73351</p>
-      <button class="btn" style="margin-top:14px" onclick="openLead()">Get in touch</button>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+        <button class="btn" onclick="openLead()">Get in touch</button>
+        <button class="btn ghost cal-btn" onclick="bookCall()" style="display:none">Book a call</button>
+      </div>
+      <div class="socials">
+        <span class="who">Follow Sean &middot; Real estate</span>
+        <a href="https://www.instagram.com/seancasaccio/" target="_blank" rel="noopener">Instagram @seancasaccio</a>
+        <a href="https://www.tiktok.com/@seancasacciorealtor" target="_blank" rel="noopener">TikTok @seancasacciorealtor</a>
+        <a href="https://www.linkedin.com/in/sean-casaccio-b995801a3/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="who">NXT-GEN Contracting</span>
+        <a href="https://www.instagram.com/nxtgencontractingli/" target="_blank" rel="noopener">Instagram @nxtgencontractingli</a>
+        <a href="https://www.tiktok.com/@nxtgencontractinginc" target="_blank" rel="noopener">TikTok @nxtgencontractinginc</a>
+        <a href="https://www.linkedin.com/company/nxt-gen-contracting/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
     </div>
     <div class="qr-foot">
       <img src="/qr-site.png" alt="QR code for seancasaccio.com" width="110" height="110">
@@ -660,6 +712,7 @@ body{padding-bottom:84px}
       <div class="field"><label>Anything I should know?</label><textarea id="l_msg"></textarea></div>
       <div class="hp" aria-hidden="true"><label>Website</label><input id="l_web" tabindex="-1" autocomplete="off"></div>
       <button class="btn" type="submit" id="l_send" style="width:100%">Send to Sean</button>
+      <button class="btn ghost cal-btn" type="button" onclick="bookCall()" style="width:100%;margin-top:8px;display:none">Or pick a time on my calendar</button>
       <div id="l_out" style="font-size:.88rem;margin-top:10px;color:var(--paper-dim)"></div>
       <p style="font-size:.7rem;color:var(--paper-dim);margin-top:10px">By sending, you agree Sean may contact you about your request. Your information is never sold.</p>
     </form>
@@ -678,13 +731,13 @@ let DEALS = [
 
 // More closed deals, shown on the Track Record page under "Every side of the table"
 const MORE = [
-  {when:"Aug 2026", role:"BUYER SIDE", addr:"Richford, NY (upstate)",        note:"$340,000 purchase across two MLS boards, timed to my client's Long Island sale."},
-  {when:"Aug 2025", role:"WHOLESALE",  addr:"Shirley",                       note:"Off-market sale to an investor. No public listing."},
-  {when:"Apr 2025", role:"WHOLESALE",  addr:"Ronkonkoma",                    note:"Off-market sale to an investor. No public listing."},
-  {when:"Jan 2024", role:"BOTH SIDES", addr:"800 Tanglewood Rd, West Islip", note:"Represented the seller and the buyer on the same sale."},
-  {when:"Dec 2022", role:"LISTING",    addr:"1046 Waverly Ave, Holtsville",  note:"Sold for $295,000."},
-  {when:"Apr 2022", role:"BUYER SIDE", addr:"Central Islip",                 note:"Buyer representation, from first showing to keys."},
-  {when:"Dec 2021", role:"LISTING",    addr:"1921 Byrd Dr, East Meadow",     note:"The first sale of this house. Two years later I sold it again, renovated."}
+  {role:"BUYER SIDE", addr:"Richford, NY (upstate)",        note:"$340,000 purchase across two MLS boards, timed to my client's Long Island sale."},
+  {role:"WHOLESALE",  addr:"Shirley",                       note:"Off-market wholesale to an investor, done in 12 days from first contact to closing. No public listing."},
+  {role:"WHOLESALE",  addr:"Ronkonkoma",                    note:"A duplex, sold off-market to an investor. No public listing."},
+  {role:"BOTH SIDES", addr:"800 Tanglewood Rd, West Islip", note:"Represented the seller and the buyer on the same sale."},
+  {role:"LISTING",    addr:"1046 Waverly Ave, Holtsville",  note:"Sold for $295,000."},
+  {role:"BUYER SIDE", addr:"Central Islip",                 note:"My investor lost out at a foreclosure sale. I tracked down the winning purchaser and negotiated a deal for my investor to buy it from them."},
+  {role:"LISTING",    addr:"1921 Byrd Dr, East Meadow",     note:"The first sale of this house. Two years later I sold it again, renovated."}
 ];
 
 const RENTALS = [
@@ -712,16 +765,81 @@ const STAGES = [
   {nm:"Closing",            base:5,  desc:"Final walkthrough, title clears, keys change hands. Done."}
 ];
 
-const TEAM = [
-  {role:"Listing & Buyer Agent", who:"Sean — that's me", i:"S"},
-  {role:"Construction Crew",     who:"My in-house team", i:"GC"},
-  {role:"Mortgage Loan Officer", who:"Trusted lender partner", i:"$"},
-  {role:"Real Estate Attorney",  who:"NY closing counsel", i:"§"},
-  {role:"Estate Attorney",       who:"Estate & probate planning", i:"E"},
-  {role:"Home Inspector",        who:"Licensed inspector", i:"✓"},
-  {role:"Title & Settlement",    who:"Title company partner", i:"T"},
-  {role:"Investor Network",      who:"Cash buyers & wholesalers", i:"◆"}
+// The network page. No names on purpose: roles only, until each person agrees to be listed.
+// tag: IN-HOUSE = Sean or his company, MY NETWORK = people he introduces, INDEPENDENT = assigned by someone else.
+const NETWORK = [
+  {id:"agent", ic:"S", nm:"Your agent (me)", tag:"IN-HOUSE", one:"One call. I run everyone else on this page.",
+   why:"Someone has to price the house, market it, negotiate, and keep a dozen people moving on the same schedule. That's the job.",
+   when:"Day one to the closing table",
+   help:"I'm a licensed agent and a builder, so I can tell you what the house is worth, what the work costs, and which path leaves you with the most. PSA and SFR® certified.",
+   sit:["sell","buy","estate","distressed","reno","invest"]},
+  {id:"crew", ic:"GC", nm:"Construction crew", tag:"IN-HOUSE · NXT-GEN CONTRACTING", one:"Cleanouts, repairs and full renovations.",
+   why:"Most houses need something before they sell or right after they're bought: a cleanout, paint, floors, or a repair the inspector flagged.",
+   when:"Before listing, or right after an inspection",
+   help:"It's my own licensed company (Suffolk HI-73351), so nobody waits on a contractor to call back. I price the work, schedule it around the sale, and I'm the one accountable for it.",
+   sit:["sell","buy","estate","distressed","reno","invest"]},
+  {id:"trades", ic:"⚡", nm:"Licensed trades", tag:"MY NETWORK", one:"Electricians, plumbers and specialists.",
+   why:"Electrical and plumbing work has to be done by licensed pros. Home inspectors and town inspectors both check it.",
+   when:"During prep or repairs",
+   help:"I bring in the same licensed electrician and trades I use on my own jobs, so the work is done right and on schedule.",
+   sit:["sell","reno","invest"]},
+  {id:"attorney", ic:"§", nm:"Real estate attorney", tag:"MY NETWORK", one:"Writes the contract and runs the closing.",
+   why:"In New York, attorneys write and review the contract, hold the contract deposit, and run the closing. You need one whether you're buying or selling.",
+   when:"From accepted offer to closing",
+   help:"A slow attorney can cost you a deal. I can introduce you to attorneys who close Long Island deals every week and return calls. You're free to use your own.",
+   sit:["sell","buy","estate","distressed","invest"]},
+  {id:"estate", ic:"E", nm:"Estate & probate attorney", tag:"MY NETWORK", one:"Gets you the authority to sell.",
+   why:"If the owner has passed away, nobody can sell until the court gives someone the authority to sign. That paperwork has to start early.",
+   when:"Before the house is listed",
+   help:"I've sold estates with several heirs and with reverse mortgages on a deadline. I can connect you with an estate attorney and have the sale ready for the day you can sign.",
+   sit:["estate"]},
+  {id:"lender", ic:"$", nm:"Mortgage loan officer", tag:"MY NETWORK", one:"Makes a buyer's offer real.",
+   why:"An offer is only as strong as the financing behind it. Sellers pick the buyer most likely to close.",
+   when:"Before you make an offer",
+   help:"I can introduce buyers to loan officers who give a real pre-approval and answer when the listing agent calls. When you're selling, I check a buyer's financing before you accept.",
+   sit:["buy","invest"]},
+  {id:"private", ic:"P", nm:"Private & hard-money lenders", tag:"MY NETWORK", one:"For houses a bank won't lend on.",
+   why:"Banks turn down some houses: heavy damage, no working kitchen, a closing in two weeks. Private money fills that gap.",
+   when:"When a regular mortgage won't work",
+   help:"I work with investors every week, so I know how these deals get financed and can help structure one that reaches the closing table.",
+   sit:["distressed","invest"]},
+  {id:"inspector", ic:"✓", nm:"Home inspector", tag:"MY NETWORK", one:"Finds the problems before you're locked in.",
+   why:"A buyer needs to know what's wrong with a house before committing: roof, foundation, electrical, oil tank, termites.",
+   when:"Right after an accepted offer",
+   help:"I walk the inspection as a builder. When the report says something needs fixing, I can tell you the same day what it means and what it really costs.",
+   sit:["buy","invest"]},
+  {id:"appraiser", ic:"A", nm:"Appraiser", tag:"INDEPENDENT · CHOSEN BY THE BANK", one:"Confirms the price for the lender.",
+   why:"When there's a mortgage, the bank sends an appraiser to confirm the house is worth the price. A low appraisal can sink a deal.",
+   when:"After contracts are signed",
+   help:"Nobody gets to pick the appraiser, and that's how it should be. What I do is meet them at the house with the comparable sales and a list of every upgrade, so nothing gets missed.",
+   sit:["sell","buy"]},
+  {id:"title", ic:"T", nm:"Title company", tag:"MY NETWORK", one:"Makes sure the house can legally change hands.",
+   why:"Title confirms the seller owns the house free and clear, with no old liens, unpaid taxes or missing paperwork, and insures the buyer against surprises.",
+   when:"Ordered once contracts are signed",
+   help:"Title problems are what delay closings. I look for the usual trouble early, like open permits and old mortgages, so it's solved before closing day.",
+   sit:["sell","buy","estate","distressed","invest"]},
+  {id:"expeditor", ic:"CO", nm:"Permit expeditor & architect", tag:"MY NETWORK", one:"Clears open permits and C/O issues.",
+   why:"On Long Island, a deck, finished basement or garage conversion without a permit or certificate of occupancy can hold up a sale.",
+   when:"As early as possible, ideally before listing",
+   help:"I've handled open permits and C/O issues on my own sales, and as a builder I know what the town will ask for. I bring in an expeditor or architect when plans have to be filed.",
+   sit:["sell","estate","distressed","reno"]},
+  {id:"insurance", ic:"IN", nm:"Insurance agent", tag:"MY NETWORK", one:"No policy, no closing.",
+   why:"A lender won't close without a homeowner's policy. On Long Island, flood zones and older roofs can change the cost a lot.",
+   when:"During the mortgage process",
+   help:"I tell buyers to get a quote before they're locked in, and I can tell you what an insurer is likely to flag, such as the roof, an oil tank or old wiring.",
+   sit:["buy","invest"]},
+  {id:"photo", ic:"◉", nm:"Photographer & media", tag:"MY NETWORK", one:"The first showing happens online.",
+   why:"Buyers decide whether to visit based on the photos. Bad photos cost real money.",
+   when:"After prep, right before listing",
+   help:"My crew preps the house first and then it's shot professionally, so the first thing buyers see is the house at its best.",
+   sit:["sell","estate"]},
+  {id:"investors", ic:"◆", nm:"Investors & cash buyers", tag:"MY NETWORK", one:"A fast, certain sale when you need one.",
+   why:"Some sellers need speed and certainty more than top dollar: no showings, no mortgage, a quick closing.",
+   when:"When time or condition matters most",
+   help:"I've closed 40+ off-market deals, so I can bring real cash buyers to the table and show you their number next to what the open market would pay. You choose.",
+   sit:["estate","distressed","invest"]}
 ];
+const NET_SIT_LABEL={sell:"Selling a home",buy:"Buying a home",estate:"An estate sale",distressed:"Selling when you're behind on payments",reno:"A renovation",invest:"An investment deal"};
 
 /* ================= NAV ================= */
 const PAGE_TITLES={
@@ -733,7 +851,7 @@ const PAGE_TITLES={
   reno:"Long Island Renovation Value Calculator | Sean Casaccio",
   build:"Build & Develop | Sean Casaccio & NXT-GEN Contracting",
   process:"The Selling Process | Sean Casaccio, Long Island",
-  team:"The Team | Sean Casaccio, Long Island",
+  team:"My Network: Everyone a Deal Needs | Sean Casaccio, Long Island",
   quiz:"Sell, Renovate or Rent? Options Quiz | Sean Casaccio",
   buyers:"For Buyers & Investors | Sean Casaccio, Long Island"
 };
@@ -767,6 +885,11 @@ function routeFromPath(noPush){
     }
   }catch(e){}
 })();
+/* ================= SCHEDULING ================= */
+// Paste the Calendly link between the quotes and the "Book a call" buttons appear across the site.
+const CALENDLY_URL = "";
+function bookCall(){ try{ window.va&&window.va('event',{name:'book_call'}); }catch(e){} window.open(CALENDLY_URL,'_blank','noopener'); }
+if(CALENDLY_URL) document.querySelectorAll('.cal-btn').forEach(b=>b.style.display='');
 /* ================= LEAD FORM ================= */
 let LEAD_OPENED=0;
 function openLead(type,note){
@@ -829,7 +952,7 @@ function renderRecord(){
     <div class="stat"><div class="v">${avgDom.toFixed(0)}</div><div class="k">Avg days to contract (shown)</div><div class="sub">FAST</div></div>
     <div class="stat"><div class="v">+${avgOver.toFixed(1)}%</div><div class="k">Avg over list (shown)</div><div class="sub">ABOVE ASK</div></div>
     <div class="stat"><div class="v">${fmtK(overTotal)}</div><div class="k">Total over asking (shown)</div><div class="sub">ABOVE ASK</div></div>
-    <div class="stat"><div class="v">25+</div><div class="k">Off-market &amp; private deals</div><div class="sub">PRIVATE</div></div>
+    <div class="stat"><div class="v">40+</div><div class="k">Off-market &amp; private deals</div><div class="sub">PRIVATE</div></div>
     <div class="stat"><div class="v">All</div><div class="k">Sale types handled</div><div class="sub">SEE BELOW</div></div>`;
   const maxDom=Math.max(...DEALS.map(x=>x.dom));
   document.getElementById('recDeals').innerHTML=d.map(x=>{
@@ -851,7 +974,6 @@ function renderRecord(){
     <div class="ledger-row">
       <div><span class="chip role">${m.role}</span></div>
       <div><div style="font-family:var(--display);font-size:1.02rem">${m.addr}</div><div style="font-size:.82rem;color:var(--paper-dim);margin-top:2px">${m.note}</div></div>
-      <div class="when">${m.when}</div>
     </div>`).join('');
 }
 function renderHomeStats(){
@@ -1171,9 +1293,57 @@ function renderTimeline(){
   document.getElementById('tlTotal').textContent=`≈ ${total} days (${wk} wks)`;
 }
 
-/* ================= TEAM ================= */
-document.getElementById('teamGrid').innerHTML=TEAM.map(t=>`
-  <div class="member"><div class="av">${t.i}</div><div class="role">${t.role}</div><div class="who">${t.who}</div></div>`).join('');
+/* ================= NETWORK ================= */
+let NET_SIT='all', NET_SEL='agent';
+const netMobile=()=>window.matchMedia('(max-width:780px)').matches;
+function netRenderGrid(){
+  document.getElementById('netGrid').innerHTML=NETWORK.map(n=>{
+    const on=NET_SIT==='all'||n.sit.includes(NET_SIT);
+    return `<button class="net-tile ${on?'':'dim'} ${n.id===NET_SEL?'sel':''}" data-id="${n.id}" aria-pressed="${n.id===NET_SEL}"
+      onclick="netPick('${n.id}')" onmouseenter="netPreview('${n.id}')" onfocus="netPreview('${n.id}')">
+      <div class="ic">${n.ic}</div><div class="nm">${n.nm}</div><div class="one">${n.one}</div><div class="tg">${n.tag}</div></button>`;
+  }).join('');
+  const c=NET_SIT==='all'?NETWORK.length:NETWORK.filter(n=>n.sit.includes(NET_SIT)).length;
+  document.getElementById('netCount').textContent=NET_SIT==='all'
+    ?('A DEAL CAN INVOLVE '+c+' DIFFERENT PEOPLE. YOU CALL ONE.')
+    :(NET_SIT_LABEL[NET_SIT].toUpperCase()+' USUALLY TAKES '+c+' OF THEM. YOU CALL ONE.');
+  netPlaceDetail();
+}
+function netDetailHTML(n){
+  const needed=NET_SIT==='all'||n.sit.includes(NET_SIT);
+  return `<div class="mono">${n.tag}</div><h3>${n.nm}</h3><span class="when">${n.when}</span>
+    ${needed?'':'<p style="color:var(--rust);font-size:.8rem">Usually not needed for this situation.</p>'}
+    <div class="q">Why you need them</div><p>${n.why}</p>
+    <div class="q">How I make this part easier</div><p>${n.help}</p>
+    <button class="btn" style="margin-top:18px;width:100%" onclick="openLead('${n.id==='crew'||n.id==='trades'?'construction':'other'}','${n.id==='agent'?'':'Please introduce me to: '+n.nm+'. '}')">${n.id==='agent'?'Talk to me':'Ask me for an introduction'}</button>`;
+}
+function netShow(id){ const n=NETWORK.find(x=>x.id===id); if(n) document.getElementById('netDetail').innerHTML=netDetailHTML(n); }
+function netPreview(id){ if(!netMobile()) netShow(id); }
+function netPlaceDetail(){
+  const d=document.getElementById('netDetail'), wrap=document.querySelector('.net-wrap');
+  if(netMobile()){
+    const t=document.querySelector('.net-tile.sel');
+    if(t){ t.after(d); d.style.display=''; } else { wrap.appendChild(d); d.style.display='none'; }
+  } else { wrap.appendChild(d); d.style.display=''; }
+  if(NET_SEL) netShow(NET_SEL);
+}
+function netPick(id){
+  NET_SEL=(netMobile()&&NET_SEL===id)?null:id;   // tapping again closes it on a phone
+  const d=document.getElementById('netDetail'); document.querySelector('.net-wrap').appendChild(d);
+  netRenderGrid();
+}
+function netSituation(sit,btn){
+  NET_SIT=sit;
+  document.querySelectorAll('#netSit button').forEach(b=>b.classList.remove('on')); btn.classList.add('on');
+  const d=document.getElementById('netDetail'); document.querySelector('.net-wrap').appendChild(d);
+  if(NET_SEL && sit!=='all' && !NETWORK.find(n=>n.id===NET_SEL).sit.includes(sit)) NET_SEL='agent';
+  if(netMobile()) NET_SEL=null;
+  netRenderGrid();
+}
+document.getElementById('netGrid').addEventListener('mouseleave',()=>{ if(!netMobile()&&NET_SEL) netShow(NET_SEL); });
+window.addEventListener('resize',()=>{ clearTimeout(window._netT); window._netT=setTimeout(netPlaceDetail,150); });
+if(netMobile()) NET_SEL=null;
+netRenderGrid();
 
 /* ================= QUIZ ================= */
 const QUIZ=[
