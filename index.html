@@ -361,6 +361,22 @@ body{padding-bottom:84px}
   </div>
 
   <div class="card story">
+    <div class="mono">Central Islip &middot; Closed April 2022</div>
+    <h3>He lost at the foreclosure sale. He got the house anyway.</h3>
+    <p>My investor had his eye on a house in Central Islip that went to a foreclosure sale. He went after it and lost out. For most buyers that's the end of the road: someone else wins, and you move on to the next one.</p>
+    <p style="margin-top:10px">I didn't move on. I tracked down the person who won the sale, reached out, and negotiated a deal for my investor to buy the house from them. He ended up owning the exact property he wanted in the first place. A deal isn't dead just because the first door closed.</p>
+    <div class="facts"><span>BUYER SIDE</span><span>FORECLOSURE SALE</span><span>NEGOTIATED DIRECTLY WITH THE WINNER</span><span>INVESTOR CLIENT</span></div>
+  </div>
+
+  <div class="card story">
+    <div class="mono">Shirley &middot; Closed August 2025</div>
+    <h3>First phone call to closing table: 12 days</h3>
+    <p>A typical Long Island sale takes two to three months to get from an accepted offer to closing. This one took 12 days, counting from the very first conversation.</p>
+    <p style="margin-top:10px">It was an off-market wholesale. No listing, no sign on the lawn, no open houses. I matched the house with an investor from my network who was ready to move, and kept every piece moving until it closed. When a seller needs speed and certainty more than anything else, this is what it can look like.</p>
+    <div class="facts"><span>12 DAYS, FIRST CONTACT TO CLOSING</span><span>OFF-MARKET</span><span>WHOLESALE</span><span>INVESTOR BUYER</span></div>
+  </div>
+
+  <div class="card story">
     <div class="mono">St. James &middot; Closed December 2025</div>
     <h3>Three heirs, one estate, $87,000 over asking</h3>
     <p>An estate sale with three heirs who all had to agree on every step. Before a single photo was taken, my crew did the full cleanout and primed and painted the house from top to bottom. We listed at $655,000. It was in contract in 22 days and sold for $742,000.</p>
@@ -573,7 +589,7 @@ body{padding-bottom:84px}
 <section class="wrap">
   <div class="eyebrow"><span class="mono">The One-Stop Shop</span></div>
   <h2>A deal takes a dozen people. You call one.</h2>
-  <p class="lead">Most buyers and sellers have to find an attorney, a lender, an inspector and a contractor on their own, then hope they all talk to each other. Mine are already in place. Pick your situation to see who you'll need, then tap anyone to see why they matter and what I do to make that part easier.</p>
+  <p class="lead">Most buyers and sellers have to find an attorney, a lender, an inspector and a contractor on their own, then hope they all talk to each other. Mine are already in place. I know them personally, and I have more than one of each. Pick your situation to see who you'll need, then tap anyone to see why they matter and what I do to make that part easier.</p>
 
   <div class="toggle" id="netSit" style="flex-wrap:wrap">
     <button class="on" onclick="netSituation('all',this)">Everyone</button>
@@ -594,7 +610,7 @@ body{padding-bottom:84px}
   <div class="card" style="margin-top:26px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
     <div style="max-width:60ch">
       <div class="mono">Introductions, made personally</div>
-      <p class="lead" style="font-size:.9rem;margin-top:8px">I don't list names on a website. When we're working together, I introduce you to the right person for your deal myself. You're always free to use your own attorney, lender or inspector.</p>
+      <p class="lead" style="font-size:.9rem;margin-top:8px">I know the people behind this page personally, and I have more than one of each. If one is booked or isn't the right fit for your deal, there's another I trust. I don't list names on a website. When we're working together, I make the introduction myself. You're always free to use your own attorney, lender or inspector.</p>
     </div>
     <button class="btn" onclick="openLead()">Ask for an introduction</button>
   </div>
@@ -786,27 +802,27 @@ const NETWORK = [
   {id:"attorney", ic:"§", nm:"Real estate attorney", tag:"MY NETWORK", one:"Writes the contract and runs the closing.",
    why:"In New York, attorneys write and review the contract, hold the contract deposit, and run the closing. You need one whether you're buying or selling.",
    when:"From accepted offer to closing",
-   help:"A slow attorney can cost you a deal. I can introduce you to attorneys who close Long Island deals every week and return calls. You're free to use your own.",
+   help:"A slow attorney can cost you a deal. I work personally with several attorneys who close Long Island deals every week and return calls, so I can match you with the right one. You're free to use your own.",
    sit:["sell","buy","estate","distressed","invest"]},
   {id:"estate", ic:"E", nm:"Estate & probate attorney", tag:"MY NETWORK", one:"Gets you the authority to sell.",
    why:"If the owner has passed away, nobody can sell until the court gives someone the authority to sign. That paperwork has to start early.",
    when:"Before the house is listed",
-   help:"I've sold estates with several heirs and with reverse mortgages on a deadline. I can connect you with an estate attorney and have the sale ready for the day you can sign.",
+   help:"I've sold estates with several heirs and with reverse mortgages on a deadline. I can connect you with an estate attorney I know personally and have the sale ready for the day you can sign.",
    sit:["estate"]},
   {id:"lender", ic:"$", nm:"Mortgage loan officer", tag:"MY NETWORK", one:"Makes a buyer's offer real.",
    why:"An offer is only as strong as the financing behind it. Sellers pick the buyer most likely to close.",
    when:"Before you make an offer",
-   help:"I can introduce buyers to loan officers who give a real pre-approval and answer when the listing agent calls. When you're selling, I check a buyer's financing before you accept.",
+   help:"I know several loan officers personally who give a real pre-approval and answer when the listing agent calls. When you're selling, I check a buyer's financing before you accept.",
    sit:["buy","invest"]},
   {id:"private", ic:"P", nm:"Private & hard-money lenders", tag:"MY NETWORK", one:"For houses a bank won't lend on.",
    why:"Banks turn down some houses: heavy damage, no working kitchen, a closing in two weeks. Private money fills that gap.",
    when:"When a regular mortgage won't work",
-   help:"I work with investors every week, so I know how these deals get financed and can help structure one that reaches the closing table.",
+   help:"I work with investors every week and know several private lenders personally, so I know how these deals get financed and can help structure one that reaches the closing table.",
    sit:["distressed","invest"]},
   {id:"inspector", ic:"✓", nm:"Home inspector", tag:"MY NETWORK", one:"Finds the problems before you're locked in.",
    why:"A buyer needs to know what's wrong with a house before committing: roof, foundation, electrical, oil tank, termites.",
    when:"Right after an accepted offer",
-   help:"I walk the inspection as a builder. When the report says something needs fixing, I can tell you the same day what it means and what it really costs.",
+   help:"I know several inspectors personally and can get one out quickly. I also walk the inspection as a builder. When the report says something needs fixing, I can tell you the same day what it means and what it really costs.",
    sit:["buy","invest"]},
   {id:"appraiser", ic:"A", nm:"Appraiser", tag:"INDEPENDENT · CHOSEN BY THE BANK", one:"Confirms the price for the lender.",
    why:"When there's a mortgage, the bank sends an appraiser to confirm the house is worth the price. A low appraisal can sink a deal.",
@@ -816,17 +832,17 @@ const NETWORK = [
   {id:"title", ic:"T", nm:"Title company", tag:"MY NETWORK", one:"Makes sure the house can legally change hands.",
    why:"Title confirms the seller owns the house free and clear, with no old liens, unpaid taxes or missing paperwork, and insures the buyer against surprises.",
    when:"Ordered once contracts are signed",
-   help:"Title problems are what delay closings. I look for the usual trouble early, like open permits and old mortgages, so it's solved before closing day.",
+   help:"Title problems are what delay closings. I look for the usual trouble early, like open permits and old mortgages, and I have title people I can call directly when something comes up.",
    sit:["sell","buy","estate","distressed","invest"]},
   {id:"expeditor", ic:"CO", nm:"Permit expeditor & architect", tag:"MY NETWORK", one:"Clears open permits and C/O issues.",
    why:"On Long Island, a deck, finished basement or garage conversion without a permit or certificate of occupancy can hold up a sale.",
    when:"As early as possible, ideally before listing",
-   help:"I've handled open permits and C/O issues on my own sales, and as a builder I know what the town will ask for. I bring in an expeditor or architect when plans have to be filed.",
+   help:"I've handled open permits and C/O issues on my own sales, and as a builder I know what the town will ask for. When plans have to be filed, I bring in an expeditor or architect I know and trust.",
    sit:["sell","estate","distressed","reno"]},
   {id:"insurance", ic:"IN", nm:"Insurance agent", tag:"MY NETWORK", one:"No policy, no closing.",
    why:"A lender won't close without a homeowner's policy. On Long Island, flood zones and older roofs can change the cost a lot.",
    when:"During the mortgage process",
-   help:"I tell buyers to get a quote before they're locked in, and I can tell you what an insurer is likely to flag, such as the roof, an oil tank or old wiring.",
+   help:"I can connect you with insurance agents I know personally. I tell buyers to get a quote before they're locked in, and I can tell you what an insurer is likely to flag, such as the roof, an oil tank or old wiring.",
    sit:["buy","invest"]},
   {id:"photo", ic:"◉", nm:"Photographer & media", tag:"MY NETWORK", one:"The first showing happens online.",
    why:"Buyers decide whether to visit based on the photos. Bad photos cost real money.",
